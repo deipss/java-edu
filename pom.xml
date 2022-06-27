@@ -106,4 +106,12 @@
         </profile>
     </profiles>
 
+    <build>
+
+    </build>
+
+    <pluginRepositories>
+
+    </pluginRepositories>
+
 </project>

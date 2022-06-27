@@ -1,5 +1,5 @@
 # ubuntu网络防火端设置信息
-```sql
+```shell
 sudo ufw allow 22/tcp
 sudo ufw allow 21/tcp
 sudo ufw allow 23/tcp
@@ -151,3 +151,6 @@ netstat –udp or netstat –u 将会显示 UDP 连接
 
 netstat -g 将会显示该主机订阅的所有多播网络。
 ```
+
+# 硬盘使用
+## df -hl
