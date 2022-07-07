@@ -7,6 +7,15 @@ thread -n [tid] >> [filename] 将某个线程的执行方法栈及CPU状态字�
 ```
 - 参考 https://www.jianshu.com/p/3ba1e933682b
 
+
+# 高内存分析
+```shell
+打印出jvm进程堆使用情况
+jmap -heap <pid>
+
+下载快照到文件
+jmap -dump:file=filename.dump <pid>
+```
 # Arthas使用
 ## 安装
 ```shell script
