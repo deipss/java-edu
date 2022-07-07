@@ -24,11 +24,31 @@ mvn deploy:deploy-file -DgroupId=<group-id> \
 -Durl=<url-of-the-repository-to-deploy>
 
 # 打jar包
-mvn deploy:deploy-file -DgroupId=com.alibaba.jvm.sandbox -DartifactId=jvm-sandbox-repeater -Dversion=1.0.0-SNAPSHOT -Dpackaging=jar -Dfile=E:\temp\jvm-sandbox-repeater\1.0.0-SNAPSHOT\jvm-sandbox-repeater-1.0.0-SNAPSHOT.jar -DrepositoryId=maven-snapshots -Durl=http://nexus.xsyxsc.com/repository/maven-snapshots
+mvn deploy:deploy-file ^
+-DgroupId=com.alibaba.jvm.sandbox  ^
+-DartifactId=repeater-console-service  ^
+-Dversion=1.0.0-SNAPSHOT  ^
+-Dpackaging=jar  ^
+-Dfile=E:\temp2\repeater-console-service\1.0.0-SNAPSHOT\repeater-console-service-1.0.0-SNAPSHOT.jar ^
+-DrepositoryId=maven-snapshots  ^
+-Durl=http://nexus.xsyxsc.com/repository/maven-snapshots
 
-
+ Could not resolve dependencies for project com.frxs.repeater:receiver-service:jar:0.0.1-SNAPSHOT: The following artifacts could not be resolved: 
+ com.alibaba.jvm.sandbox:repeater-plugin-core:jar:1.0.0-SNAPSHOT, 
+ com.alibaba.jvm.sandbox:repeater-plugin-api:jar:1.0.0-SNAPSHOT, 
+ com.alibaba.jvm.sandbox:repeater-console-service:jar:1.0.0-SNAPSHOT, 
+ com.alibaba.jvm.sandbox:repeater-console-service:jar:1.0.0-SNAPSHOT, 
+ com.alibaba.jvm.sandbox:hessian-lite:jar:1.0.0-SNAPSHOT: 
+ com.alibaba.jvm.sandbox:repeater-plugin-core:jar:1.0.0-SNAPSHOT 
 # 打pom包
-mvn deploy:deploy-file -DgroupId=com.alibaba.jvm.sandbox -DartifactId=repeater-console -Dversion=1.0.0-SNAPSHOT -Dpackaging=pom -Dfile=C:\Users\PC\IdeaProjects\test\jvm-sandbox-repeater\repeater-console\pom.xml -DrepositoryId=maven-snapshots -Durl=http://nexus.xsyxsc.com/repository/maven-snapshots
+mvn deploy:deploy-file 
+-DgroupId=com.alibaba.jvm.sandbox 
+-DartifactId=repeater-console 
+-Dversion=1.0.0-SNAPSHOT 
+-Dpackaging=pom 
+-Dfile=C:\Users\PC\IdeaProjects\test\jvm-sandbox-repeater\repeater-console\pom.xml 
+-DrepositoryId=maven-snapshots 
+-Durl=http://nexus.xsyxsc.com/repository/maven-snapshots
 
 
 # repeater项目打包 jar
