@@ -96,22 +96,7 @@
     </dependencyManagement>
 
 
-    <profiles>
-        <profile>
-            <id>native</id>
-            <properties>
-                <repackage.classifier>exec</repackage.classifier>
-                <native-buildtools.version>0.9.11</native-buildtools.version>
-            </properties>
-        </profile>
-    </profiles>
 
-    <build>
 
-    </build>
-
-    <pluginRepositories>
-
-    </pluginRepositories>
 
 </project>
