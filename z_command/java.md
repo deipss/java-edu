@@ -15,6 +15,12 @@ jmap -heap <pid>
 
 下载快照到文件
 jmap -dump:file=filename.dump <pid>
+
+使用jhat命令
+jhat -port 9998 filename.dump
+
+
+使用jvisualvm.ext命令，加载文件分析  
 ```
 # Arthas使用
 ## 安装
