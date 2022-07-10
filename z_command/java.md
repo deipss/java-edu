@@ -21,6 +21,9 @@ jhat -port 9998 filename.dump
 
 
 使用jvisualvm.ext命令，加载文件分析  
+
+使用jstat命令查看gc情况
+jstat -gcutil <pid> 5000 20
 ```
 # Arthas使用
 ## 安装
