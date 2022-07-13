@@ -1,4 +1,5 @@
 # 高CPU使用率分析
+## 方式一
 ```
 1、top 命令分析，是否高CPU使用率、负载率，但是CPU空闲时间长
 2、安装arthas
@@ -6,6 +7,15 @@ thread 查询有多少线程，及其CPU使用率
 thread -n [tid] >> [filename] 将某个线程的执行方法栈及CPU状态字输出到某个文件
 ```
 - 参考 https://www.jianshu.com/p/3ba1e933682b
+## 方式二
+```
+1、top 命令分析，是否高CPU使用率、负载率，但是CPU空闲时间长
+2、top -Hp <pid> 查询pid中的线程
+3、printf "%x\n" <tid>  把线程id转为16进制
+4、jstack -l <pid> >> ./jstack_result.txt 将此时的jvm快照打印到指定txt文件
+5、在txt文件中搜索16进制的线程id
+```
+- https://www.cnblogs.com/fengweiweicoder/p/10992043.html
 
 
 # 高内存分析
@@ -24,6 +34,7 @@ jhat -port 9998 filename.dump
 
 使用jstat命令查看gc情况
 jstat -gcutil <pid> 5000 20
+
 ```
 # Arthas使用
 ## 安装
