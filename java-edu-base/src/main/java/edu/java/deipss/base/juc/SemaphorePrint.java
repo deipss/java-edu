@@ -10,11 +10,11 @@ import java.util.concurrent.Semaphore;
  */
 
 
-class SemaphoreDome {
+class SemaphorePrint {
     Semaphore semaphore2;
     Semaphore semaphore3;
 
-    public SemaphoreDome(){
+    public SemaphorePrint(){
         semaphore2= new Semaphore(0);
         semaphore3= new Semaphore(0);
     }
@@ -38,14 +38,14 @@ class SemaphoreDome {
     }
 
     public static void main(String[] args) {
-        SemaphoreDome semaphoreDome = new SemaphoreDome();
+        SemaphorePrint semaphorePrint = new SemaphorePrint();
         ExecutorService exe1 = Executors.newFixedThreadPool(100);
         ExecutorService exe2 = Executors.newSingleThreadExecutor();
         ExecutorService exe3 = Executors.newSingleThreadExecutor();
         while (true){
             exe1.submit(()->{
                 try {
-                    semaphoreDome.third(()->{
+                    semaphorePrint.third(()->{
                         System.out.println("third");
                     });
                 } catch (InterruptedException e) {
@@ -53,7 +53,7 @@ class SemaphoreDome {
             });
             exe1.submit(()->{
                 try {
-                    semaphoreDome.second(()->{
+                    semaphorePrint.second(()->{
                         System.out.println("second");
                     });
                 } catch (InterruptedException e) {
@@ -61,7 +61,7 @@ class SemaphoreDome {
             });
             exe1.submit(()->{
                 try {
-                    semaphoreDome.first(()->{
+                    semaphorePrint.first(()->{
                         System.out.println("first");
                     });
                 } catch (InterruptedException e) {

@@ -1,4 +1,4 @@
-package edu.java.deipss.base.annotation;
+package edu.java.deipss.spring.aop;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

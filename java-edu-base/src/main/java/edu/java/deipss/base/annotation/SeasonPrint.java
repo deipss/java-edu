@@ -15,7 +15,7 @@ import java.lang.annotation.Annotation;
 
 
 @Season(value = {"Summer"})
-public class Demo {
+public class SeasonPrint {
 
     @PostConstruct
     public void init(){
@@ -23,8 +23,8 @@ public class Demo {
     }
 
     public static void main(String[] args) {
-        Demo demo = new Demo();
-        for (Annotation annotation : demo.getClass().getAnnotations()) {
+        SeasonPrint seasonPrint = new SeasonPrint();
+        for (Annotation annotation : seasonPrint.getClass().getAnnotations()) {
             System.out.println(annotation);
         }
 

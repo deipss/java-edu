@@ -1,5 +1,5 @@
 package edu.java.deipss.base.enums;
 
-interface Info {
+interface SeasonInfo {
     void show();
 }

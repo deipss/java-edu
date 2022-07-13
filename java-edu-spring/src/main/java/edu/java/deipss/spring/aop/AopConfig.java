@@ -1,4 +1,4 @@
-package edu.java.deipss.spring.config;
+package edu.java.deipss.spring.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
