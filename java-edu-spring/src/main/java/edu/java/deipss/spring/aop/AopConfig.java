@@ -1,8 +1,10 @@
 package edu.java.deipss.spring.aop;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Component;
  * @date 2021-07-31
  */
 @Aspect
+@Slf4j
 @Component
 public class AopConfig {
     /**
@@ -23,25 +26,20 @@ public class AopConfig {
      * 4、第二个*号：表示类名，*号表示所有的类。
      * <p>
      * 5、*(..):最后这个星号表示方法名，*号表示所有的方法，后面括弧里面表示方法的参数，两个句点表示任何参数。
-     *
-     * @param point
      */
-    @Around("execution(* edu.deipss.springer.service.*.*(..))")
-    public Object run(ProceedingJoinPoint point) {
-        System.out.println("AOP拦截 run()");
+    @Pointcut("execution(* edu.deipss.springer.service.*.*(..))")
+    public void point() {
 
-        try {
-            point.proceed();
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-        return null;
     }
 
-    @Order(1)
-    public Object log(ProceedingJoinPoint point) {
-        System.out.println("AOP拦截 log()");
-
+    /**
+     * @param point
+     * @return
+     */
+    @Around("point()")
+    public Object process(ProceedingJoinPoint point) {
+        Object[] args = point.getArgs();
+        log.info("请示参数={}", args);
         try {
             point.proceed();
         } catch (Throwable throwable) {
