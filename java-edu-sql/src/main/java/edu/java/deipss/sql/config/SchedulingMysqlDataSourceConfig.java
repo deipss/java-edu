@@ -1,11 +1,14 @@
 package edu.java.deipss.sql.config;
 
+import com.baomidou.mybatisplus.core.MybatisConfiguration;
+import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import com.mysql.cj.jdbc.MysqlDataSource;
+import org.apache.ibatis.logging.stdout.StdOutImpl;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,16 +20,22 @@ import javax.sql.DataSource;
 
 @ConfigurationProperties(prefix = "scheduling.mysql")
 @Configuration
-@MapperScan(value = "org.deipss.scheduling.dal.mapper", sqlSessionTemplateRef = "schedulingSqlSessionTemplate")
-public class DataSourceConfig {
+@MapperScan(value = "edu.java.deipss.sql.dal.mapper", sqlSessionTemplateRef = "schedulingSqlSessionTemplate")
+public class SchedulingMysqlDataSourceConfig {
 
+    @Value("${scheduling.mysql.username}")
     private String username;
+    @Value("${scheduling.mysql.password}")
     private String password;
+    @Value("${scheduling.mysql.url}")
     private String url;
 
     @Bean("schedulingSqlSessionFactory")
     public SqlSessionFactory masterSqlSessionFactory(@Qualifier("schedulingDataSource") DataSource ds) throws Exception {
-        SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
+        MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
+        MybatisConfiguration mybatisConfiguration = new MybatisConfiguration();
+        mybatisConfiguration.setLogImpl(StdOutImpl.class);
+        factoryBean.setConfiguration(mybatisConfiguration);
         factoryBean.setDataSource(ds);
         return factoryBean.getObject();
     }
@@ -40,12 +49,14 @@ public class DataSourceConfig {
 
     @Bean("schedulingTransactionManager")
     public PlatformTransactionManager transactionManager(@Qualifier("schedulingDataSource") DataSource ds) {
+
         return new DataSourceTransactionManager(ds);
     }
 
     @Bean("schedulingSqlSessionTemplate")
     public SqlSessionTemplate sqlSessionTemplate(@Qualifier("schedulingSqlSessionFactory") SqlSessionFactory factory) {
         SqlSessionTemplate sqlSessionTemplate = new SqlSessionTemplate(factory);
+
         return sqlSessionTemplate;
     }
 
@@ -55,6 +66,7 @@ public class DataSourceConfig {
         mysqlDataSource.setPassword(password);
         mysqlDataSource.setUser(username);
         mysqlDataSource.setUrl(url);
+
         return mysqlDataSource;
     }
 

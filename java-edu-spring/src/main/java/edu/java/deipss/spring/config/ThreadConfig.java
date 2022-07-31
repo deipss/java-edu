@@ -1,4 +1,4 @@
-package edu.java.deipss.sql.config;
+package edu.java.deipss.spring.config;
 
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;

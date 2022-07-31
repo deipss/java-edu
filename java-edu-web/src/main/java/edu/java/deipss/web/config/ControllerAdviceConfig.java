@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 用于web入口进入的程序，执行过程中的异常捕获
  */
-@ControllerAdvice(basePackages = "edu.deipss.web.config.controller")
+@ControllerAdvice(basePackages = "edu.java.deipss.web.controller")
 public class ControllerAdviceConfig extends ResponseEntityExceptionHandler {
 
     @ResponseBody

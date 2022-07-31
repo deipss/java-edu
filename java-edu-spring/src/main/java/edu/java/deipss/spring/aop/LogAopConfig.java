@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
  * @author deipss
  * @date 2021-07-31
  */
-@Aspect
+//@Aspect
 @Slf4j
-@Component
+//@Component
 public class LogAopConfig {
 
     /**
