@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * 跨域的url配置
  */
-@Configuration(proxyBeanMethods = false)
+/// @Configuration(proxyBeanMethods = false)
 public class CORSConfig {
     @Bean
     public WebMvcConfigurer corsConfigurer() {
