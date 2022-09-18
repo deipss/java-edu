@@ -3,6 +3,7 @@
 - office 套装
 - chrome
 - 腾讯电脑管家（安装jdk1.8）
+- feem 局域网数据传递 可以跨OS
 
 ## 编码：
 - idea  
@@ -14,18 +15,21 @@
 - mvn
 - git
 
-## 网络：
-- charles(抓包)
+## 网络
+- charles(抓包收费)  whistle（免费）
 - xshell
 - xftp
 - postman
-- SwitchHosts (mac 上是ihost)
+- SwitchHosts (mac上是ihost)
 - wiresharke 网络抓包解析
+- tcpdump(linux上)
 
 ## 中间件：
 - redis:rdm
 - mangoDb:Robo 3T
 - mysql:DBeaver navicat
+- zooKeeper:prettyZoo
+- kafka: offset explore
 
 
 ## 工具:
@@ -35,6 +39,7 @@
 - snipaste 桌面截图工具
 - Revo Uninstaller 款能够代替Windows系统中的“添加/删除程序
 - NirSoft's password recovery tools 查看windows凭据密码，
+- switch host 主机配置切换
 
 ## idea plugin
 - alibaba althas
