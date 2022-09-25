@@ -28,22 +28,24 @@ https://docs.docker.com/engine/install/ubuntu/
  }
 ```
 
-## 查询可安装的容器
+## 查询docker
 ```shell
-https://hub.docker.com/
+文档 https://hub.docker.com/
+查看镜像  docker image ls
+
 ```
 
 ## 容器启动
 ```bash
-docker run --name tomcat -p 8080:8080 -d tomcat 
-docker run -p 27017:27017  -d mongo
-docker run -p 6379:6379  -d redis redis-server --appendonly yes
-
-设置容器的启动策略：用docker run命令创建并运行容器时，
-加上  --restart=always参数即可，因此可以跳过这步。对于既有容器可以采用两种办法改变启动策略的设置为always:
-docker update --restart=always 3789e226ff9e
- 
+docker run --name tomcat -p 8080:8080 -d tomcat   --restart=always
+docker run -p 27017:27017  -d mongo --restart=always
+docker run -p 6379:6379  -d redis redis-server --appendonly yes --restart=always
 ```
+> 设置容器的启动策略：用docker run命令创建并运行容器时，
+加上  --restart=always参数即可。
+docker update --restart=always 3789e226ff9e
+
+
 ## 删除未启动的容器
 ```bash
 docker rm $( docker ps -a -q)
@@ -120,4 +122,26 @@ docker run -d --name redis -p 6379:6379 redis --requirepass "redis" --appendonly
 
 
 
-apt-get install docker-ce= 5:20.10.13~3-0~ubuntu-jammy  docker-ce-cli= 5:20.10.13~3-0~ubuntu-jammy  containerd.io docker-compose-plugin
+# rocketmq
+https://hub.docker.com/r/xuchengen/rocketmq
+```shell
+# mq
+docker pull xuchengen/rocketmq:latest
+docker volume create rocketmq_data
+# Linux 或 Mac
+docker run -itd \
+ --name=rocketmq \
+ --hostname rocketmq \
+ --restart=always \
+ -p 8080:8080 \
+ -p 9876:9876 \
+ -p 10909:10909 \
+ -p 10911:10911 \
+ -p 10912:10912 \
+ -v rocketmq_data:/home/app/data \
+ -v /etc/localtime:/etc/localtime \
+ -v /var/run/docker.sock:/var/run/docker.sock \
+ --net=host \
+ --restart=always \
+ xuchengen/rocketmq:latest
+```
