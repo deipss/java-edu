@@ -1,3 +1,8 @@
+# install docker on ubuntu 
+```shell
+https://docs.docker.com/engine/install/ubuntu/
+```
+
 # install docker on centos
 - 查看内核版本
 > uname -r
@@ -9,8 +14,12 @@
 > curl >fsSL [https://get.docker.com](https://get.docker.com) >o get>[docker.sh](http://docker.sh) sudo sh get>[docker.sh](http://docker.sh)
 
 - 启动 Docker 进程。
+```shell
 > sudo systemctl start docker
-> sudo systemctl enbable docker
+开机启动
+> sudo systemctl enable docker 
+```
+
 
 - 镜像加速 新版的 Docker 使用 /etc/docker/daemon.json
 ```json
@@ -18,13 +27,24 @@
  "registry-mirrors": ["http://hub-mirror.c.163.com"]
  }
 ```
-#### lunch some images in docker
+
+## 查询可安装的容器
+```shell
+https://hub.docker.com/
+```
+
+## 容器启动
 ```bash
 docker run --name tomcat -p 8080:8080 -d tomcat 
 docker run -p 27017:27017  -d mongo
 docker run -p 6379:6379  -d redis redis-server --appendonly yes
+
+设置容器的启动策略：用docker run命令创建并运行容器时，
+加上  --restart=always参数即可，因此可以跳过这步。对于既有容器可以采用两种办法改变启动策略的设置为always:
+docker update --restart=always 3789e226ff9e
+ 
 ```
-#### 删除未启动的容器
+## 删除未启动的容器
 ```bash
 docker rm $( docker ps -a -q)
 ```
@@ -99,3 +119,5 @@ docker run -d --name redis -p 6379:6379 redis --requirepass "redis" --appendonly
 ```
 
 
+
+apt-get install docker-ce= 5:20.10.13~3-0~ubuntu-jammy  docker-ce-cli= 5:20.10.13~3-0~ubuntu-jammy  containerd.io docker-compose-plugin
