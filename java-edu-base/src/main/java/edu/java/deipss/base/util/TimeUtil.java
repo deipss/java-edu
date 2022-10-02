@@ -61,6 +61,11 @@ public class TimeUtil {
         return dateTimeFormatter.format(localDateTime);
     }
 
+    public static String getFormatToday() {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(YYYYMMDD);
+        return dateTimeFormatter.format(LocalDateTime.now());
+    }
+
     public static String getFormatLocalDate(String pattern, LocalDate date) {
         return DateTimeFormatter.ofPattern(pattern).format(date);
     }

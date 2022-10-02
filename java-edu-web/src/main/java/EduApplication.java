@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @ComponentScan("edu.java.deipss")
-@EnableAsync
+@EnableAsync(proxyTargetClass = true)
 @EnableScheduling
 public class EduApplication {
     public static void main(String[] args) {

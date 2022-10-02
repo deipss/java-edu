@@ -2,7 +2,6 @@ package edu.java.deipss.pattern.chain;
 
 import lombok.Data;
 
-import java.beans.PropertyEditorSupport;
 import java.util.List;
 
 @Data
