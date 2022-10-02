@@ -116,6 +116,7 @@ docker run --name es -d -p 9200:9200 -p 9300:9300 \
 ```
 # redis
 ```bash
+docker pull redis
 docker run -d --name redis -p 6379:6379 redis --requirepass "redis" --appendonly yes
 
 ```
