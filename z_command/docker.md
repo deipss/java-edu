@@ -50,6 +50,11 @@ docker update --restart=always 3789e226ff9e
 ```bash
 docker rm $( docker ps -a -q)
 ```
+
+## 查看商品映射
+```shell
+docker post [容器id]
+```
 # mysql
 ```bash
 docker run --name mysql_1 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=deipss -d mysql:latest
