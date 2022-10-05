@@ -1,13 +1,18 @@
 package edu.java.deipss.spring.redis;
 
 import edu.java.deipss.base.util.TimeUtil;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.scripting.support.ResourceScriptSource;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.time.LocalTime;
+import java.util.Arrays;
+import java.util.List;
 
 @Component
 public class RedisRepository {
@@ -19,5 +24,16 @@ public class RedisRepository {
     @Async("executeThreadPoolExecutor")
     public Boolean eduAdd() {
         return Boolean.TRUE.equals(redisTemplate.opsForZSet().add(TimeUtil.getFormatToday(), String.valueOf(LocalTime.now().getHour()), 1.0));
+    }
+
+    @Scheduled(cron = "0/6 * * * * ?")
+    @Async("executeThreadPoolExecutor")
+    public Boolean exeLua() {
+        List<String> keys = Arrays.asList(TimeUtil.getFormatToday()+"_lua", "hello lua");
+        DefaultRedisScript<Boolean> redisScript = new DefaultRedisScript<>();
+        redisScript.setScriptSource(new ResourceScriptSource(new ClassPathResource("test.lua")));
+        redisScript.setResultType(Boolean.class);
+        Boolean execute = redisTemplate.execute(redisScript, keys, "100");
+        return execute;
     }
 }

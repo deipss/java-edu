@@ -19,7 +19,7 @@ public class TemplateProducer {
     @Autowired
     private RocketMQTemplate rocketMQTemplate;
 
-    @Scheduled(cron = "0/5 * * * * ?")
+    /// @Scheduled(cron = "0/5 * * * * ?")
     @Async("executeThreadPoolExecutor")
     public void producer() {
 
