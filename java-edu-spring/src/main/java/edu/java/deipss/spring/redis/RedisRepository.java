@@ -20,13 +20,13 @@ public class RedisRepository {
     @Resource(name = "defaultRedisTemplate")
     private RedisTemplate<String, String> redisTemplate;
 
-    @Scheduled(cron = "0/5 * * * * ?")
+    /// @Scheduled(cron = "0/5 * * * * ?")
     @Async("executeThreadPoolExecutor")
     public Boolean eduAdd() {
         return Boolean.TRUE.equals(redisTemplate.opsForZSet().add(TimeUtil.getFormatToday(), String.valueOf(LocalTime.now().getHour()), 1.0));
     }
 
-    @Scheduled(cron = "0/6 * * * * ?")
+    /// @Scheduled(cron = "0/6 * * * * ?")
     @Async("executeThreadPoolExecutor")
     public Boolean exeLua() {
         List<String> keys = Arrays.asList(TimeUtil.getFormatToday()+"_lua", "hello lua");

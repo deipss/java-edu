@@ -25,8 +25,7 @@ public class ControllerTest extends BaseTest {
 
     @Test
     public void test(){
-        List<SchedulingTask> query = mapperController.queryAll(null);
-        System.out.println(JSON.toJSONString(query));
+
     }
 
 }
