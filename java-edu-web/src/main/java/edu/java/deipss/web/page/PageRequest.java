@@ -1,17 +1,14 @@
-package edu.java.deipss.base.page;
+package edu.java.deipss.web.page;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
+import org.checkerframework.common.value.qual.ArrayLen;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PageResponse<T> {
+public class PageRequest {
     private int pageNum;
     private int pageSize;
-    private long total;
-    private List<T> records;
 }

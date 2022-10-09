@@ -12,14 +12,14 @@ import org.apache.logging.log4j.util.Strings;
 @Slf4j
 public class IfUtil {
 
-    public static <T> T trueReturn(Condition c, ReturnAction a, T r) {
+    public static <T> T trueReturn(Condition c, ReturnAction<T> a, T r) {
         if (c.run()) {
             a.run();
         }
         return r;
     }
 
-    public static <T> T trueReturnElse(Condition c, ReturnAction a0, ReturnAction a1) {
+    public static <T> T trueReturnElse(Condition c, ReturnAction<T> a0, ReturnAction<T> a1) {
         if (c.run()) {
             a0.run();
         } else {
@@ -42,14 +42,14 @@ public class IfUtil {
         }
     }
 
-    public static <T> T trueReturn(boolean b, ReturnAction a, T r) {
+    public static <T> T trueReturn(boolean b, ReturnAction<T> a, T r) {
         if (b) {
             a.run();
         }
         return r;
     }
 
-    public static <T> T trueReturnElse(boolean b, ReturnAction a0, ReturnAction a1) {
+    public static <T> T trueReturnElse(boolean b, ReturnAction<T> a0, ReturnAction<T> a1) {
         if (b) {
             a0.run();
         } else {

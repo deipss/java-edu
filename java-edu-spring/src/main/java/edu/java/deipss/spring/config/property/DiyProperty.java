@@ -12,7 +12,7 @@ import java.util.Map;
  */
 @Data
 @Configuration
-@ConfigurationProperties("")
+@ConfigurationProperties(prefix = "")
 @PropertySource("classpath:dev.properties")
 public class DiyProperty {
     Map<String ,String> map;
