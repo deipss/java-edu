@@ -33,13 +33,13 @@ public class AopConfig {
     }
 
     /**
-     * @param point
-     * @return
+     * @param point 织点
+     * @return 结果集
      */
     @Around("point()")
     public Object process(ProceedingJoinPoint point) {
         Object[] args = point.getArgs();
-        log.info("请示参数={}", args);
+        log.info("请求参数={}", args);
         try {
             point.proceed();
         } catch (Throwable throwable) {
