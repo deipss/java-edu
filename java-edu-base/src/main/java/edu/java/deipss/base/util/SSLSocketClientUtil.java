@@ -11,9 +11,6 @@ import java.security.cert.X509Certificate;
 /**
  * <B>主类名称：</B>SSLSocketClientUtil<BR>
  * <B>概要说明：</B><BR>
- *
- * @author wanghui@xsyxsc.com
- * @since 2022/1/10 下午3:26
  */
 public class SSLSocketClientUtil {
 

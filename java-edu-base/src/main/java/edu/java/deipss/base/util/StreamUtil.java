@@ -10,6 +10,10 @@ public class StreamUtil {
         return collection.stream().collect(Collectors.toMap(keyMapper, Function.identity(), (a, b) -> a));
     }
 
+    public static <T, K> Map<K, List<T>> group(Collection<T> collection, Function<? super T, ? extends K> keyMapper) {
+        return collection.stream().collect(Collectors.groupingBy(keyMapper));
+    }
+
     public static <T> Collection<T> filterNull(Collection<T> collection) {
         return collection.stream().filter(Objects::nonNull).collect(Collectors.toList());
     }
