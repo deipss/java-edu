@@ -1,9 +1,12 @@
-# install docker on ubuntu 
+# docker 常用命令
+## install docker on ubuntu 
 ```shell
 https://docs.docker.com/engine/install/ubuntu/
 ```
 
-# install docker on centos
+## install docker on centos
+```dockerfile
+
 - 查看内核版本
 > uname -r
 
@@ -14,19 +17,17 @@ https://docs.docker.com/engine/install/ubuntu/
 > curl >fsSL [https://get.docker.com](https://get.docker.com) >o get>[docker.sh](http://docker.sh) sudo sh get>[docker.sh](http://docker.sh)
 
 - 启动 Docker 进程。
-```shell
 > sudo systemctl start docker
 开机启动
 > sudo systemctl enable docker 
-```
 
 
 - 镜像加速 新版的 Docker 使用 /etc/docker/daemon.json
-```json
 {
  "registry-mirrors": ["http://hub-mirror.c.163.com"]
  }
 ```
+
 
 ## 查询docker
 ```shell
@@ -40,10 +41,10 @@ https://docs.docker.com/engine/install/ubuntu/
 docker run --name tomcat -p 8080:8080 -d tomcat   --restart=always
 docker run -p 27017:27017  -d mongo --restart=always
 docker run -p 6379:6379  -d redis redis-server --appendonly yes --restart=always
+
+设置容器的启动策略：用docker run命令创建并运行容器时，加上  --restart=always参数即可。
+docker update --restart=always 01a07d12cfec
 ```
-> 设置容器的启动策略：用docker run命令创建并运行容器时，
-加上  --restart=always参数即可。
-docker update --restart=always 3789e226ff9e
 
 
 ## 删除未启动的容器
@@ -51,11 +52,13 @@ docker update --restart=always 3789e226ff9e
 docker rm $( docker ps -a -q)
 ```
 
-## 查看商品映射
+## 查看端口映射
 ```shell
 docker post [容器id]
 ```
-# mysql
+
+# 常见服务
+## mysql
 ```bash
 docker run --name mysql_1 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=deipss -d mysql:latest
 docker exec -it mysql_1 bash
@@ -70,7 +73,7 @@ select Host,User,plugin from mysql.user;
 - [https://www.cnblogs.com/limingxie/p/8655457.html](https://www.cnblogs.com/limingxie/p/8655457.html) 【使用docker运行mysql】
 - [https://www.cnblogs.com/lifan1998/p/9177731.html](https://www.cnblogs.com/lifan1998/p/9177731.html) 【2059错误】
 - [https://blog.csdn.net/ora_dy/article/details/80251487](https://blog.csdn.net/ora_dy/article/details/80251487) 【2059错误】
-# zookeeper,kakfa
+## zookeeper,kakfa
 ```bash
 docker pull wurstmeister/zookeeper  
 docker pull wurstmeister/kafka  
@@ -92,7 +95,7 @@ KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
 ```bash
 docker exec -it kafka /bin/bash
 ```
-# Mongo
+## Mongo
 ```bash
 docker run -d -p 27017:27017 -v mongo_configdb:/data/configdb -v mongo_db:/data/db --name mongo docker.io/mongo --auth
 docker exec -it mongo mongo admin
@@ -104,7 +107,7 @@ db.createUser({ user: 'lutos', pwd: 'lutos', roles: [{ role: "readWrite", db: "l
 
 docker exec -it mongo mongo -u lutos -p lutos lutos
 ```
-# RabbitMQ
+## RabbitMQ
 ```bash
 docker pull rabbitmq:management
 docker run -d -p 5672:5672 -p 15672:15672 --name myrabbitmq [id]
@@ -112,23 +115,22 @@ docker exec -it 9e83ee385ca7 /bin/bash
 rabbitmqctl  add_user  admin  admin
 rabbitmqctl  set_user_tags admin administrator
 ```
-# elasticsearch
+## elasticsearch
 ```bash
 docker pull docker.elastic.co/elasticsearch/elasticsearch:7.9.2
 docker run --name es -d -p 9200:9200 -p 9300:9300 \
 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.9.2
 
 ```
-# redis
+## redis
 ```bash
 docker pull redis
 docker run -d --name redis -p 6379:6379 redis --requirepass "redis" --appendonly yes
-
 ```
 
 
 
-# rocketmq
+## rocketmq
 https://hub.docker.com/r/xuchengen/rocketmq
 ```shell
 # mq

@@ -16,7 +16,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 
 })
 @EnableAsync
-public class QueryJobTest extends BaseTest {
+public class ComposeJobTest extends BaseTest {
 
     @Autowired
     MapperQueryService mapperQueryService;
