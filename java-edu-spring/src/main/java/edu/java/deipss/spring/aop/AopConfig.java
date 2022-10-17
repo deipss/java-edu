@@ -39,7 +39,7 @@ public class AopConfig {
     @Around("point()")
     public Object process(ProceedingJoinPoint point) {
         Object[] args = point.getArgs();
-        log.info("请求参数={}", args);
+        log.info("aop请求参数={}", args);
         try {
             point.proceed();
         } catch (Throwable throwable) {
