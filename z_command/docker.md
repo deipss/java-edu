@@ -79,14 +79,13 @@ select Host,User,plugin from mysql.user;
 ```bash
 docker pull wurstmeister/zookeeper  
 docker pull wurstmeister/kafka  
+
 docker run -d --name zookeeper -p 2181:2181 -t wurstmeister/zookeeper
-docker run  -d --name kafka \
--p 9092:9092 \
--e KAFKA_BROKER_ID=0 \
--e KAFKA_ZOOKEEPER_CONNECT=192.168.1.101:2181 \
--e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.1.101:9092 \
--e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 \
--t wurstmeister/kafka
+docker run -d --name kafka -p 9092:9092 -e KAFKA_BROKER_ID=0 \
+ -e KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 --link zookeeper \
+ -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.0.101:9092 \
+ -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 -t wurstmeister/kafka
+
 KAFKA_ZOOKEEPER_CONNECT KAFKA_ADVERTISED_LISTENERS 
 两个参数的192.168.204.128改为宿主机器的IP地址，如果不这么设置，可能会导致在别的机器上访问不到kafka。
 ```
