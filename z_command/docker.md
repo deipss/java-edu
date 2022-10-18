@@ -29,10 +29,12 @@ https://docs.docker.com/engine/install/ubuntu/
 ```
 
 
-## 查询docker
+## 查询docker镜像
 ```shell
 文档 https://hub.docker.com/
 查看镜像  docker image ls
+查看已下载的 docker images 
+删除镜像 docker imamges rm 
 
 ```
 
@@ -42,7 +44,7 @@ docker run --name tomcat -p 8080:8080 -d tomcat   --restart=always
 docker run -p 27017:27017  -d mongo --restart=always
 docker run -p 6379:6379  -d redis redis-server --appendonly yes --restart=always
 
-设置容器的启动策略：用docker run命令创建并运行容器时，加上  --restart=always参数即可。
+设置容器的启动策略：用docker run命令创建并运行容器时，加上  --restart=always参数即可
 docker update --restart=always 01a07d12cfec
 ```
 
@@ -54,7 +56,7 @@ docker rm $( docker ps -a -q)
 
 ## 查看端口映射
 ```shell
-docker post [容器id]
+docker port [容器id]
 ```
 
 # 常见服务
@@ -81,7 +83,7 @@ docker run -d --name zookeeper -p 2181:2181 -t wurstmeister/zookeeper
 docker run  -d --name kafka \
 -p 9092:9092 \
 -e KAFKA_BROKER_ID=0 \
--e KAFKA_ZOOKEEPER_CONNECT=39.108.158.123:2181 \
+-e KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 \
 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://39.108.158.123:9092 \
 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 \
 -t wurstmeister/kafka
@@ -89,8 +91,7 @@ KAFKA_BROKER_ID=0
 KAFKA_ZOOKEEPER_CONNECT=192.168.1.100:2181
 KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.1.100:9092
 KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
-中间两个参数的192.168.204.128改为宿主机器的IP地址，如果不这么设置，
-可能会导致在别的机器上访问不到kafka。
+中间两个参数的192.168.204.128改为宿主机器的IP地址，如果不这么设置，可能会导致在别的机器上访问不到kafka。
 ```
 ```bash
 docker exec -it kafka /bin/bash
@@ -152,4 +153,10 @@ docker run -itd \
  --net=host \
  --restart=always \
  xuchengen/rocketmq:latest
+```
+
+## zk
+```shell
+ docker run --name=main-zk  --restart=always   -p 2181:2181  bitnami/zookeeper:latest 
+
 ```
