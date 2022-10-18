@@ -188,7 +188,6 @@
                 <artifactId>dubbo-spring-boot-starter</artifactId>
                 <version>3.0.12</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
             <dependency>
                 <groupId>javax.validation</groupId>
                 <artifactId>validation-api</artifactId>
