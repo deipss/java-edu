@@ -10,14 +10,14 @@ import java.util.Objects;
  */
 public class ThrowUtil {
 
-    public static void throwIfNull(Object o, Exception e) throws Exception {
+    public static void ifNull(Object o, Exception e) throws Exception {
         if (Objects.isNull(o)) {
             throw e;
         }
     }
 
-    public static void throwIfEmptyString(String s, Exception e) throws Exception {
-        throwIfNull(s, e);
+    public static void ifEmptyString(String s, Exception e) throws Exception {
+        ifNull(s, e);
         if (Strings.isEmpty(s)) {
             throw e;
         }
@@ -27,14 +27,14 @@ public class ThrowUtil {
         throw new Exception(s);
     }
 
-    public static void throwIfTrue(boolean b,String s) throws Exception {
+    public static void ifTrue(boolean b, String s) throws Exception {
         if(b) {
             throw new Exception(s);
         }
     }
 
-    public static void throwIfEmptyCollection(Collection list, Exception e) throws Exception {
-        throwIfNull(list, e);
+    public static void ifEmptyCollection(Collection list, Exception e) throws Exception {
+        ifNull(list, e);
         if (list.isEmpty()) {
             throw e;
         }

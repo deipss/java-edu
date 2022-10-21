@@ -12,7 +12,7 @@ interface StringProcess {
 }
 
 @FunctionalInterface
-interface StrategeProcess {
+interface StrategyProcess {
     default Optional handle(String s){
         throw  new UnsupportedOperationException();
     }
@@ -21,7 +21,7 @@ interface StrategeProcess {
 
 
 
-public class Dome  {
+public class StrategyDome {
 
 
 
@@ -30,7 +30,7 @@ public class Dome  {
         return sp.process(s);
     }
 
-    static boolean stratege(StrategeProcess f, String s) {
+    static boolean strategy(StrategyProcess f, String s) {
         return f.process(s);
     }
 
@@ -52,8 +52,8 @@ public class Dome  {
         String rst = readLine(s -> s + "Done", "123");
         System.out.println(rst);
 
-        System.out.println(stratege(s-> s.equals("abc"),"anc"));
-        System.out.println(stratege(s-> s.equals("anc"),"anc"));
+        System.out.println(strategy(s-> s.equals("abc"),"anc"));
+        System.out.println(strategy(s-> s.equals("anc"),"anc"));
 
         Function<Integer, Integer> f = x -> x + 1;
         Function<Integer, Integer> g = x -> x * 2;

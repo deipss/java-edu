@@ -14,10 +14,6 @@ import java.util.Date;
  */
 
 public class TimeUtil {
-    public static final DateTimeFormatter formatter = new DateTimeFormatterBuilder()
-            .appendPattern("yyyy-MM-dd[['T'HH][:mm][:ss]]").parseDefaulting(ChronoField.HOUR_OF_DAY, 0)
-            .parseDefaulting(ChronoField.MINUTE_OF_HOUR, 0).parseDefaulting(ChronoField.SECOND_OF_MINUTE, 0)
-            .parseDefaulting(ChronoField.MILLI_OF_SECOND, 0).toFormatter();
     public static String YYYY_MM_DD_HH_mm_SS = "yyyy-MM-dd HH:mm:ss";
     public static String YYYY_MM_DD = "yyyy-MM-dd";
     public static String YYYYMMDD = "yyyyMMdd";

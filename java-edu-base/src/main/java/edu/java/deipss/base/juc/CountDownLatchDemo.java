@@ -4,8 +4,7 @@ package edu.java.deipss.base.juc;
  * @author deipss
  * @date 2021-11-05
  */
-import javax.annotation.concurrent.ThreadSafe;
-import java.util.Random;
+
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
