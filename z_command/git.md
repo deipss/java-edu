@@ -5,7 +5,6 @@ git初始化的一些配置
     先将仓库clone到本地，修改后再push到码云的仓库仓库
     $ git clone https://gitee.com/用户个性地址/HelloGitee.git #将远程仓库克隆到本地
     在克隆过程中，如果仓库是一个私有仓库，将会要求用户输入码云的账号和密码。按照提示输入即可。
-
     当然，用户也可以通过配置本地的git配置信息，执行git config命令预先配置好相关的用户信息，配置执行如下：
 
     $ git config --global user.name "你的名字或昵称"
@@ -15,8 +14,6 @@ git初始化的一些配置
     $ git add . #将当前目录所有文件添加到git暂存区
     $ git commit -m "my first commit" #提交并备注提交信息
     $ git push origin master #将本地提交推送到远程仓库
-
-
 
     方法二
     git init
@@ -32,7 +29,6 @@ git初始化的一些配置
     git push origin master -f
     如果您选择保留线上的 readme 文件,则需要先执行：
     git pull origin master
-    
 ```
 
 # 合并分支
@@ -40,7 +36,6 @@ git初始化的一些配置
 git merge 分支名/节点哈希值
 git rebase 分支名/节点哈希值
 git cherry-pick 节点哈希值
-
 ```
 # 分支管理
 ```shell script

@@ -5,22 +5,18 @@ https://docs.docker.com/engine/install/ubuntu/
 ```
 
 ## install docker on centos
-```dockerfile
+```shell
 
 - 查看内核版本
 > uname -r
-
-- 确保 yum 包更新到最新。
+- 确保 yum 包更新到最新
 > sudo yum update
-
-- 执行 Docker 安装脚本。
+- 执行 Docker 安装脚本
 > curl >fsSL [https://get.docker.com](https://get.docker.com) >o get>[docker.sh](http://docker.sh) sudo sh get>[docker.sh](http://docker.sh)
-
-- 启动 Docker 进程。
+- 启动 Docker 进程
 > sudo systemctl start docker
 开机启动
 > sudo systemctl enable docker 
-
 
 - 镜像加速 新版的 Docker 使用 /etc/docker/daemon.json
 {
@@ -35,7 +31,6 @@ https://docs.docker.com/engine/install/ubuntu/
 查看镜像  docker image ls
 查看已下载的 docker images 
 删除镜像 docker imamges rm 
-
 ```
 
 ## 容器启动
@@ -88,10 +83,11 @@ docker run -d --name kafka -p 9092:9092 -e KAFKA_BROKER_ID=0 \
 
 KAFKA_ZOOKEEPER_CONNECT KAFKA_ADVERTISED_LISTENERS 
 两个参数的192.168.204.128改为宿主机器的IP地址，如果不这么设置，可能会导致在别的机器上访问不到kafka。
-```
-```bash
+
 docker exec -it kafka /bin/bash
+
 ```
+ 
 ## Mongo
 ```bash
 docker run -d -p 27017:27017 -v mongo_configdb:/data/configdb -v mongo_db:/data/db --name mongo docker.io/mongo --auth
@@ -154,5 +150,4 @@ docker run -itd \
 ## zk
 ```shell
  docker run --name=main-zk  --restart=always   -p 2181:2181  bitnami/zookeeper:latest 
-
 ```
