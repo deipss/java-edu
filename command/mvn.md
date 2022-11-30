@@ -2,13 +2,12 @@
 
 ```shell
 mvn dependency:tree > mvnTree.txt
-
 ```
 
 # 设置版本
 
 ```shell
-   mvn versions:set -D newVersion=1.5.0-SNAPSHOT
+mvn versions:set -D newVersion=1.5.0-SNAPSHOT
 ```
 
 # 部署到仓库
@@ -23,7 +22,7 @@ mvn deploy:deploy-file -DgroupId=<group-id> \
 -DrepositoryId=<id-to-map-on-server-section-of-settings.xml> \
 -Durl=<url-of-the-repository-to-deploy>
 
-# 打jar包
+# 打jar包 windows ^ 标记换行
 mvn deploy:deploy-file ^
 -DgroupId=com.alibaba.jvm.sandbox  ^
 -DartifactId=repeater-console-service  ^
@@ -33,13 +32,6 @@ mvn deploy:deploy-file ^
 -DrepositoryId=maven-snapshots  ^
 -Durl=http://nexus.xsyxsc.com/repository/maven-snapshots
 
- Could not resolve dependencies for project com.frxs.repeater:receiver-service:jar:0.0.1-SNAPSHOT: The following artifacts could not be resolved: 
- com.alibaba.jvm.sandbox:repeater-plugin-core:jar:1.0.0-SNAPSHOT, 
- com.alibaba.jvm.sandbox:repeater-plugin-api:jar:1.0.0-SNAPSHOT, 
- com.alibaba.jvm.sandbox:repeater-console-service:jar:1.0.0-SNAPSHOT, 
- com.alibaba.jvm.sandbox:repeater-console-service:jar:1.0.0-SNAPSHOT, 
- com.alibaba.jvm.sandbox:hessian-lite:jar:1.0.0-SNAPSHOT: 
- com.alibaba.jvm.sandbox:repeater-plugin-core:jar:1.0.0-SNAPSHOT 
 # 打pom包
 mvn deploy:deploy-file 
 -DgroupId=com.alibaba.jvm.sandbox 
