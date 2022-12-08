@@ -4,6 +4,7 @@
 - chrome
 - 腾讯电脑管家（安装jdk1.8）
 - feem 局域网数据传递 可以跨OS
+- Chocolatey windows的包管理工具
 
 ## 编码：
 - idea  
