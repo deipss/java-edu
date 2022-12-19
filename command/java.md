@@ -22,15 +22,24 @@ thread -n [tid] >> [filename] 将某个线程的执行方法栈及CPU状态字�
 ```shell
 打印出jvm进程堆使用情况
 jmap -heap <pid>
-
 下载快照到文件
 jmap -dump:file=filename.dump <pid>
-
 使用jhat命令
 jhat -port 9998 filename.dump
 
+在windows可以使用jvisualvm.exe命令，加载文件分析  
 
-使用jvisualvm.ext命令，加载文件分析  
+排序出目前容量最大的一些类，-k 2是根据第2列排序，就是数据最大的
+jmap -histo <pid> | grep <class full path> | sort -n -k 3 | head 17
+ num     #instances         #bytes  class name 
+----------------------------------------------
+   1:       4632416      392305928  [C
+   2:       6509258      208296256  java.util.HashMap$Node
+   3:       4615599      110774376  java.lang.String
+   5:         16856       68812488  [B
+   6:        278914       67329632  [Ljava.util.HashMap$Node;
+   7:       1297968       62302464  
+...
 
 使用jstat命令查看gc情况
 jstat -gcutil <pid> 5000 20
