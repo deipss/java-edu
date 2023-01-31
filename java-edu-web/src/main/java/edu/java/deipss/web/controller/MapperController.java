@@ -6,11 +6,9 @@ import edu.java.deipss.web.request.QueryRequest;
 import edu.java.deipss.web.response.HttpResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -22,9 +20,20 @@ public class MapperController {
     @Autowired
     private MapperQueryService mapperQueryService;
 
+    /**
+     * http post 支持的Content-Type
+     * 1. application/x-www-form-urlencoded
+     * 2. multipart/form-data
+     * 3. application/json
+     * 4.text/plain
+     *
+     * @param queryRequest 请求
+     * @param result       结果
+     * @return
+     */
     @PostMapping("/queryAll")
     public HttpResponse<List<SchedulingTask>> queryAll(@RequestBody @Valid QueryRequest queryRequest, BindingResult result) {
-        if(result.hasErrors()){
+        if (result.hasErrors()) {
             return HttpResponse.failed(null);
         }
         log.info("{}", queryRequest);
@@ -34,5 +43,10 @@ public class MapperController {
     @GetMapping("/query")
     public String query() {
         return "123";
+    }
+
+    @GetMapping("/getAnnotation")
+    public QueryRequest getAnnotation(@ModelAttribute QueryRequest queryRequest) {
+        return queryRequest;
     }
 }

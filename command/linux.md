@@ -1,11 +1,12 @@
 # ubuntu网络防火端设置信息
+
 ```shell
 sudo ufw allow 22/tcp
 sudo ufw allow 21/tcp
 sudo ufw allow 23/tcp
 sudo ufw allow 80/tcp
 sudo ufw allow from 59.75.133.222
-sudo  ufw enable|disable
+sudo ufw enable|disable
 
 
 sudo ufw delete allow 22/tcp
@@ -13,13 +14,13 @@ sudo ufw delete allow 21/tcp
 sudo ufw delete allow 23/tcp
 sudo ufw delete allow 80/tcp
 ```
+
 # 日志查看
 
 - [https://cloud.tencent.com/developer/article/1579977](https://cloud.tencent.com/developer/article/1579977)
 
+## tail
 
-
-## tail 
 ```bash
 命令格式: tail[必要参数][选择参数][文件]
 -f 循环读取
@@ -32,13 +33,18 @@ sudo ufw delete allow 80/tcp
 
 tail -fn 1000 test.log | grep '关键字'
 ```
+
 ## head
+
 ```bash
 head -n  10  test.log   查询日志文件中的头10行日志;
 head -n -10  test.log   查询日志文件除了最后10行的其他所有日志;
 ```
+
 ## less
+
 less命令在查询日志时，less与more类似，使用less可以随意浏览文件，而more仅能向前移动，不能向后移动，而且 less 在查看之前不会加载整个文件。
+
 ```bash
 less -mN log2013.log 
 -g 只标志最后搜索的关键词
@@ -58,11 +64,16 @@ y 向前滚动一行
 回车键 滚动一行
 G 跳到末行
 ```
+
 ## more
+
 more命令是一个基于vi编辑器文本过滤器，它以全屏幕的方式按页显示文本文件的内容，支持vi中的关键字定位操作。more名单中内置了若干快捷键，常用的有H（获得帮助信息），Enter（向下翻滚一行），空格（向下滚动一屏），Q（退出命令）。more命令从前向后读取文件，因此在启动时就加载整个文件。
 该命令一次显示一屏文本，满屏后停下来，并且在屏幕的底部出现一个提示信息，给出至今己显示的该文件的百分比：
+
 ## cat
+
 ## grep
+
 ```bash
 grep "字符串" 文件名 | grep "字符串"
 grep "^字符串" 文件名
@@ -83,48 +94,59 @@ grep "^字符串" 文件名
 倒序输出搜索到的内容
 grep "ERROR" app-repeater-receiver-2022-05-06-1.log | grep "saveRecord" | sort -k2 -n -r -t:
 ```
+
 # 文件查找
 
 - [http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html](http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html)
 
-
-
 ## find
+
 ```bash
 find . -name 'my*'
 find . -name 'my*' -ls
 find -type f -mmin 10
 ```
-## locate 
+
+## locate
+
 类似于find -name，但是效率比find高
+
 ```sql
 locate /etc/my
 ```
-## whereis 
+
+## whereis
+
 只查找bin文件，即一些命令
+
 ```bash
 whereis java
 where grep
 ```
+
 ## which
+
 从PATH中查找
+
 ```bash
 which java
 which grep
 ```
 
-
-
 # 网络信息查询
+
 ## ipconfig
 
-## telnet ip port 
+## telnet ip port
 
 ## nslookup
+
 ```gitignore
 
 ```
+
 ## tcpdump
+
 ```shell
 yum install tcpdump
 
@@ -132,14 +154,20 @@ tcpdump -w package.cap
 ```
 
 ## netstat
-```gitignore
 
+```gitignore
+netstat -s | egrep "listen|LISTEN"
 ```
+
 ## ps -efl
 
-## ss 
+## ss
+```bash
+ss -int
+```
 
 ## netstat
+
 ```
 netstat -nap | grep port 将会显示使用该端口的应用程序的进程 id
 
@@ -153,4 +181,5 @@ netstat -g 将会显示该主机订阅的所有多播网络。
 ```
 
 # 硬盘使用
+
 ## df -hl
