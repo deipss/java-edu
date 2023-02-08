@@ -7,12 +7,16 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * @author deipss
  * @since 2021-11-10
  */
-public class Demo {
+public class ListDemo {
+
+    public static void demo(){
+        CopyOnWriteArrayList<Integer> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+        copyOnWriteArrayList.add(1);
+
+
+    }
 
     public static void main(String[] args) {
-        CopyOnWriteArrayList<Integer> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
-        ConcurrentHashMap<Integer,Integer> concurrentHashMap = new ConcurrentHashMap<>();
-        concurrentHashMap.put(1,1);
-        copyOnWriteArrayList.add(1);
+       demo();
     }
 }
