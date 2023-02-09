@@ -10,7 +10,7 @@ mvn dependency:tree > mvnTree.txt
 mvn versions:set -D newVersion=1.5.0-SNAPSHOT
 ```
 
-# mvn -D -P
+# mvn -D -P -U
 
 - P代表（Profiles配置文件）
 
@@ -38,9 +38,11 @@ mvn versions:set -D newVersion=1.5.0-SNAPSHOT
   <attr>defaultattr</attr>
 </properties>
 执行 mvn -Dattr=newattr clean package，则pom.xml内attr的实际值将被替换成newattr
-
+mvn -Dmaven.test.skip=true clean package ，跳过测试包下的程序
 
 ```
+
+- -U 代表强制更新（update）
 
 # 部署到仓库
 

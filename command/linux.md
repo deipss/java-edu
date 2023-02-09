@@ -162,6 +162,7 @@ netstat -s | egrep "listen|LISTEN"
 ## ps -efl
 
 ## ss
+
 ```bash
 ss -int
 ```
@@ -183,3 +184,6 @@ netstat -g 将会显示该主机订阅的所有多播网络。
 # 硬盘使用
 
 ## df -hl
+
+# 系统环境
+## env 查看当前主机的所有环境环境
