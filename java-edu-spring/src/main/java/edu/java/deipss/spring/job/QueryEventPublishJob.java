@@ -22,6 +22,7 @@ public class QueryEventPublishJob implements InitializingBean {
     @Scheduled(cron = "0/15 * * * * ?")
     @Async("executeThreadPoolExecutor")
     public void execute() {
+        // 发布一个事件
         applicationContext.publishEvent(new QueryEvent(new QueryEvent.QueryEventData("查询事件", "数据")));
     }
 

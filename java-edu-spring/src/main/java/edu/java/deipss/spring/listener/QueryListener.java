@@ -1,4 +1,4 @@
-package edu.java.deipss.spring.listner;
+package edu.java.deipss.spring.listener;
 
 import edu.java.deipss.spring.event.QueryEvent;
 import lombok.extern.slf4j.Slf4j;

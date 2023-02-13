@@ -1,4 +1,4 @@
-package edu.java.deipss.spring.listner;
+package edu.java.deipss.spring.listener;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.DisposableBean;

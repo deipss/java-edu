@@ -105,6 +105,7 @@ grep "ERROR" app-repeater-receiver-2022-05-06-1.log | grep "saveRecord" | sort -
 find . -name 'my*'
 find . -name 'my*' -ls
 find -type f -mmin 10
+find / -name "my*" 从根目录开始查找
 ```
 
 ## locate
@@ -136,6 +137,9 @@ which grep
 # 网络信息查询
 
 ## ipconfig
+```shell
+ifconfig -address
+```
 
 ## telnet ip port
 
@@ -150,13 +154,18 @@ which grep
 ```shell
 yum install tcpdump
 
-tcpdump -w package.cap
+tcpdump -w package.cap 
 ```
 
 ## netstat
 
-```gitignore
-netstat -s | egrep "listen|LISTEN"
+```shell
+netstat -s | egrep "listen|LISTEN" 等同  netstat -s | grep -i "listen"
+netstat -at 查询所有tcp的连接，可用于服务启动后的端口查看，是否启动了kafka，dubbo等
+netstat -nap | grep port 将会显示使用该端口的应用程序的进程 id
+netstat -g 将会显示该主机订阅的所有多播网络。
+
+
 ```
 
 ## ps -efl
@@ -167,19 +176,7 @@ netstat -s | egrep "listen|LISTEN"
 ss -int
 ```
 
-## netstat
 
-```
-netstat -nap | grep port 将会显示使用该端口的应用程序的进程 id
-
-netstat -a or netstat –all 将会显示包括 TCP 和 UDP 的所有连接
-
-netstat –tcp or netstat –t 将会显示 TCP 连接
-
-netstat –udp or netstat –u 将会显示 UDP 连接
-
-netstat -g 将会显示该主机订阅的所有多播网络。
-```
 
 # 硬盘使用
 
@@ -187,3 +184,6 @@ netstat -g 将会显示该主机订阅的所有多播网络。
 
 # 系统环境
 ## env 查看当前主机的所有环境环境
+```shell
+env | grep -i 'env' 在环境变量中查找包括env字符的行
+```

@@ -23,6 +23,7 @@ public class RedisClient implements BaseClient<RedisRequest> {
             jedisConnectionFactory = jedisConnectionFactory(request);
             Pair<String, byte[][]> commandPair = buildCommand(request.getCommand());
             Object execute = jedisConnectionFactory.getConnection().execute(commandPair.getKey(), commandPair.getValue());
+            assert execute != null;
             if (execute.getClass().isPrimitive()) {
                 return new String((byte[]) execute);
             }

@@ -28,6 +28,7 @@ public class RedisRepository {
     public Boolean exeLua() {
         List<String> keys = Arrays.asList(TimeUtil.formatToday()+"_lua", "hello lua");
         DefaultRedisScript<Boolean> redisScript = new DefaultRedisScript<>();
+        // redis 脚本执行
         redisScript.setScriptSource(new ResourceScriptSource(new ClassPathResource("test.lua")));
         redisScript.setResultType(Boolean.class);
         Boolean execute = redisTemplate.execute(redisScript, keys, "100");
