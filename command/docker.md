@@ -70,7 +70,7 @@ select Host,User,plugin from mysql.user;
 - [https://www.cnblogs.com/limingxie/p/8655457.html](https://www.cnblogs.com/limingxie/p/8655457.html) 【使用docker运行mysql】
 - [https://www.cnblogs.com/lifan1998/p/9177731.html](https://www.cnblogs.com/lifan1998/p/9177731.html) 【2059错误】
 - [https://blog.csdn.net/ora_dy/article/details/80251487](https://blog.csdn.net/ora_dy/article/details/80251487) 【2059错误】
-## zookeeper,kakfa
+## zookeeper kakfa
 ```bash
 docker pull wurstmeister/zookeeper  
 docker pull wurstmeister/kafka  
@@ -120,8 +120,6 @@ docker run --name es -d -p 9200:9200 -p 9300:9300 \
 docker pull redis
 docker run -d --name redis -p 6379:6379 redis --requirepass "redis" --appendonly yes
 ```
-
-
 
 ## rocketmq
 https://hub.docker.com/r/xuchengen/rocketmq

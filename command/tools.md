@@ -57,8 +57,8 @@
 - plant uml 画图工具
 - 字符串工具：String Manipulation
 - 代码作色工具：Rainbow Brackets
-- RESTful 服务开发辅助工具集: RestfulToolkit
+- REST Ful 服务开发辅助工具集: RestfulToolkit
 - 日志工具：Grep Console
 - 生成对象set方法：GenerateAllSetter
-- String manipulation 驼峰转换
-- Spring Assistant 
+- 驼峰转换：String manipulation 
+- S：pring Assistant 

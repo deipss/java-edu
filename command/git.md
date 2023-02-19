@@ -77,3 +77,7 @@ git remote -v  #查看远端地址
 git remote #查看远端仓库名
 git remote set-url origin https://gitee.com/xx/xx.git (新地址)
 ```
+
+
+# 日志查询 
+git log

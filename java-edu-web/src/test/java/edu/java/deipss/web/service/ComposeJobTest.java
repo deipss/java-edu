@@ -1,7 +1,7 @@
 package edu.java.deipss.web.service;
 
-import edu.java.deipss.spring.config.ThreadConfig;
-import edu.java.deipss.spring.service.MapperQueryService;
+import edu.java.deipss.service.config.ThreadConfig;
+import edu.java.deipss.service.service.MapperQueryService;
 import edu.java.deipss.sql.config.SchedulingMysqlDataSourceConfig;
 import edu.java.deipss.web.BaseTest;
 import edu.java.deipss.web.controller.MapperController;

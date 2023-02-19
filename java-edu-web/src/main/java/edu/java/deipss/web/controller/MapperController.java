@@ -1,6 +1,6 @@
 package edu.java.deipss.web.controller;
 
-import edu.java.deipss.spring.service.MapperQueryService;
+import edu.java.deipss.service.service.MapperQueryService;
 import edu.java.deipss.sql.dal.entity.SchedulingTask;
 import edu.java.deipss.web.request.QueryRequest;
 import edu.java.deipss.web.response.HttpResponse;
