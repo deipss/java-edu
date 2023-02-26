@@ -1,6 +1,8 @@
 package edu.java.deipss.common.util;
 
-import org.apache.logging.log4j.util.Strings;
+
+import com.google.common.base.Strings;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -16,7 +18,7 @@ public class ValidUtil<T> {
         Set<ConstraintViolation<T>> validate = validator.validate(t, groups);
         if (validate.size() > 0) {
             List<String> collect = validate.stream().map(ConstraintViolation::getMessage).collect(Collectors.toList());
-            return Strings.join(collect, ',');
+            return StringUtils.join(collect, ',');
 
         }
         return null;
@@ -26,7 +28,7 @@ public class ValidUtil<T> {
         Set<ConstraintViolation<T>> validate = validator.validate(t);
         if (validate.size() > 0) {
             List<String> collect = validate.stream().map(ConstraintViolation::getMessage).collect(Collectors.toList());
-            return Strings.join(collect, ',');
+            return StringUtils.join(collect, ',');
 
         }
         return null;
@@ -36,7 +38,7 @@ public class ValidUtil<T> {
         Set<ConstraintViolation<T>> validate = validator.validate(t);
         if (validate.size() > 0) {
             List<String> collect = validate.stream().map(ConstraintViolation::getMessage).collect(Collectors.toList());
-            throw new Exception(Strings.join(collect, ','));
+            throw new Exception(StringUtils.join(collect, ','));
         }
     }
 
@@ -44,7 +46,7 @@ public class ValidUtil<T> {
         Set<ConstraintViolation<T>> validate = validator.validate(t, groups);
         if (validate.size() > 0) {
             List<String> collect = validate.stream().map(ConstraintViolation::getMessage).collect(Collectors.toList());
-            throw new Exception(Strings.join(collect, ','));
+            throw new Exception(StringUtils.join(collect, ','));
         }
     }
 }

@@ -1,6 +1,7 @@
 package edu.java.deipss.common.collection;
 
-import com.alibaba.fastjson.JSON;
+
+import com.alibaba.fastjson2.JSON;
 
 import java.util.concurrent.ConcurrentHashMap;
 

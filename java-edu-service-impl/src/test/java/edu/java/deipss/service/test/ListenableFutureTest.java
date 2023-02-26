@@ -1,6 +1,6 @@
 package edu.java.deipss.service.test;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.util.DigestUtils;
 
 import java.nio.charset.StandardCharsets;

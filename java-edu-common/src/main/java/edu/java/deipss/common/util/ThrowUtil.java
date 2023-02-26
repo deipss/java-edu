@@ -1,6 +1,7 @@
 package edu.java.deipss.common.util;
 
-import org.apache.logging.log4j.util.Strings;
+
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -18,7 +19,7 @@ public class ThrowUtil {
 
     public static void ifEmptyString(String s, Exception e) throws Exception {
         ifNull(s, e);
-        if (Strings.isEmpty(s)) {
+        if (StringUtils.isEmpty(s)) {
             throw e;
         }
     }

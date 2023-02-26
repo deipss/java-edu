@@ -2,7 +2,7 @@ package edu.java.deipss.common.util;
 
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.util.Strings;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author hxl
@@ -66,7 +66,7 @@ public class IfUtil {
 
 
     public static void notEmptyDo(String b, DoAction a) {
-        if (Strings.isNotEmpty(b)) {
+        if (StringUtils.isNotEmpty(b)) {
             a.run();
         }
     }

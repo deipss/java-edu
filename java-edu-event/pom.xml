@@ -3,15 +3,14 @@
     <parent>
         <artifactId>java-edu</artifactId>
         <groupId>org.deipss</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>java-edu-event</artifactId>
     <packaging>jar</packaging>
-
+    <version>${revision}</version>
     <name>java-edu-event</name>
-    <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,23 +20,19 @@
         <dependency>
             <groupId>org.deipss</groupId>
             <artifactId>java-edu-service-impl</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.deipss</groupId>
             <artifactId>java-edu-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.2.9.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
         </dependency>
+
     </dependencies>
 </project>
