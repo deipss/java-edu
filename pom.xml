@@ -18,6 +18,7 @@
         <module>java-edu-service-api</module>
         <module>java-edu-service-impl</module>
         <module>java-edu-event</module>
+        <module>java-edu-core</module>
     </modules>
 
     <groupId>org.deipss</groupId>
@@ -58,12 +59,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-devtools</artifactId>
                 <scope>runtime</scope>
-                <version>${spring-boot.version}</version>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-configuration-processor</artifactId>
                 <version>${spring-boot.version}</version>
                 <optional>true</optional>
             </dependency>
@@ -163,7 +158,6 @@
                 <artifactId>dubbo-bom</artifactId>
                 <version>3.0.12</version>
                 <type>pom</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.dubbo</groupId>

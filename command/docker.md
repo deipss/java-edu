@@ -1,8 +1,6 @@
 # docker 常用命令
 ## install docker on ubuntu 
-```shell
-https://docs.docker.com/engine/install/ubuntu/
-```
+- https://docs.docker.com/engine/install/ubuntu/
 
 ## install docker on centos
 ```shell
@@ -23,7 +21,16 @@ https://docs.docker.com/engine/install/ubuntu/
  "registry-mirrors": ["http://hub-mirror.c.163.com"]
  }
 ```
+## docker 加速
+- snap install docker 后镜像加速
+>https://programlife.net/2020/09/12/ubuntu-snap-docker-registry-mirrors/
 
+```shell
+
+sudo systemctl list-units --type=service
+sudo systemctl restart snap.docker.dockerd.service
+docker info
+```
 
 ## 查询docker镜像
 ```shell
@@ -147,5 +154,7 @@ docker run -itd \
 
 ## zk
 ```shell
- docker run --name=main-zk  --restart=always   -p 2181:2181  bitnami/zookeeper:latest 
+docker pull bitnami/zookeeper:latest
+
+ docker run --name=main-zk  --restart=always  -e ALLOW_ANONYMOUS_LOGIN=yes  -p 2181:2181  bitnami/zookeeper:latest 
 ```

@@ -1,0 +1,27 @@
+@startuml
+object algorithm
+object common
+object event
+object serviceApi
+object serviceImpl
+object sql
+object web
+
+web --> sql
+web --> serviceApi
+web --> serviceImpl
+web --> event
+web --> common
+web --> algorithm
+
+serviceImpl --> serviceApi
+serviceImpl --> sql
+serviceImpl --> common
+serviceImpl --> algorithm
+
+event --> serviceApi
+event --> serviceImpl
+event --> common
+
+
+@enduml

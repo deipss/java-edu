@@ -23,9 +23,9 @@ public class MapperController {
     /**
      * http post 支持的Content-Type
      * 1. application/x-www-form-urlencoded
-     * 2. multipart/form-data
+     * 2. multipart/form-data 如excel文件等
      * 3. application/json
-     * 4.text/plain
+     * 4. text/plain
      *
      * @param queryRequest 请求
      * @param result       结果

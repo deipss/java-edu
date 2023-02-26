@@ -31,7 +31,8 @@ mvn versions:set -D newVersion=1.5.0-SNAPSHOT
 ```
 
 - -D代表（Properties属性）
-
+- pl 表示只处理指定的module 
+- am 表示处理-pl批定module关联的其他module
 ```shell
 
 <properties>
@@ -96,4 +97,9 @@ mvn deploy:deploy-file -DgroupId=com.frxs.repeater -DartifactId=receiver -Dversi
             </snapshots>
         </repository>
     </repositories>
+```
+
+# mvn配置文件
+```text
+<package></package> 可以有pom或是jar,默认是jar,在有父子继续关系时，一般父pom文件使用pom包
 ```
