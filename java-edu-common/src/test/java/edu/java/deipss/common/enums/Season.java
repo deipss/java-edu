@@ -3,7 +3,7 @@ package edu.java.deipss.common.enums;
 import lombok.Getter;
 
 @Getter
-enum Season implements SeasonInfo {
+enum Season implements SeasonShow {
     SPRING("春天", "春风意人"),
     SUMMER("夏天", "夏日炎炎");
 

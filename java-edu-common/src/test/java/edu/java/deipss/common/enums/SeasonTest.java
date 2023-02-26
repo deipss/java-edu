@@ -1,10 +1,14 @@
 package edu.java.deipss.common.enums;
 
 
+import org.junit.Test;
+
 import java.util.Arrays;
 
-public class Year {
-    public static void main(String[] args) {
+public class SeasonTest {
+
+    @Test
+    public void test() {
         System.out.println(Season.SPRING);
         Arrays.stream(Season.values()).forEach(i -> System.out.print(i.name() + "\t"));
         System.out.println();

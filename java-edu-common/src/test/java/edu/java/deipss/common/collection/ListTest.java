@@ -1,21 +1,22 @@
 package edu.java.deipss.common.collection;
 
+import org.junit.Test;
+
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * @author deipss
  * @since 2021-11-10
  */
-public class ListDemo {
+public class ListTest {
 
-    public static void demo(){
+
+    @Test
+    public void demo() {
         CopyOnWriteArrayList<Integer> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
         copyOnWriteArrayList.add(1);
 
 
     }
 
-    public static void main(String[] args) {
-       demo();
-    }
 }
