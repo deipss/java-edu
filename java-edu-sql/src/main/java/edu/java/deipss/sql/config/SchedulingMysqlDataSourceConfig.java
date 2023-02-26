@@ -34,6 +34,7 @@ public class SchedulingMysqlDataSourceConfig {
     public SqlSessionFactory masterSqlSessionFactory(@Qualifier("schedulingDataSource") DataSource ds) throws Exception {
         MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
         MybatisConfiguration mybatisConfiguration = new MybatisConfiguration();
+        // sql打印
         mybatisConfiguration.setLogImpl(StdOutImpl.class);
         factoryBean.setConfiguration(mybatisConfiguration);
         factoryBean.setDataSource(ds);
@@ -49,14 +50,12 @@ public class SchedulingMysqlDataSourceConfig {
 
     @Bean("schedulingTransactionManager")
     public PlatformTransactionManager transactionManager(@Qualifier("schedulingDataSource") DataSource ds) {
-
         return new DataSourceTransactionManager(ds);
     }
 
     @Bean("schedulingSqlSessionTemplate")
     public SqlSessionTemplate sqlSessionTemplate(@Qualifier("schedulingSqlSessionFactory") SqlSessionFactory factory) {
         SqlSessionTemplate sqlSessionTemplate = new SqlSessionTemplate(factory);
-
         return sqlSessionTemplate;
     }
 
