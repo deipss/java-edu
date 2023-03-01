@@ -1,21 +1,43 @@
 @startuml
 object algorithm
-object common
-object event
-object serviceApi
-object serviceImpl
-object sql
-object web
+object integration{
+    集成二方包的调用
+}
+object common{
+util
+cypher
+json
+}
+object event{
+任务
+mq监听
+}
+object serviceApi{
+对外接口
+}
+object serviceImpl{
+接口的实现
+常用component 如:mq发送 http发送
+}
+object dal{
+mysql
+es
+redis
+}
+object web_or_starter{
+启动的入口
+web的入口
+}
 
-web --> sql
-web --> serviceApi
-web --> serviceImpl
-web --> event
-web --> common
-web --> algorithm
+web_or_starter --> dal
+web_or_starter --> serviceApi
+web_or_starter --> serviceImpl
+web_or_starter --> event
+web_or_starter --> common
+web_or_starter --> algorithm
 
 serviceImpl --> serviceApi
-serviceImpl --> sql
+serviceImpl --> dal
 serviceImpl --> common
 serviceImpl --> algorithm
 
