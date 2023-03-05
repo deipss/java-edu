@@ -127,8 +127,10 @@
             <!--dev-->
             <dependency>
                 <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
+                <artifactId>hutool-bom</artifactId>
                 <version>5.8.12</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
@@ -292,10 +294,6 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
         </dependency>
     </dependencies>
 
