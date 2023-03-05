@@ -30,6 +30,6 @@ public class MapperQueryServiceJob {
 
     @Scheduled(cron = "0/2 * * * * ?")
     public void templateProducer() {
-        templateProducer.producer();
+        /// templateProducer.producer();
     }
 }

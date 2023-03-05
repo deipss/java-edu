@@ -2,11 +2,11 @@ package edu.java.deipss.common.cypher;
 
 import cn.hutool.crypto.SecureUtil;
 import cn.hutool.crypto.symmetric.AES;
-import org.apache.commons.codec.Charsets;
+import com.google.common.base.Charsets;
 import org.junit.Test;
 
 /**
- * 加密测试
+ * 加密测试 hutool工具
  */
 public class CypherTest {
 
@@ -19,7 +19,7 @@ public class CypherTest {
      */
     @Test
     public void test(){
-        AES aes = SecureUtil.aes(cypher.getBytes(Charsets.toCharset("utf-8")));
+        AES aes = SecureUtil.aes(cypher.getBytes(Charsets.UTF_8));
         String encrypt = aes.encryptHex(plaintText.getBytes());
         System.out.println(encrypt);
         System.out.println(aes.decryptStr(encrypt));
