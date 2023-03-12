@@ -8,6 +8,7 @@ util
 cypher
 json
 hutool
+http调用（要托管再Spring容器中）
 }
 object event{
 任务
@@ -27,7 +28,7 @@ redis
 }
 object web_or_starter{
 启动的入口
-web的入口
+web的入口 (包括VO)
 }
 
 web_or_starter --> dal

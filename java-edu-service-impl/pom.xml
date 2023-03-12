@@ -42,10 +42,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>
         <dependency>
@@ -59,6 +55,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -77,13 +79,7 @@
         <!--dubbo-->
         <dependency>
             <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-bom</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-dependencies-zookeeper</artifactId>
-            <version>3.0.12</version>
             <type>pom</type>
         </dependency>
         <dependency>

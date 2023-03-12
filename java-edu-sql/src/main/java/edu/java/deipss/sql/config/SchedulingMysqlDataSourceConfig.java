@@ -1,6 +1,9 @@
 package edu.java.deipss.sql.config;
 
+import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import org.apache.ibatis.logging.stdout.StdOutImpl;
@@ -37,6 +40,13 @@ public class SchedulingMysqlDataSourceConfig {
         // sql打印
         mybatisConfiguration.setLogImpl(StdOutImpl.class);
         factoryBean.setConfiguration(mybatisConfiguration);
+        // mybatis handle 指定
+        ///factoryBean.setTypeHandlersPackage("");
+        // 分页插件
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
+
+        factoryBean.setPlugins(interceptor);
         factoryBean.setDataSource(ds);
         return factoryBean.getObject();
     }
