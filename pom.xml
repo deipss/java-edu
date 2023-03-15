@@ -23,6 +23,7 @@
         <java.version>8</java.version>
         <repackage.classifier/>
         <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
+        <spring.version>5.2.9.RELEASE</spring.version>
         <lombok.version>1.18.24</lombok.version>
         <commons-pool2.version>2.8.1</commons-pool2.version>
         <jedis.version>3.3.0</jedis.version>
@@ -86,7 +87,7 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
-                <version>5.2.9.RELEASE</version>
+                <version>${spring.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -115,7 +116,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-log4j2</artifactId>
-                <version>2.6.2</version>
+                <version>${spring-boot.version}</version>
             </dependency>
             <!--dev-->
             <dependency>
@@ -192,6 +193,18 @@
                 <version>3.4.3.4</version>
             </dependency>
             <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>3.5.3.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>2.3</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
                 <groupId>com.github.ben-manes.caffeine</groupId>
                 <artifactId>caffeine</artifactId>
                 <version>2.7.0</version>
@@ -200,7 +213,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-redis</artifactId>
-                <version>2.3.4.RELEASE</version>
+                <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
