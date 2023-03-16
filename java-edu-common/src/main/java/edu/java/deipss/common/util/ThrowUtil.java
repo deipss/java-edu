@@ -34,7 +34,7 @@ public class ThrowUtil {
         }
     }
 
-    public static void ifEmptyCollection(Collection list, Exception e) throws Exception {
+    public static void ifEmptyCollection(Collection<?> list, Exception e) throws Exception {
         ifNull(list, e);
         if (list.isEmpty()) {
             throw e;

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author deipss
- * @date 2021-07-31
  */
 @Aspect
 @Slf4j
@@ -36,7 +35,9 @@ public class AopConfig {
         Object[] args = point.getArgs();
         log.info("aop请求参数={}", args);
         try {
-            return point.proceed();
+            Object proceed = point.proceed();
+            log.info("结果={}",proceed);
+            return proceed;
         } catch (Throwable throwable) {
             log.error("调用异常",throwable);
         }

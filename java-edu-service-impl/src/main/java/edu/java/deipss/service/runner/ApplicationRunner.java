@@ -2,6 +2,7 @@ package edu.java.deipss.service.runner;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.DisposableBean;
+import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +13,11 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class ApplicationRunner implements CommandLineRunner, DisposableBean {
 
+    public ApplicationRunner(ApplicationArguments arguments) {
+        for (String nonOptionArg : arguments.getNonOptionArgs()) {
+            log.info("spring 启动参数={}",nonOptionArg);
+        }
+    }
 
     @Override
     public void destroy() throws Exception {

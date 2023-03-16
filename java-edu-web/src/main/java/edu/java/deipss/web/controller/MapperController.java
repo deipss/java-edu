@@ -1,5 +1,7 @@
 package edu.java.deipss.web.controller;
 
+import com.google.common.base.Strings;
+import edu.java.deipss.common.util.ValidUtil;
 import edu.java.deipss.service.service.MapperQueryService;
 import edu.java.deipss.sql.dal.entity.SchedulingTask;
 import edu.java.deipss.web.request.QueryRequest;
@@ -26,10 +28,10 @@ public class MapperController {
      * 2. multipart/form-data 如excel文件等
      * 3. application/json
      * 4. text/plain
-     *
+     * <a href="https://www.runoob.com/http/http-content-type.html">...</a>
      * @param queryRequest 请求
      * @param result       结果
-     * @return
+     * @return task
      */
     @PostMapping("/queryAll")
     public HttpResponse<List<SchedulingTask>> queryAll(@RequestBody @Valid QueryRequest queryRequest, BindingResult result) {
@@ -47,6 +49,10 @@ public class MapperController {
 
     @GetMapping("/getAnnotation")
     public QueryRequest getAnnotation(@ModelAttribute QueryRequest queryRequest) {
+        String check = ValidUtil.check(queryRequest);
+        if(Strings.isNullOrEmpty(check)){
+            return null;
+        }
         return queryRequest;
     }
 }

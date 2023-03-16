@@ -1,7 +1,6 @@
 package edu.java.deipss.common.util;
 
 
-import com.google.common.base.Strings;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.validation.ConstraintViolation;
@@ -11,9 +10,20 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * 参数校验工具类
+ * @param <T>
+ */
 public class ValidUtil<T> {
     public static Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
+    /**
+     *
+     * @param t 参数
+     * @param groups 参数的校验分组
+     * @return 检验不通过，返回提示语句，检验通过返回空
+     * @param <T> 泛型
+     */
     public static <T> String check(T t, Class<?>... groups) {
         Set<ConstraintViolation<T>> validate = validator.validate(t, groups);
         if (validate.size() > 0) {
@@ -24,6 +34,12 @@ public class ValidUtil<T> {
         return null;
     }
 
+    /**
+     *
+     * @param t 参数
+     * @return 检验不通过，返回提示语句，检验通过返回空
+     * @param <T> 泛型
+     */
     public static <T> String check(T t) {
         Set<ConstraintViolation<T>> validate = validator.validate(t);
         if (validate.size() > 0) {
@@ -34,6 +50,13 @@ public class ValidUtil<T> {
         return null;
     }
 
+    /**
+     *
+     * @param t 参数
+     * @param <T> 泛型
+     * 检验不通过抛出异常
+     */
+
     public static <T> void checkAndThrow(T t) throws Exception {
         Set<ConstraintViolation<T>> validate = validator.validate(t);
         if (validate.size() > 0) {
@@ -41,7 +64,13 @@ public class ValidUtil<T> {
             throw new Exception(StringUtils.join(collect, ','));
         }
     }
-
+    /**
+     *
+     * @param t 参数
+     * @param groups 参数的校验分组
+     * @param <T> 泛型
+     * 检验不通过抛出异常
+     */
     public static <T> void checkAndThrow(T t, Class<?>... groups) throws Exception {
         Set<ConstraintViolation<T>> validate = validator.validate(t, groups);
         if (validate.size() > 0) {

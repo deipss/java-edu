@@ -1,4 +1,4 @@
-package edu.java.deipss.service.dubbo;
+package edu.java.deipss.service.test;
 
 
 public interface DubboTest {
