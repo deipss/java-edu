@@ -1,4 +1,4 @@
-# 项目初始化
+# 1. 项目初始化
 ```shell
 git初始化的一些配置
     方法一、
@@ -31,13 +31,13 @@ git初始化的一些配置
     git pull origin master
 ```
 
-# 合并分支
+# 2. 合并分支
 ```shell script
 git merge 分支名/节点哈希值
 git rebase 分支名/节点哈希值
 git cherry-pick 节点哈希值
 ```
-# 分支管理
+# 3. 分支管理
 ```shell script
 git pull
 git status
@@ -61,7 +61,7 @@ git checkout -b 分支名
 git branch -d 分支名
 
 ```
-# 回退
+# 4. 回退
 ```
 git checkout 节点哈希值
 //也可以直接脱离分支指向当前节点
@@ -71,7 +71,7 @@ git reset HEAD~N
 
 ```
 
-# 远程仓库
+# 5. 远程仓库
 ```shell
 git remote -v  #查看远端地址
 git remote #查看远端仓库名
@@ -79,5 +79,5 @@ git remote set-url origin https://gitee.com/xx/xx.git (新地址)
 ```
 
 
-# 日志查询 
+# 6. 日志查询
 git log

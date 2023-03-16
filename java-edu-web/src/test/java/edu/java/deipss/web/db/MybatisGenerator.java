@@ -17,10 +17,10 @@ public class MybatisGenerator {
 
 
     /**
-     * spring.datasource.item.driver-class-name=com.mysql.jdbc.Driver
-     * spring.datasource.item.url=jdbc:mysql://172.21.192.63:3306/
-     * spring.datasource.item.username=app
-     * spring.datasource.item.password=D+qA1472
+     scheduling.mysql.enabled=true
+     scheduling.mysql.url=jdbc:mysql://${ip.host}:3306/testdb?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+     scheduling.mysql.username=root
+     scheduling.mysql.password=deipss
      */
     @Test
     public void generateTest() {
@@ -28,10 +28,10 @@ public class MybatisGenerator {
         objectObjectHashMap.put(OutputFile.controller, "");
         objectObjectHashMap.put(OutputFile.service, "");
         objectObjectHashMap.put(OutputFile.serviceImpl, "");
-        String ip = "172.21.192.63";
-        String dbName = "frxs_promotion";
-        String uname = "app";
-        String pwd = "D+qA1472";
+        String ip = "192.168.0.1";
+        String dbName = "testdb";
+        String uname = "root";
+        String pwd = "deipss";
 
         ArrayList<String> strings = Lists.newArrayList(
                 "t_activity_preproduct"
@@ -45,15 +45,16 @@ public class MybatisGenerator {
                             .outputDir("D:\\workspace\\test\\xsyx-auto-test-payment\\xsyx-auto-test-payment-service-dal\\src\\main\\java\\xsyx\\auto\\test\\payment\\dal\\entity"); // 指定输出目录
                 })
                 .packageConfig(builder -> {
-                    builder.parent("xsyx.auto.test.payment.dal.entity").pathInfo(objectObjectHashMap); // 设置父包名
+                    builder.parent("xsyx.auto.test.payment.dal.entity")
+                            .pathInfo(objectObjectHashMap); // 设置父包名
                 })
-
                 .strategyConfig(builder -> {
                     builder
                             .addInclude(collect) // 设置需要生成的表名
                             .addTablePrefix("t_") // 设置过滤表前缀
                             .addTableSuffix("_0", "_202201")
-                            .entityBuilder().enableLombok()
+                            .entityBuilder()
+                            .enableLombok()
                             .enableTableFieldAnnotation()
                     ;
 

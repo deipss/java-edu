@@ -1,22 +1,22 @@
-# 装机
-## 办公：
+# 1. 装机
+## 1.1. 办公：
 - office 套装
 - chrome
 - 腾讯电脑管家（安装jdk1.8）
 - feem 局域网数据传递 可以跨OS
 - Chocolatey windows的包管理工具
 
-## 编码：
+## 1.2. 编码：
 - idea  
 - pyCharm
 - subline
 - vscode
 
-## 构建与版本控制
+## 1.3. 构建与版本控制
 - mvn
 - git
 
-## 网络
+## 1.4. 网络
 - charles(抓包收费)  whistle（免费）
 - xshell
 - xftp
@@ -25,7 +25,7 @@
 - wiresharke 网络抓包解析
 - tcpdump(linux上)
 
-## 中间件：
+## 1.5. 中间件：
 - redis:rdm
 - mangoDb:Robo 3T
 - mysql:DBeaver navicat
@@ -33,7 +33,7 @@
 - kafka: offset explore
 
 
-## 工具:
+## 1.6. 工具:
 - everything 搜索工具
 - wox 搜索工具
 - 3dm 用于安装windows上，某个可能不存在的工具包 如.net
@@ -42,7 +42,7 @@
 - NirSoft's password recovery tools 查看windows凭据密码，
 - switch host 主机配置切换
 
-## idea plugin
+## 1.7. idea plugin
 - alibaba arthas
 - 阿里代码规约检测
 - 代码注解插件： Lombok
@@ -62,4 +62,6 @@
 - 生成对象set方法：GenerateAllSetter
 - 驼峰转换：String manipulation 
 - Spring Assistant 
-
+- markdown index
+- markdown
+- markdown editor

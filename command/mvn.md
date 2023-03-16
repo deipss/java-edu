@@ -1,16 +1,16 @@
-# 依赖树打印
+# 1. 依赖树打印
 
 ```shell
 mvn dependency:tree > mvnTree.txt
 ```
 
-# 设置版本
+# 2. 设置版本
 
 ```shell
 mvn versions:set -D newVersion=1.5.0-SNAPSHOT
 ```
 
-# mvn -D -P -U
+# 3. mvn -D -P -U
 
 - P代表（Profiles配置文件）
 
@@ -45,7 +45,7 @@ mvn -Dmaven.test.skip=true clean package ，跳过测试包下的程序
 
 - -U 代表强制更新（update）
 
-# 部署到仓库
+# 4. 部署到仓库
 
 ```shell
 
@@ -99,7 +99,7 @@ mvn deploy:deploy-file -DgroupId=com.frxs.repeater -DartifactId=receiver -Dversi
     </repositories>
 ```
 
-# mvn配置文件
+# 5. mvn配置文件
 ```text
 <package></package> 可以有pom或是jar,默认是jar,在有父子继续关系时，一般父pom文件使用pom包
 ```

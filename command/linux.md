@@ -1,4 +1,4 @@
-# ubuntu网络防火端设置信息
+# 1. ubuntu网络防火端设置信息
 
 ```shell
 sudo ufw allow 22/tcp
@@ -15,11 +15,11 @@ sudo ufw delete allow 23/tcp
 sudo ufw delete allow 80/tcp
 ```
 
-# 日志查看
+# 2. 日志查看
 
 - [https://cloud.tencent.com/developer/article/1579977](https://cloud.tencent.com/developer/article/1579977)
 
-## tail
+## 2.1. tail
 
 ```bash
 命令格式: tail[必要参数][选择参数][文件]
@@ -34,14 +34,14 @@ sudo ufw delete allow 80/tcp
 tail -fn 1000 test.log | grep '关键字'
 ```
 
-## head
+## 2.2. head
 
 ```bash
 head -n  10  test.log   查询日志文件中的头10行日志;
 head -n -10  test.log   查询日志文件除了最后10行的其他所有日志;
 ```
 
-## less
+## 2.3. less
 
 less命令在查询日志时，less与more类似，使用less可以随意浏览文件，而more仅能向前移动，不能向后移动，而且 less 在查看之前不会加载整个文件。
 
@@ -65,14 +65,14 @@ y 向前滚动一行
 G 跳到末行
 ```
 
-## more
+## 2.4. more
 
 more命令是一个基于vi编辑器文本过滤器，它以全屏幕的方式按页显示文本文件的内容，支持vi中的关键字定位操作。more名单中内置了若干快捷键，常用的有H（获得帮助信息），Enter（向下翻滚一行），空格（向下滚动一屏），Q（退出命令）。more命令从前向后读取文件，因此在启动时就加载整个文件。
 该命令一次显示一屏文本，满屏后停下来，并且在屏幕的底部出现一个提示信息，给出至今己显示的该文件的百分比：
 
-## cat
+## 2.5. cat
 
-## grep
+## 2.6. grep
 
 ```bash
 grep "字符串" 文件名 | grep "字符串"
@@ -95,11 +95,11 @@ grep "^字符串" 文件名
 grep "ERROR" app-repeater-receiver-2022-05-06-1.log | grep "saveRecord" | sort -k2 -n -r -t:
 ```
 
-# 文件查找
+# 3. 文件查找
 
 - [http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html](http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html)
 
-## find
+## 3.1. find
 
 ```bash
 find . -name 'my*'
@@ -108,7 +108,7 @@ find -type f -mmin 10
 find / -name "my*" 从根目录开始查找
 ```
 
-## locate
+## 3.2. locate
 
 类似于find -name，但是效率比find高
 
@@ -116,7 +116,7 @@ find / -name "my*" 从根目录开始查找
 locate /etc/my
 ```
 
-## whereis
+## 3.3. whereis
 
 只查找bin文件，即一些命令
 
@@ -125,7 +125,7 @@ whereis java
 where grep
 ```
 
-## which
+## 3.4. which
 
 从PATH中查找
 
@@ -134,22 +134,22 @@ which java
 which grep
 ```
 
-# 网络信息查询
+# 4. 网络信息查询
 
-## ipconfig
+## 4.1. ipconfig
 ```shell
 ifconfig -address
 ```
 
-## telnet ip port
+## 4.2. telnet ip port
 
-## nslookup
+## 4.3. nslookup
 
 ```gitignore
 
 ```
 
-## tcpdump
+## 4.4. tcpdump
 
 ```shell
 yum install tcpdump
@@ -157,7 +157,7 @@ yum install tcpdump
 tcpdump -w package.cap 
 ```
 
-## netstat
+## 4.5. netstat
 
 ```shell
 netstat -s | egrep "listen|LISTEN" 等同  netstat -s | grep -i "listen"
@@ -168,9 +168,9 @@ netstat -g 将会显示该主机订阅的所有多播网络。
 
 ```
 
-## ps -efl
+## 4.6. ps -efl
 
-## ss
+## 4.7. ss
 
 ```bash
 ss -int
@@ -178,12 +178,12 @@ ss -int
 
 
 
-# 硬盘使用
+# 5. 硬盘使用
 
-## df -hl
+## 5.1. df -hl
 
-# 系统环境
-## env 查看当前主机的所有环境环境
+# 6. 系统环境
+## 6.1. env 查看当前主机的所有环境环境
 ```shell
 env | grep -i 'env' 在环境变量中查找包括env字符的行
 ```

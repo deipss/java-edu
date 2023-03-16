@@ -1,8 +1,8 @@
-# docker 常用命令
-## install docker on ubuntu 
+# 1. docker 常用命令
+## 1.1. install docker on ubuntu
 - https://docs.docker.com/engine/install/ubuntu/
 
-## install docker on centos
+## 1.2. install docker on centos
 ```shell
 
 - 查看内核版本
@@ -21,7 +21,7 @@
  "registry-mirrors": ["http://hub-mirror.c.163.com"]
  }
 ```
-## docker 加速
+## 1.3. docker 加速
 - snap install docker 后镜像加速
 >https://programlife.net/2020/09/12/ubuntu-snap-docker-registry-mirrors/
 
@@ -32,7 +32,7 @@ sudo systemctl restart snap.docker.dockerd.service
 docker info
 ```
 
-## 查询docker镜像
+## 1.4. 查询docker镜像
 ```shell
 文档 https://hub.docker.com/
 查看镜像  docker image ls
@@ -40,7 +40,7 @@ docker info
 删除镜像 docker imamges rm 
 ```
 
-## 容器启动
+## 1.5. 容器启动
 ```bash
 docker run --name tomcat -p 8080:8080 -d tomcat   --restart=always
 docker run -p 27017:27017  -d mongo --restart=always
@@ -51,18 +51,18 @@ docker update --restart=always 01a07d12cfec
 ```
 
 
-## 删除未启动的容器
+## 1.6. 删除未启动的容器
 ```bash
 docker rm $( docker ps -a -q)
 ```
 
-## 查看端口映射
+## 1.7. 查看端口映射
 ```shell
 docker port [容器id]
 ```
 
-# 常见服务
-## mysql
+# 2. 常见服务
+## 2.1. mysql
 ```bash
 docker run --name mysql_1 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=deipss -d mysql:latest
 docker exec -it mysql_1 bash
@@ -77,7 +77,7 @@ select Host,User,plugin from mysql.user;
 - [https://www.cnblogs.com/limingxie/p/8655457.html](https://www.cnblogs.com/limingxie/p/8655457.html) 【使用docker运行mysql】
 - [https://www.cnblogs.com/lifan1998/p/9177731.html](https://www.cnblogs.com/lifan1998/p/9177731.html) 【2059错误】
 - [https://blog.csdn.net/ora_dy/article/details/80251487](https://blog.csdn.net/ora_dy/article/details/80251487) 【2059错误】
-## zookeeper kakfa
+## 2.2. zookeeper kakfa
 ```bash
 docker pull wurstmeister/zookeeper  
 docker pull wurstmeister/kafka  
@@ -95,7 +95,7 @@ docker exec -it kafka /bin/bash
 
 ```
  
-## Mongo
+## 2.3. Mongo
 ```bash
 docker run -d -p 27017:27017 -v mongo_configdb:/data/configdb -v mongo_db:/data/db --name mongo docker.io/mongo --auth
 docker exec -it mongo mongo admin
@@ -107,7 +107,7 @@ db.createUser({ user: 'lutos', pwd: 'lutos', roles: [{ role: "readWrite", db: "l
 
 docker exec -it mongo mongo -u lutos -p lutos lutos
 ```
-## RabbitMQ
+## 2.4. RabbitMQ
 ```bash
 docker pull rabbitmq:management
 docker run -d -p 5672:5672 -p 15672:15672 --name myrabbitmq [id]
@@ -115,20 +115,20 @@ docker exec -it 9e83ee385ca7 /bin/bash
 rabbitmqctl  add_user  admin  admin
 rabbitmqctl  set_user_tags admin administrator
 ```
-## elasticsearch
+## 2.5. elasticsearch
 ```bash
 docker pull docker.elastic.co/elasticsearch/elasticsearch:7.9.2
 docker run --name es -d -p 9200:9200 -p 9300:9300 \
 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.9.2
 
 ```
-## redis
+## 2.6. redis
 ```bash
 docker pull redis
 docker run -d --name redis -p 6379:6379 redis --requirepass "redis" --appendonly yes
 ```
 
-## rocketmq
+## 2.7. rocketmq
 https://hub.docker.com/r/xuchengen/rocketmq
 ```shell
 # mq
@@ -152,9 +152,9 @@ docker run -itd \
  xuchengen/rocketmq:latest
 ```
 
-## zk
+## 2.8. zk
 ```shell
 docker pull bitnami/zookeeper:latest
 
- docker run --name=main-zk  --restart=always  -e ALLOW_ANONYMOUS_LOGIN=yes  -p 2181:2181  bitnami/zookeeper:latest 
+docker run --name=main-zk  --restart=always  -e ALLOW_ANONYMOUS_LOGIN=yes  -p 2181:2181  bitnami/zookeeper:latest 
 ```
