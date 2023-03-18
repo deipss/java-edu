@@ -3,14 +3,27 @@ package edu.java.deipss.sql.dal.entity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
-
-import java.time.LocalTime;
+import java.io.Serializable;
+import java.sql.Time;
 import java.util.Date;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author hxl
+ * @since 2023-03-17
+ */
+@Getter
+@Setter
 @TableName("scheduling_task_history")
-public class SchedulingTaskHistory {
+public class SchedulingTaskHistory implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
 
     @TableId("id")
     private Long id;
@@ -22,18 +35,16 @@ public class SchedulingTaskHistory {
     private String taskStatus;
 
     @TableField("start_time")
-    private LocalTime startTime;
-
+    private Time startTime;
 
     @TableField("end_time")
-    private LocalTime endTime;
+    private Time endTime;
 
     @TableField("next_start")
     private Date nextStart;
 
-
     @TableField("try_lock_cnt")
-    private int tryLockCnt;
+    private Integer tryLockCnt;
 
     @TableField("time_gap")
     private String timeGap;
@@ -46,9 +57,4 @@ public class SchedulingTaskHistory {
 
     @TableField("tm_modify")
     private Date tmModify;
-
-
-
-
-
 }

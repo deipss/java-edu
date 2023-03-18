@@ -1,4 +1,4 @@
-package edu.java.deipss.service.redis;
+package edu.java.deipss.sql.redis;
 
 import edu.java.deipss.common.util.TimeUtil;
 import org.springframework.core.io.ClassPathResource;
@@ -7,13 +7,14 @@ import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scripting.support.ResourceScriptSource;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.List;
 
-@Component
+@Repository
 public class RedisRepository {
 
     @Resource(name = "defaultRedisTemplate")

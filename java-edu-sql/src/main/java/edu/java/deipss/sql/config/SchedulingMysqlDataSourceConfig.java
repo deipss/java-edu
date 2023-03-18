@@ -51,6 +51,11 @@ public class SchedulingMysqlDataSourceConfig {
         return factoryBean.getObject();
     }
 
+    /**
+     *
+     * @param tx 事务管理器
+     * @return 事务管理模版
+     */
     @Bean("schedulingTransactionTemplate")
     public TransactionTemplate transactionTemplate(@Qualifier("schedulingTransactionManager") PlatformTransactionManager tx) {
         TransactionTemplate transactionTemplate = new TransactionTemplate(tx);
@@ -75,7 +80,6 @@ public class SchedulingMysqlDataSourceConfig {
         mysqlDataSource.setPassword(password);
         mysqlDataSource.setUser(username);
         mysqlDataSource.setUrl(url);
-
         return mysqlDataSource;
     }
 

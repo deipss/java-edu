@@ -1,4 +1,4 @@
-package edu.java.deipss.service.config;
+package edu.java.deipss.sql.config;
 
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.context.annotation.Bean;

@@ -1,6 +1,6 @@
 package edu.java.deipss.event.job;
 
-import edu.java.deipss.service.rocketmq.TemplateProducer;
+import edu.java.deipss.service.client.rocketmq.TemplateProducer;
 import edu.java.deipss.service.service.MapperQueryService;
 import edu.java.deipss.sql.dal.entity.SchedulingTask;
 import lombok.extern.slf4j.Slf4j;

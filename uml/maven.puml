@@ -11,7 +11,9 @@ hutool
 http调用（要托管再Spring容器中）
 }
 object event{
-任务
+定时任务调用
+
+spring事件的监听
 mq监听
 }
 object serviceApi{
@@ -19,6 +21,7 @@ object serviceApi{
 }
 object serviceImpl{
 接口的实现
+spring事件的发布
 常用component 如:mq发送 http发送
 }
 object dal{

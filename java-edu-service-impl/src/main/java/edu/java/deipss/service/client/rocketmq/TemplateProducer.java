@@ -1,4 +1,4 @@
-package edu.java.deipss.service.rocketmq;
+package edu.java.deipss.service.client.rocketmq;
 
 import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;

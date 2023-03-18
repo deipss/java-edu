@@ -2,6 +2,7 @@ package edu.java.deipss.web.db;
 
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
+import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import org.junit.Test;
@@ -21,20 +22,19 @@ public class MybatisGenerator {
      scheduling.mysql.url=jdbc:mysql://${ip.host}:3306/testdb?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
      scheduling.mysql.username=root
      scheduling.mysql.password=deipss
+
+     https://baomidou.com/pages/981406/#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE-globalconfig
      */
     @Test
     public void generateTest() {
-        HashMap<OutputFile, String> objectObjectHashMap = Maps.newHashMap();
-        objectObjectHashMap.put(OutputFile.controller, "");
-        objectObjectHashMap.put(OutputFile.service, "");
-        objectObjectHashMap.put(OutputFile.serviceImpl, "");
-        String ip = "192.168.0.1";
+        String ip = "192.168.0.104";
         String dbName = "testdb";
         String uname = "root";
         String pwd = "deipss";
+        String pathSave="C:\\Users\\deips\\desktop";
 
         ArrayList<String> strings = Lists.newArrayList(
-                "t_activity_preproduct"
+                "scheduling_task","scheduling_task_history"
         );
         List<String> collect = strings.stream().map(i -> i + "").collect(Collectors.toList());
         FastAutoGenerator.create("jdbc:mysql://" + ip + ":3306/" + dbName, uname, pwd)
@@ -42,11 +42,11 @@ public class MybatisGenerator {
                     builder.author("hxl") // 设置作者
                             //.enableSwagger() // 开启 swagger 模式
                             .fileOverride() // 覆盖已生成文件
-                            .outputDir("D:\\workspace\\test\\xsyx-auto-test-payment\\xsyx-auto-test-payment-service-dal\\src\\main\\java\\xsyx\\auto\\test\\payment\\dal\\entity"); // 指定输出目录
+                            .dateType(DateType.ONLY_DATE)
+                            .outputDir(pathSave); // 指定输出目录
                 })
                 .packageConfig(builder -> {
-                    builder.parent("xsyx.auto.test.payment.dal.entity")
-                            .pathInfo(objectObjectHashMap); // 设置父包名
+                    builder.parent("edu.java.deipss.sql.dal"); // 设置父包名
                 })
                 .strategyConfig(builder -> {
                     builder

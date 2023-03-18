@@ -1,4 +1,4 @@
-package edu.java.deipss.service.rocketmq;
+package edu.java.deipss.service.client.rocketmq;
 
 import lombok.Builder;
 import lombok.Data;

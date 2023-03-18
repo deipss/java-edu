@@ -1,6 +1,6 @@
 package edu.java.deipss.event.job;
 
-import edu.java.deipss.event.bo.QueryEventBO;
+import edu.java.deipss.service.test.domain.QueryEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class QueryEventPublishJob implements InitializingBean {
     @Async("executeThreadPoolExecutor")
     public void execute() {
         // 发布一个事件
-        applicationContext.publishEvent(new QueryEventBO(new QueryEventBO.QueryEventData("查询事件", "数据")));
+        applicationContext.publishEvent(new QueryEvent(new QueryEvent.QueryEventData("查询事件", "数据")));
     }
 
     @Override

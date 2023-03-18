@@ -1,4 +1,4 @@
-package edu.java.deipss.service.rocketmq;
+package edu.java.deipss.service.client.rocketmq;
 
 public interface TopicConstant {
     String EDU_TOPIC_1 = "EDU_TOPIC_1";
