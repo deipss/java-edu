@@ -1,4 +1,4 @@
-package edu.java.deipss.service.test.domain;
+package edu.java.deipss.service.test.domain.event;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

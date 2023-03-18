@@ -1,6 +1,6 @@
 package edu.java.deipss.event.listener;
 
-import edu.java.deipss.service.test.domain.QueryEvent;
+import edu.java.deipss.service.test.domain.event.QueryEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;

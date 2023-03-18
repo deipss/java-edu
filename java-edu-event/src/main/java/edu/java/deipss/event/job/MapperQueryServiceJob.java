@@ -29,8 +29,8 @@ public class MapperQueryServiceJob {
         log.info("执行查询结果={}",query);
     }
 
-    @Scheduled(cron = "0/2 * * * * ?")
+    @Scheduled(cron = "0/10 * * * * ?")
     public void templateProducer() {
-        /// templateProducer.producer();
+        templateProducer.producer();
     }
 }
