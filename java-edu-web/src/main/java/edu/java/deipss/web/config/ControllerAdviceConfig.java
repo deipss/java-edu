@@ -18,9 +18,8 @@ public class ControllerAdviceConfig extends ResponseEntityExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> handleControllerException(HttpServletRequest request, Throwable ex) {
-        HttpStatus status = getStatus(request);
-        return new ResponseEntity<>(null);
+    public String handleControllerException(HttpServletRequest request, Throwable ex) {
+        return ex.getMessage();
     }
 
     private HttpStatus getStatus(HttpServletRequest request) {

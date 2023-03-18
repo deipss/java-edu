@@ -21,6 +21,7 @@ public class MapperQueryServiceJob {
     @Autowired
     private TemplateProducer templateProducer;
 
+
     @Scheduled(cron = "0/5 * * * * ?")
     @Async("executeThreadPoolExecutor")
     public void mapperQueryService() {

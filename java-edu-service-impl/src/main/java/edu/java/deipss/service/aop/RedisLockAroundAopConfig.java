@@ -11,15 +11,15 @@ import org.aspectj.lang.annotation.Around;
 ///@Aspect
 @Slf4j
 ///@Component
-public class LogAopConfig {
+public class RedisLockAroundAopConfig {
 
     /**
      *
      * 使用注解的方式来切面
-     * @see LogAround
+     * @see RedisLockAround
      */
     @Around("@annotation(LogAround)")
-    public Object process(ProceedingJoinPoint point,LogAround logAround) {
+    public Object process(ProceedingJoinPoint point, RedisLockAround redisLockAround) {
         Object[] args = point.getArgs();
         log.info("请示参数={}", args);
         try {

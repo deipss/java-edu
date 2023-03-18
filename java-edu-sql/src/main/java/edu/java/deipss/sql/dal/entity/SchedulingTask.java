@@ -5,9 +5,13 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.sql.Time;
+import java.time.LocalTime;
 import java.util.Date;
+
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * <p>
@@ -17,8 +21,8 @@ import lombok.Setter;
  * @author hxl
  * @since 2023-03-17
  */
-@Getter
-@Setter
+@Data
+@ToString
 @TableName("scheduling_task")
 public class SchedulingTask implements Serializable {
 
@@ -38,11 +42,11 @@ public class SchedulingTask implements Serializable {
 
 
     @TableField("start_time")
-    private Time startTime;
+    private LocalTime startTime;
 
 
     @TableField("end_time")
-    private Time endTime;
+    private LocalTime endTime;
 
 
     @TableField("next_start")

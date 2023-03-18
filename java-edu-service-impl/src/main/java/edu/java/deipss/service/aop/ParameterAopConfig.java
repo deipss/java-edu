@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Slf4j
 @Component
-public class AopConfig {
+public class ParameterAopConfig {
     /**
      * 1、execution(): 表达式主体。
      * 2、第一个*号：表示返回类型，*号表示所有的类型。
@@ -33,7 +33,9 @@ public class AopConfig {
     @Around("point()")
     public Object process(ProceedingJoinPoint point) {
         Object[] args = point.getArgs();
-        log.info("aop请求参数={}", args);
+        String name = point.getSignature().getDeclaringType().getName();
+        String methodName = point.getSignature().getName();
+        log.info("clazz={},methodName={},aop请求参数={}", name,methodName,args);
         try {
             Object proceed = point.proceed();
             log.info("结果={}",proceed);
@@ -43,6 +45,4 @@ public class AopConfig {
         }
         return null;
     }
-
-
 }
