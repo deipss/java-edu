@@ -1,5 +1,6 @@
 package edu.java.deipss.event.job;
 
+import edu.java.deipss.service.aop.RedisLockAround;
 import edu.java.deipss.sql.redis.RedisRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ public class RedisManagerJob {
 
     @Scheduled(cron = "0/5 * * * * ?")
     @Async("executeThreadPoolExecutor")
+    @RedisLockAround(lockedKey = "runHoursAdd")
     public void runHoursAdd() {
         Boolean aBoolean = redisRepository.eduAdd();
         log.info("redis定时runHoursAdd任务执行结果={}",aBoolean);
@@ -24,6 +26,7 @@ public class RedisManagerJob {
 
     @Scheduled(cron = "0/5 * * * * ?")
     @Async("executeThreadPoolExecutor")
+    @RedisLockAround(lockedKey = "runHoursAdd")
     public void runHoursAddMeanwhile() {
         Boolean aBoolean = redisRepository.eduAdd();
         log.info("redis定时runHoursAddMeanwhile任务执行结果={}",aBoolean);

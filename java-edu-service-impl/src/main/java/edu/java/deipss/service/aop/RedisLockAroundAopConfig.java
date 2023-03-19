@@ -3,6 +3,12 @@ package edu.java.deipss.service.aop;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * @author deipss
@@ -10,25 +16,42 @@ import org.aspectj.lang.annotation.Around;
  */
 ///@Aspect
 @Slf4j
-///@Component
+///@Componen
 public class RedisLockAroundAopConfig {
 
+
+    @Autowired
+    private RedissonClient redissonClient;
+
     /**
-     *
      * 使用注解的方式来切面
+     *
      * @see RedisLockAround
      */
-    @Around("@annotation(LogAround)")
+
+    @Around("@annotation(RedisLockAround)")
     public Object process(ProceedingJoinPoint point, RedisLockAround redisLockAround) {
-        Object[] args = point.getArgs();
-        log.info("请示参数={}", args);
+        String lockedKey = redisLockAround.lockedKey();
+        String clazz = point.getSignature().getDeclaringType().getName();
+        String methodName = point.getSignature().getName();
+        RLock fairLock = redissonClient.getFairLock(lockedKey);
         try {
-            point.proceed();
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
+            if (fairLock.isLocked()) {
+                Object[] args = point.getArgs();
+                log.info("方法参数={}", args);
+                return point.proceed();
+            }
+            log.info("上锁失败,key={},clazz={},method={}",lockedKey,clazz,methodName);
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                fairLock.unlock();
+            }catch (Exception e){
+                log.error("锁释放失败,key={}",lockedKey);
+            }
         }
         return null;
     }
-
 
 }

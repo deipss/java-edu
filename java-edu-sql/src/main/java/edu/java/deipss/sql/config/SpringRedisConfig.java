@@ -1,5 +1,8 @@
 package edu.java.deipss.sql.config;
 
+import org.redisson.Redisson;
+import org.redisson.api.RedissonClient;
+import org.redisson.config.Config;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,5 +30,16 @@ public class SpringRedisConfig {
         template.setKeySerializer(StringRedisSerializer.UTF_8);
         template.setValueSerializer(StringRedisSerializer.UTF_8);
         return template;
+    }
+
+    @Bean()
+    public RedissonClient initRedissonClient(RedisProperties redisProperties){
+        Config config = new Config();
+        config.useSingleServer()
+                .setDatabase(7)
+                .setPassword(redisProperties.getPassword())
+                .setAddress("redis://"+redisProperties.getHost()+":6379");
+
+        return Redisson.create(config);
     }
 }
