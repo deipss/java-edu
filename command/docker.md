@@ -9,7 +9,7 @@
 > uname -r
 - 确保 yum 包更新到最新
 > sudo yum update
-- 执行 Docker 安装脚本
+- 执行 docker 安装脚本
 > curl >fsSL [https://get.docker.com](https://get.docker.com) >o get>[docker.sh](http://docker.sh) sudo sh get>[docker.sh](http://docker.sh)
 - 启动 Docker 进程
 > sudo systemctl start docker
@@ -26,7 +26,7 @@
 >https://programlife.net/2020/09/12/ubuntu-snap-docker-registry-mirrors/
 
 ```shell
-
+# 新版的ubuntu使用snap来管理一些软件，所以重启使用snap的命令
 sudo systemctl list-units --type=service
 sudo systemctl restart snap.docker.dockerd.service
 docker info
@@ -42,18 +42,25 @@ docker info
 
 ## 1.5. 容器启动
 ```bash
+# 虚拟内存设置大一点
+sysctl -w vm.max_map_count=262144
+
 docker run --name tomcat -p 8080:8080 -d tomcat   --restart=always
 docker run -p 27017:27017  -d mongo --restart=always
 docker run -p 6379:6379  -d redis redis-server --appendonly yes --restart=always
 
-设置容器的启动策略：用docker run命令创建并运行容器时，加上  --restart=always参数即可
+设置容器的启动策略：用docker run命令创建并运行容器时
+加上  --restart=always 参数即可
 docker update --restart=always 01a07d12cfec
 ```
 
 
 ## 1.6. 删除未启动的容器
 ```bash
+# 删除容器
 docker rm $( docker ps -a -q)
+# 删除镜像
+docker rm $( docker images -a -q)
 ```
 
 ## 1.7. 查看端口映射
@@ -116,10 +123,19 @@ rabbitmqctl  add_user  admin  admin
 rabbitmqctl  set_user_tags admin administrator
 ```
 ## 2.5. elasticsearch
+- https://www.elastic.co/guide/en/kibana/current/docker.html
+- https://levelup.gitconnected.com/docker-compose-made-easy-with-elasticsearch-and-kibana-4cb4110a80dd
+- 还要安装kibana
 ```bash
-docker pull docker.elastic.co/elasticsearch/elasticsearch:7.9.2
-docker run --name es -d -p 9200:9200 -p 9300:9300 \
--e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.9.2
+# es 
+docker network create elastic
+docker pull docker.elastic.co/elasticsearch/elasticsearch:8.6.2
+docker run --name es-node01 --net elastic -p 9200:9200 -p 9300:9300 -t docker.elastic.co/elasticsearch/elasticsearch:8.6.2  --restart=always 
+# es密码设置
+docker exec -it es-node01 /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
+# kibana 
+docker pull docker.elastic.co/kibana/kibana:8.6.2
+docker run --name kib-01 --net elastic -p 5601:5601 docker.elastic.co/kibana/kibana:8.6.2
 
 ```
 ## 2.6. redis

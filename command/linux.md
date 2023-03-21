@@ -137,6 +137,7 @@ which grep
 # 4. 网络信息查询
 
 ## 4.1. ipconfig
+
 ```shell
 ifconfig -address
 ```
@@ -176,14 +177,27 @@ netstat -g 将会显示该主机订阅的所有多播网络。
 ss -int
 ```
 
-
-
 # 5. 硬盘使用
 
 ## 5.1. df -hl
 
 # 6. 系统环境
+
 ## 6.1. env 查看当前主机的所有环境环境
+
 ```shell
 env | grep -i 'env' 在环境变量中查找包括env字符的行
+```
+
+# 7. 其他
+
+## 7.1. nohuo
+
+```shell
+nohup /root/runoob.sh > runoob.log 2>&1 &
+# 2>&1 解释：
+# 将标准错误 2 重定向到标准输出 &1 ，标准输出 &1 再被重定向输入到 runoob.log 文件中。
+# 0 – stdin (standard input，标准输入)
+# 1 – stdout (standard output，标准输出)
+# 2 – stderr (standard error，标准错误输出)
 ```
