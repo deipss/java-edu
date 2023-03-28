@@ -98,6 +98,10 @@ mvn deploy:deploy-file -DgroupId=com.frxs.repeater -DartifactId=receiver -Dversi
         </repository>
     </repositories>
 ```
+# 安装在本地
+```shell
+mvn install 会将包安装在本地的仓库
+```
 
 # 5. mvn配置文件
 ```text

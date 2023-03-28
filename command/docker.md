@@ -7,22 +7,26 @@
 ## 1.2. install docker on centos
 
 ```shell
-
-- 查看内核版本
-> uname -r
-- 确保 yum 包更新到最新
-> sudo yum update
-- 执行 docker 安装脚本
-> curl >fsSL [https://get.docker.com](https://get.docker.com) >o get>[docker.sh](http://docker.sh) sudo sh get>[docker.sh](http://docker.sh)
-- 启动 Docker 进程
-> sudo systemctl start docker
+查看内核版本
+uname -r
+确保 yum 包更新到最新
+sudo yum update
+执行 docker 安装脚本
+curl >fsSL [https://get.docker.com](https://get.docker.com) >o get>[docker.sh](http://docker.sh) sudo sh get>[docker.sh](http://docker.sh)
+启动 Docker 进程
+sudo systemctl start docker
 开机启动
-> sudo systemctl enable docker 
+sudo systemctl enable docker 
+```
 
 - 镜像加速 新版的 Docker 使用 /etc/docker/daemon.json
-{
- "registry-mirrors": ["http://hub-mirror.c.163.com"]
- }
+
+```json
+ {
+  "registry-mirrors": [
+    "http://hub-mirror.c.163.com"
+  ]
+}
 ```
 
 ## 1.3. docker 加速
@@ -42,10 +46,13 @@ docker info
 
 ```shell
 文档 https://hub.docker.com/
-查看镜像  docker image ls
+查看镜像  
+docker image ls
 docker images -a
-查看已下载的 docker images 
-删除镜像 docker imamges rm 
+查看已下载的 
+docker images 
+删除镜像 
+docker imamges rm 
 ```
 
 ## 1.5. 容器启动
@@ -57,9 +64,7 @@ sysctl -w vm.max_map_count=262144
 docker run --name tomcat -p 8080:8080 -d tomcat   --restart=always
 docker run -p 27017:27017  -d mongo --restart=always
 docker run -p 6379:6379  -d redis redis-server --appendonly yes --restart=always
-
-设置容器的启动策略：用docker run命令创建并运行容器时
-加上  --restart=always 参数即可
+# 自动启动
 docker update --restart=always 01a07d12cfec
 ```
 
@@ -91,11 +96,12 @@ docker exec -it [容器ID] /bin/bash
 docker logs -f bf08b7f2cd89
 ```
 
-
 ## 1.10. 观测某个容器
+
 ```shell
 docker inspect [容器ID]
 ```
+
 # 2. 常见服务
 
 ## 2.1. mysql
@@ -129,7 +135,8 @@ docker run -d --name kafka -p 9092:9092 -e KAFKA_BROKER_ID=0 \
  -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 -t wurstmeister/kafka
 
 KAFKA_ZOOKEEPER_CONNECT KAFKA_ADVERTISED_LISTENERS 
-两个参数的192.168.204.128改为宿主机器的IP地址，如果不这么设置，可能会导致在别的机器上访问不到kafka。
+两个参数的192.168.204.128改为宿主机器的IP地址，如果不这么设置，
+可能会导致在别的机器上访问不到kafka。
 
 docker exec -it kafka /bin/bash
 

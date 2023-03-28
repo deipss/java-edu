@@ -46,11 +46,9 @@ jmap -histo <pid> | grep <class full path> | sort -n -k 3 | head 17
    5:         16856       68812488  [B
    6:        278914       67329632  [Ljava.util.HashMap$Node;
    7:       1297968       62302464  
-...
 
 使用jstat命令查看gc情况
 jstat -gcutil <pid> 5000 20
-
 ```
 
 # 使用Arthas
@@ -64,14 +62,13 @@ java -jar arthas-boot.jar
 
 ## ognl
 
-```
-# 注意SpringExtensionFactory的版本，不同版本，类路径可能不一样
+```bash
+# 3. 注意SpringExtensionFactory的版本，不同版本，类路径可能不一样
 sc -d 'org.apache.dubbo.config.spring.extension.SpringExtensionFactory'
-# 上面的命中得出cloassLoader的内存地址
+# 4. 上面的命中得出cloassLoader的内存地址
 ognl -c 2e1ef60 '#context=@org.apache.dubbo.config.spring.extension.SpringExtensionFactory@getContexts().iterator.next, 
-#context.getBean("umsTradeBillSplitJob").execute(null)' -x 3
-# 可以使用new construct() 构造函数来声明一个变量 #a=new java.lang.Object(1)
-
+# 5. context.getBean("umsTradeBillSplitJob").execute(null)' -x 3
+# 6. 可以使用new construct() 构造函数来声明一个变量 #a=new java.lang.Object(1)，注意使用要带上#号
 ```
 
 - 参考 https://cloud.tencent.com/developer/article/1846725
@@ -79,15 +76,15 @@ ognl -c 2e1ef60 '#context=@org.apache.dubbo.config.spring.extension.SpringExtens
 ## monitor
 
 ```shell script
-# 5. 每秒的请求数
+# 7. 每秒的请求数
 monitor -c 1 <类全路径名> <方法名>
 ```
 
 ## trace
 
 ```shell script
-# 6. 方法内部调用路径，并输出方法路径上的每个节点上耗时
-# 7. 可以指定毫秒数
+# 8. 方法内部调用路径，并输出方法路径上的每个节点上耗时
+# 9. 可以指定毫秒数
 trace com.frxs.repeater.receiver.event.consumer.RecieveGeneralMsgConsumer onMessage  -n 5 --skipJDKMethod false '#cost > 3000'
 ```
 

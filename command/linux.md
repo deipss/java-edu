@@ -97,13 +97,14 @@ grep "ERROR" app-repeater-receiver-2022-05-06-1.log | grep "saveRecord" | sort -
 
 # 3. 文件查找
 
-- [http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html](http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html)
+- http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html
 
 ## 3.1. find
 
 ```bash
 find . -name 'my*'
 find . -name 'my*' -ls
+# 查找近10分钟修改过的文件
 find -type f -mmin 10
 find / -name "my*" 从根目录开始查找
 ```
@@ -112,7 +113,7 @@ find / -name "my*" 从根目录开始查找
 
 类似于find -name，但是效率比find高
 
-```sql
+```bash
 locate /etc/my
 ```
 
@@ -143,7 +144,7 @@ ifconfig -address
 ```
 
 ## 4.2. telnet ip port
-
+检查某个服务的port是否启动
 ## 4.3. nslookup
 
 ```gitignore
@@ -154,7 +155,6 @@ ifconfig -address
 
 ```shell
 yum install tcpdump
-
 tcpdump -w package.cap 
 ```
 
@@ -165,8 +165,6 @@ netstat -s | egrep "listen|LISTEN" 等同  netstat -s | grep -i "listen"
 netstat -at 查询所有tcp的连接，可用于服务启动后的端口查看，是否启动了kafka，dubbo等
 netstat -nap | grep port 将会显示使用该端口的应用程序的进程 id
 netstat -g 将会显示该主机订阅的所有多播网络。
-
-
 ```
 
 ## 4.6. ps -efl
@@ -191,7 +189,7 @@ env | grep -i 'env' 在环境变量中查找包括env字符的行
 
 # 7. 其他
 
-## 7.1. nohuo
+## 7.1. nohup
 
 ```shell
 nohup /root/runoob.sh > runoob.log 2>&1 &

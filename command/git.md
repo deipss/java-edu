@@ -1,7 +1,9 @@
 # 1. 项目初始化
-```shell
+
 git初始化的一些配置
-    方法一、
+
+## 1.1. 方法一、
+
     先将仓库clone到本地，修改后再push到码云的仓库仓库
     $ git clone https://gitee.com/用户个性地址/HelloGitee.git #将远程仓库克隆到本地
     在克隆过程中，如果仓库是一个私有仓库，将会要求用户输入码云的账号和密码。按照提示输入即可。
@@ -15,7 +17,8 @@ git初始化的一些配置
     $ git commit -m "my first commit" #提交并备注提交信息
     $ git push origin master #将本地提交推送到远程仓库
 
-    方法二
+## 1.2. 方法二
+
     git init
     git remote add origin https://gitee.com/用户个性地址/HelloGitee.git
     这样就完成了版本的一次初始化。
@@ -28,7 +31,7 @@ git初始化的一些配置
     在新建仓库时，如果在码云平台仓库上已经存在 readme 或其他文件，在提交时可能会存在冲突，这时用户需要选择的是保留线上的文件或者舍弃线上的文件，如果您舍弃线上的文件，则在推送时选择强制推送，强制推送需要执行下面的命令(默认不推荐该行为)：
     git push origin master -f
     如果您选择保留线上的 readme 文件,则需要先执行：
-    git pull origin master
+
 ```
 
 # 2. 合并分支
@@ -37,7 +40,9 @@ git merge 分支名/节点哈希值
 git rebase 分支名/节点哈希值
 git cherry-pick 节点哈希值
 ```
+
 # 3. 分支管理
+
 ```shell script
 git pull
 git status
@@ -47,21 +52,23 @@ git add .
 git fetch
 
 
-# 撤消工作区
+# 2. 撤消工作区
 git checkout -- 文件名
-# 清空缓存区
+# 3. 清空缓存区
 git reset HEAD 文件名
-# 新建分支
+# 4. 新建分支
 git branch 分支名
-# 切换分支
+# 5. 切换分支
 git checkout 分支名
-# 同时切换并创建分支
+# 6. 同时切换并创建分支
 git checkout -b 分支名
-# 删除分支
+# 7. 删除分支
 git branch -d 分支名
 
 ```
+
 # 4. 回退
+
 ```
 git checkout 节点哈希值
 //也可以直接脱离分支指向当前节点
@@ -72,12 +79,13 @@ git reset HEAD~N
 ```
 
 # 5. 远程仓库
+
 ```shell
 git remote -v  #查看远端地址
 git remote #查看远端仓库名
 git remote set-url origin https://gitee.com/xx/xx.git (新地址)
 ```
 
-
 # 6. 日志查询
+
 git log
