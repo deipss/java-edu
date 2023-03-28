@@ -1,6 +1,6 @@
 # 1. 装机
 
-## 1.1. 办公：
+## 1.1. 办公
 
 - office 套装
 - chrome
@@ -8,11 +8,10 @@
 - feem 局域网数据传递 可以跨OS
 - Chocolatey windows的包管理工具
 
-## 1.2. 编码：
+## 1.2. 编码
 
 - idea
 - pyCharm
-- subline
 - vscode
 
 ## 1.3. 构建与版本控制
@@ -30,9 +29,10 @@
 - wiresharke 网络抓包解析
 - tcpdump(linux上)
 - ZeroTier vpn搭建
+- MobaXterm
 
 
-## 1.5. 中间件：
+## 1.5. 中间件
 
 - redis:rdm
 - mangoDb:Robo 3T
@@ -40,7 +40,7 @@
 - zooKeeper:prettyZoo
 - kafka: offset explore
 
-## 1.6. 工具:
+## 1.6. 工具
 
 - everything 搜索工具
 - wox 搜索工具
