@@ -29,7 +29,7 @@
 - wiresharke 网络抓包解析
 - tcpdump(linux上)
 - ZeroTier vpn搭建
-- MobaXterm
+- MobaXterm 远程登陆
 
 
 ## 1.5. 中间件
