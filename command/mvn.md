@@ -98,12 +98,13 @@ mvn deploy:deploy-file -DgroupId=com.frxs.repeater -DartifactId=receiver -Dversi
         </repository>
     </repositories>
 ```
-# 安装在本地
+# 5. 安装在本地
 ```shell
 mvn install 会将包安装在本地的仓库
+mvn clean compile install deploy
 ```
 
-# 5. mvn配置文件
+# 6. mvn配置文件
 ```text
-<package></package> 可以有pom或是jar,默认是jar,在有父子继续关系时，一般父pom文件使用pom包
+<package></package>标签 可以有pom或是jar,默认是jar,在有父子继续关系时，一般父pom文件使用pom包
 ```

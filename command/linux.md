@@ -145,11 +145,7 @@ ifconfig -address
 
 ## 4.2. telnet ip port
 检查某个服务的port是否启动
-## 4.3. nslookup
 
-```gitignore
-
-```
 
 ## 4.4. tcpdump
 
