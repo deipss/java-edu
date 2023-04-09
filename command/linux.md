@@ -151,7 +151,8 @@ ifconfig -address
 
 ```shell
 yum install tcpdump
-tcpdump -w package.cap 
+-w write写入某个文件 
+tcpdump -w package.cap  
 ```
 
 ## 4.5. netstat

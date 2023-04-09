@@ -101,7 +101,8 @@ mvn deploy:deploy-file -DgroupId=com.frxs.repeater -DartifactId=receiver -Dversi
 # 5. 安装在本地
 ```shell
 mvn install 会将包安装在本地的仓库
-mvn clean compile install deploy
+mvn clean compile install deploy  -Dmaven.test.skip=true
+mvn clean compile package '-Dmaven.test.skip=true'
 ```
 
 # 6. mvn配置文件

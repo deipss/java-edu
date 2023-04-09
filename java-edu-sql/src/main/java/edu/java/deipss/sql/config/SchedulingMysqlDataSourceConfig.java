@@ -27,6 +27,10 @@ import javax.sql.DataSource;
 @MapperScan(value = "edu.java.deipss.sql.dal.mapper", sqlSessionTemplateRef = "schedulingSqlSessionTemplate")
 public class SchedulingMysqlDataSourceConfig {
 
+    public static final String SCHEDULING_TRANSACTION_TEMPLATE = "schedulingTransactionTemplate";
+    public static final String SCHEDULING_TRANSACTION_MANAGER = "schedulingTransactionManager";
+    public static final String SCHEDULING_SQL_SESSION_TEMPLATE = "schedulingSqlSessionTemplate";
+    public static final String SCHEDULING_DATA_SOURCE = "schedulingDataSource";
     @Value("${scheduling.mysql.username}")
     private String username;
     @Value("${scheduling.mysql.password}")
@@ -57,7 +61,7 @@ public class SchedulingMysqlDataSourceConfig {
      * @param tx 事务管理器
      * @return 事务管理模版
      */
-    @Bean("schedulingTransactionTemplate")
+    @Bean(SCHEDULING_TRANSACTION_TEMPLATE)
     public TransactionTemplate transactionTemplate(@Qualifier("schedulingTransactionManager") PlatformTransactionManager tx) {
         TransactionTemplate transactionTemplate = new TransactionTemplate(tx);
         transactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
@@ -67,18 +71,18 @@ public class SchedulingMysqlDataSourceConfig {
     }
 
 
-    @Bean("schedulingTransactionManager")
+    @Bean(SCHEDULING_TRANSACTION_MANAGER)
     public PlatformTransactionManager transactionManager(@Qualifier("schedulingDataSource") DataSource ds) {
         return new DataSourceTransactionManager(ds);
     }
 
-    @Bean("schedulingSqlSessionTemplate")
+    @Bean(SCHEDULING_SQL_SESSION_TEMPLATE)
     public SqlSessionTemplate sqlSessionTemplate(@Qualifier("schedulingSqlSessionFactory") SqlSessionFactory factory) {
         SqlSessionTemplate sqlSessionTemplate = new SqlSessionTemplate(factory);
         return sqlSessionTemplate;
     }
 
-    @Bean("schedulingDataSource")
+    @Bean(SCHEDULING_DATA_SOURCE)
     public DataSource dataSource() {
         MysqlDataSource mysqlDataSource = new MysqlDataSource();
         mysqlDataSource.setPassword(password);

@@ -13,6 +13,8 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Configuration
 public class SpringRedisConfig {
 
+    public static final String DEFAULT_REDIS_TEMPLATE = "defaultRedisTemplate";
+
     @Bean
     JedisConnectionFactory jedisConnectionFactory( RedisProperties redisProperties) {
         JedisConnectionFactory jedisConFactory
@@ -23,7 +25,7 @@ public class SpringRedisConfig {
     }
 
 
-    @Bean("defaultRedisTemplate")
+    @Bean(DEFAULT_REDIS_TEMPLATE)
     public RedisTemplate<String, String> redisTemplate( JedisConnectionFactory jedisConnectionFactory) {
         RedisTemplate<String, String> template = new RedisTemplate<>();
         template.setConnectionFactory(jedisConnectionFactory);

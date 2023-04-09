@@ -11,11 +11,13 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 public class CaffeineCacheConfig {
 
+    public static final String SCHEDULING_TASK_CACHE = "schedulingTaskCache";
+
     /**
      *
      * @return caffeine 缓存
      */
-    @Bean("schedulingTaskCache")
+    @Bean(SCHEDULING_TASK_CACHE)
     public LoadingCache<String, SchedulingTask> initCache(){
         LoadingCache<String, SchedulingTask> cache = Caffeine.newBuilder()
                 .expireAfterWrite(1, TimeUnit.MINUTES)

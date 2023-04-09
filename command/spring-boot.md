@@ -1,8 +1,8 @@
 # 1. auto configuration
 ```text
-● 找到spring-boot autoconfig这个jar包，下面的META-INF文件夹
-● 找到spring.factories文件
-● 在这个文件中搜索相关的关键字，如kafka，可以看kafka自动配置的入口类
+找到 spring-boot-autoconfig这个jar包，下面的META-INF文件夹
+找到spring.factories文件
+在这个文件中搜索相关的关键字，如kafka，可以看kafka自动配置的入口类
 ```
 
 ## 1.1. kafka
@@ -19,3 +19,8 @@ SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
 找到了多个binding类，将不需要去除
 ```
+
+## dubbo
+### dubbo 3.0
+duubo》curator》zookeeper
+这样的一种调用关系

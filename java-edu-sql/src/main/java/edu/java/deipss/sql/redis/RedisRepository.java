@@ -17,7 +17,8 @@ import java.util.List;
 @Repository
 public class RedisRepository {
 
-    @Resource(name = "defaultRedisTemplate")
+    public static final String DEFAULT_REDIS_TEMPLATE = "defaultRedisTemplate";
+    @Resource(name = DEFAULT_REDIS_TEMPLATE)
     private RedisTemplate<String, String> redisTemplate;
 
     @Async("executeThreadPoolExecutor")

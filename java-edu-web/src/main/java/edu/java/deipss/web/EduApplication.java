@@ -1,3 +1,5 @@
+package edu.java.deipss.web;
+
 import edu.java.deipss.event.config.SchedulingConfig;
 import org.apache.dubbo.spring.boot.autoconfigure.DubboAutoConfiguration;
 import org.springframework.boot.SpringApplication;

@@ -48,6 +48,12 @@ public class MapperController {
     }
 
     @GetMapping("/getAnnotation")
+    /**
+     * ModelAttribute annotation that binds a method parameter or method return value
+     * to a named model attribute, exposed to a web view. Supported
+     * for controller classes with {@link RequestMapping @RequestMapping}
+     * methods.
+     */
     public QueryRequest getAnnotation(@ModelAttribute QueryRequest queryRequest) {
         String check = ValidUtil.check(queryRequest);
         if(Strings.isNullOrEmpty(check)){

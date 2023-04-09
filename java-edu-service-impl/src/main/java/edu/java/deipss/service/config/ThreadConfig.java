@@ -19,7 +19,10 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class ThreadConfig {
 
-    @Bean("schedulingThreadPoolExecutor")
+    public static final String SCHEDULING_THREAD_POOL_EXECUTOR = "schedulingThreadPoolExecutor";
+    public static final String EXECUTE_THREAD_POOL_EXECUTOR = "executeThreadPoolExecutor";
+
+    @Bean(SCHEDULING_THREAD_POOL_EXECUTOR)
     public ThreadPoolExecutor scheduling() {
         ThreadFactory threadFactory = new ThreadFactoryBuilder()
                 .setNameFormat("task-scheduling-thread" + "-%d")
@@ -44,7 +47,7 @@ public class ThreadConfig {
         return executor;
     }
 
-    @Bean("executeThreadPoolExecutor")
+    @Bean(EXECUTE_THREAD_POOL_EXECUTOR)
     public ThreadPoolExecutor executor() {
         ThreadFactory threadFactory = new ThreadFactoryBuilder()
                 .setNameFormat("task-execute-thread" + "-%d")
