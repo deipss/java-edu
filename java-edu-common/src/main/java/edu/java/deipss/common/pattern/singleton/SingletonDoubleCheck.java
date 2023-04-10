@@ -2,8 +2,8 @@ package edu.java.deipss.common.pattern.singleton;
 
 /**
  * @author deipss
- * @date 2021-11-05
- * https://www.geeksforgeeks.org/java-singleton-design-pattern-practices-examples/?ref=lbp
+ * @since 2021-11-05
+ * <a href="https://www.geeksforgeeks.org/java-singleton-design-pattern-practices-examples/?ref=lbp">参考1</a>
  */
 
 
