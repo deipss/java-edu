@@ -37,7 +37,7 @@ public class MybatisGenerator {
                 "scheduling_task","scheduling_task_history"
         );
         List<String> collect = strings.stream().map(i -> i + "").collect(Collectors.toList());
-        FastAutoGenerator.create("jdbc:mysql://" + ip + ":3306/" + dbName, uname, pwd)
+        FastAutoGenerator.create("jdbc:mysql://" + ip + ":3306/" + dbName+"?useSSL=false", uname, pwd)
                 .globalConfig(builder -> {
                     builder.author("hxl") // 设置作者
                             //.enableSwagger() // 开启 swagger 模式

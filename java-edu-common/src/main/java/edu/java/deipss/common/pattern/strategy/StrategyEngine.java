@@ -11,7 +11,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Slf4j
-@Component
+/// @Component
 public class StrategyEngine<R, T> {
 
     @Autowired
