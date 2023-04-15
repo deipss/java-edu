@@ -167,7 +167,7 @@ rabbitmqctl  set_user_tags admin administrator
 ```
 
 ## 2.5. elasticsearch
-
+### 8.0版本
 - https://www.elastic.co/guide/en/kibana/current/docker.html
 - https://levelup.gitconnected.com/docker-compose-made-easy-with-elasticsearch-and-kibana-4cb4110a80dd
 - 还要安装kibana
@@ -188,7 +188,16 @@ docker pull docker.elastic.co/kibana/kibana:8.6.2
 docker run --name kib-01 --net elastic -p 5601:5601 docker.elastic.co/kibana/kibana:8.6.2
 
 ```
+### 7.7版本
+- https://www.elastic.co/guide/en/kibana/7.17/docker.html
+```shell
+docker network create elastic
+docker pull docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+docker run --name es01-test --net elastic -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.17.9
 
+docker pull docker.elastic.co/kibana/kibana:7.17.9
+docker run --name kib01-test --net elastic -p 127.0.0.1:5601:5601 -e "ELASTICSEARCH_HOSTS=http://es01-test:9200" docker.elastic.co/kibana/kibana:7.17.9
+```
 ## 2.6. redis
 
 ```bash
