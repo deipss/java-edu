@@ -46,7 +46,7 @@ public class SchedulingMysqlDataSourceConfig {
         mybatisConfiguration.setLogImpl(StdOutImpl.class);
         factoryBean.setConfiguration(mybatisConfiguration);
         // mybatis handle 指定
-        ///factoryBean.setTypeHandlersPackage("");
+        factoryBean.setTypeHandlersPackage("edu.java.deipss.sql.dal.handler");
         // 分页插件
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
         interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
