@@ -61,7 +61,7 @@ public class ValidUtil<T> {
         Set<ConstraintViolation<T>> validate = validator.validate(t);
         if (validate.size() > 0) {
             List<String> collect = validate.stream().map(ConstraintViolation::getMessage).collect(Collectors.toList());
-            throw new Exception(StringUtils.join(collect, ','));
+            throw new IllegalArgumentException(StringUtils.join(collect, ','));
         }
     }
     /**
@@ -75,7 +75,7 @@ public class ValidUtil<T> {
         Set<ConstraintViolation<T>> validate = validator.validate(t, groups);
         if (validate.size() > 0) {
             List<String> collect = validate.stream().map(ConstraintViolation::getMessage).collect(Collectors.toList());
-            throw new Exception(StringUtils.join(collect, ','));
+            throw new IllegalArgumentException(StringUtils.join(collect, ','));
         }
     }
 }

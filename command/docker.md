@@ -192,7 +192,7 @@ docker run --name kib-01 --net elastic -p 5601:5601 docker.elastic.co/kibana/kib
 ## 2.6. redis
 
 ```bash
-docker pull redis
+docker pull redis:latest
 docker run -d --name redis -p 6379:6379 redis --requirepass "redis" --appendonly yes
 ```
 
