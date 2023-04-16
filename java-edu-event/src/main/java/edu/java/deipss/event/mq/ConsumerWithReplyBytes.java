@@ -4,9 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQReplyListener;
-import org.springframework.stereotype.Service;
 
-import static edu.java.deipss.service.test.domain.constant.TopicConstant.*;
+import static edu.java.deipss.service.test.domain.mq.TopicConstant.*;
 
 /// @Service
 @Slf4j

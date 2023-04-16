@@ -1,6 +1,6 @@
 package edu.java.deipss.service.client.rocketmq;
 
-import edu.java.deipss.service.test.domain.constant.TopicConstant;
+import edu.java.deipss.service.test.domain.mq.TopicConstant;
 import edu.java.deipss.service.test.domain.mq.MessageDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.producer.SendCallback;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalTime;
 import java.util.UUID;
 
-import static edu.java.deipss.service.test.domain.constant.TopicConstant.EDU_TOPIC_DELAY_1;
+import static edu.java.deipss.service.test.domain.mq.TopicConstant.EDU_TOPIC_DELAY_1;
 
 
 @Slf4j

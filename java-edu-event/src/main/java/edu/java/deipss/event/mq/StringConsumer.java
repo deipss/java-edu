@@ -6,7 +6,7 @@ import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQListener;
 import org.springframework.stereotype.Service;
 
-import static edu.java.deipss.service.test.domain.constant.TopicConstant.*;
+import static edu.java.deipss.service.test.domain.mq.TopicConstant.*;
 
 @Slf4j
 @Service

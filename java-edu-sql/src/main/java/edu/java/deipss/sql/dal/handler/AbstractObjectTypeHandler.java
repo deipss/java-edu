@@ -1,6 +1,9 @@
 package edu.java.deipss.sql.dal.handler;
 
 import com.alibaba.fastjson2.JSON;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import org.apache.ibatis.type.Alias;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 
@@ -10,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+@NoArgsConstructor
 public class AbstractObjectTypeHandler<T> extends BaseTypeHandler<T> {
 
     private Class<T> clazz;

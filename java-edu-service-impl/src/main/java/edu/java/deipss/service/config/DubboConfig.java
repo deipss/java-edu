@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(value = "local.dubbo",havingValue = "true")
+@ConditionalOnProperty(value = "switch.dubbo",havingValue = "true")
 @EnableDubbo(scanBasePackages={"edu.java.deipss.service.dubbo"})
 public class DubboConfig {
 }
