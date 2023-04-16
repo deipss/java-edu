@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +13,9 @@ import org.springframework.stereotype.Component;
  * @author deipss
  * @date 2021-07-31
  */
-///@Aspect
+/// @Aspect
 @Slf4j
-///@Componen
+/// @Component
 public class RedisLockAroundAopConfig {
 
 
@@ -29,7 +28,7 @@ public class RedisLockAroundAopConfig {
      * @see RedisLockAround
      */
 
-    @Around("@annotation(RedisLockAround)")
+    @Around("execution(public * *(..)) && @annotation(RedisLockAround)")
     public Object process(ProceedingJoinPoint point, RedisLockAround redisLockAround) {
         String lockedKey = redisLockAround.lockedKey();
         String clazz = point.getSignature().getDeclaringType().getName();
@@ -38,7 +37,7 @@ public class RedisLockAroundAopConfig {
         try {
             if (fairLock.isLocked()) {
                 Object[] args = point.getArgs();
-                log.info("方法参数={}", args);
+                log.info("上锁成功方法参数={}", args);
                 return point.proceed();
             }
             log.info("上锁失败,key={},clazz={},method={}",lockedKey,clazz,methodName);

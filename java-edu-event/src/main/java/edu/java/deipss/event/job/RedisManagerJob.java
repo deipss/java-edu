@@ -17,7 +17,6 @@ public class RedisManagerJob {
 
 
     @Scheduled(cron = "0/5 * * * * ?")
-    @Async("executeThreadPoolExecutor")
     @RedisLockAround(lockedKey = "runHoursAdd")
     public void runHoursAdd() {
         Boolean aBoolean = redisRepository.eduAdd();
@@ -25,11 +24,17 @@ public class RedisManagerJob {
     }
 
     @Scheduled(cron = "0/5 * * * * ?")
-    @Async("executeThreadPoolExecutor")
     @RedisLockAround(lockedKey = "runHoursAdd")
     public void runHoursAddMeanwhile() {
         Boolean aBoolean = redisRepository.eduAdd();
         log.info("redis定时runHoursAddMeanwhile任务执行结果={}",aBoolean);
+    }
+
+    @Scheduled(cron = "0/7 * * * * ?")
+    @Async("executeThreadPoolExecutor")
+    public void runLua() {
+        Boolean aBoolean = redisRepository.exeLua();
+        log.info("redis定时exeLua任务执行结果={}",aBoolean);
     }
 
 }

@@ -20,7 +20,7 @@ import static edu.java.deipss.service.test.domain.mq.TopicConstant.EDU_TOPIC_DEL
 
 @Slf4j
 @Component
-public class TemplateProducer {
+public class MqTemplateProducer {
 
     @Autowired
     private RocketMQTemplate rocketMQTemplate;
@@ -41,7 +41,7 @@ public class TemplateProducer {
      */
     public void producerAsync() {
 
-        MessageDTO dto = MessageDTO.builder().name("test").age(LocalTime.now().getNano() % 100).build();
+        MessageDTO dto = MessageDTO.builder().name("test_async").age(LocalTime.now().getNano() % 100 ).build();
 
         // 异步发送消息
         rocketMQTemplate.asyncSend(TopicConstant.EDU_TOPIC_1, dto, new SendCallback() {
@@ -72,10 +72,10 @@ public class TemplateProducer {
 
         // 发送消息时如何设置消息的key,可以通过重载的xxxSend(String destination, Message<?> msg, ...)方法来发送消息，指定msg的headers来完成
         String msgId = UUID.randomUUID().toString();
-        rocketMQTemplate.send("topic-test", MessageBuilder.withPayload("msg of key").setHeader(MessageConst.PROPERTY_KEYS, msgId).build());
+        rocketMQTemplate.send(TopicConstant.EDU_TOPIC_1, MessageBuilder.withPayload("msg of key").setHeader(MessageConst.PROPERTY_KEYS, msgId).build());
 
         // 发送顺序排序消息
-        SendResult sendResult = rocketMQTemplate.syncSendOrderly("orderly_topic", MessageBuilder.withPayload("Hello, World").build(), "hashkey");
+        SendResult sendResult = rocketMQTemplate.syncSendOrderly(TopicConstant.EDU_TOPIC_1, MessageBuilder.withPayload("Hello, World").build(), "hashkey");
         log.info("发送结果sendResult={}",sendResult.getMsgId());
 
 

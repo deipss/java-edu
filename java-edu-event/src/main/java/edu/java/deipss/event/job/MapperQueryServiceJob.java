@@ -1,6 +1,6 @@
 package edu.java.deipss.event.job;
 
-import edu.java.deipss.service.client.rocketmq.TemplateProducer;
+import edu.java.deipss.service.client.rocketmq.MqTemplateProducer;
 import edu.java.deipss.service.service.MapperQueryService;
 import edu.java.deipss.sql.dal.entity.SchedulingTask;
 import lombok.extern.slf4j.Slf4j;
@@ -18,9 +18,6 @@ public class MapperQueryServiceJob {
     @Autowired
     private MapperQueryService mapperQueryService;
 
-    @Autowired
-    private TemplateProducer templateProducer;
-
 
     @Scheduled(cron = "0/5 * * * * ?")
     @Async("executeThreadPoolExecutor")
@@ -29,8 +26,4 @@ public class MapperQueryServiceJob {
         log.info("执行查询结果={}",query);
     }
 
-    @Scheduled(cron = "0/10 * * * * ?")
-    public void templateProducer() {
-        templateProducer.producer();
-    }
 }
