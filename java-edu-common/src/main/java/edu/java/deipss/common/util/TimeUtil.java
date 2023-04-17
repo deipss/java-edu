@@ -47,10 +47,13 @@ public class TimeUtil {
         return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
     }
 
+    public static LocalDateTime toLocalDateTime(Date date) {
+        return  Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
+    }
+
     public static String format(String pattern, Date date) {
-        LocalDateTime localDateTime = Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
-        return dateTimeFormatter.format(localDateTime);
+        return dateTimeFormatter.format(toLocalDateTime(date));
     }
 
     public static String formatToday() {

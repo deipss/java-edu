@@ -9,13 +9,15 @@ import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author deipss
  * @date 2021-07-31
  */
-/// @Aspect
+@Aspect
 @Slf4j
-/// @Component
+@Component
 public class RedisLockAroundAopConfig {
 
 
@@ -28,14 +30,14 @@ public class RedisLockAroundAopConfig {
      * @see RedisLockAround
      */
 
-    @Around("execution(public * *(..)) && @annotation(RedisLockAround)")
+    @Around("@annotation(redisLockAround)")
     public Object process(ProceedingJoinPoint point, RedisLockAround redisLockAround) {
         String lockedKey = redisLockAround.lockedKey();
         String clazz = point.getSignature().getDeclaringType().getName();
         String methodName = point.getSignature().getName();
-        RLock fairLock = redissonClient.getFairLock(lockedKey);
+        RLock fairLock = redissonClient.getLock(lockedKey);
         try {
-            if (fairLock.isLocked()) {
+            if (fairLock.tryLock(3,60, TimeUnit.SECONDS)) {
                 Object[] args = point.getArgs();
                 log.info("上锁成功方法参数={}", args);
                 return point.proceed();
@@ -46,6 +48,7 @@ public class RedisLockAroundAopConfig {
         } finally {
             try {
                 fairLock.unlock();
+                log.info("锁释放成功,key={}",lockedKey);
             }catch (Exception e){
                 log.error("锁释放失败,key={}",lockedKey);
             }
