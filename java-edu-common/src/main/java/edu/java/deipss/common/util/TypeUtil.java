@@ -2,6 +2,7 @@ package edu.java.deipss.common.util;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.Set;
 
 public class TypeUtil {
 
@@ -11,6 +12,14 @@ public class TypeUtil {
 
     public static boolean isCollection(Object o) {
         return Collection.class.isAssignableFrom(o.getClass());
+    }
+
+    public static boolean isSet(Object o) {
+        return Set.class.isAssignableFrom(o.getClass());
+    }
+
+    public static boolean isArray(Object o) {
+        return o.getClass().isArray();
     }
 
     /*

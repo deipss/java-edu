@@ -18,10 +18,17 @@
     </properties>
 
     <dependencies>
+        <!--inner-->
+        <dependency>
+            <groupId>org.deipss</groupId>
+            <artifactId>java-edu-service-api</artifactId>
+        </dependency>
+        <!--test-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
+        <!--dev-->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-crypto</artifactId>

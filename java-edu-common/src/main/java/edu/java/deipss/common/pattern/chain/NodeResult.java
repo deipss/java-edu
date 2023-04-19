@@ -1,6 +1,27 @@
 package edu.java.deipss.common.pattern.chain;
 
-public class NodeResult {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    private boolean finalSuccess;
+/**
+ * 节点结果
+ */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class NodeResult<R> {
+    /**
+     * 当前节点是否成功
+     */
+    private boolean success;
+
+
+    private String nextNodeUk;
+
+
+    /**
+     * 节点执行结果
+     */
+    private R data;
 }
