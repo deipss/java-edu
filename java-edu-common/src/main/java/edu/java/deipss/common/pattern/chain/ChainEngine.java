@@ -44,7 +44,9 @@ public class ChainEngine<T> {
                 .collect(Collectors.toMap(ChainNode::getNodeUk, Function.identity(), (a, b) -> a));
 
         Optional<ChainNode<T>> any = nodeList.stream().filter(ChainNode::isStated).findAny();
+        Optional<ChainNode<T>> end = nodeList.stream().filter(ChainNode::isEnd).findAny();
         any.orElseThrow(() -> AppInnerException.builder().message("未找到开始节点").build());
+        end.orElseThrow(() -> AppInnerException.builder().message("未找到结束节点").build());
         any.ifPresent(i -> statedNode = any.get());
     }
 
@@ -55,10 +57,10 @@ public class ChainEngine<T> {
     public NodeResult<T> process(NodeContext context) {
         ChainNode<T> currentNode = statedNode;
         NodeResult<T> result = null;
-        do {
+        while (!currentNode.isEnd()){
             result = currentNode.process(context);
             currentNode = nodeMap.get(result.getNextNodeUk());
-        } while (!currentNode.isEnd());
+        }
         return result;
     }
 }

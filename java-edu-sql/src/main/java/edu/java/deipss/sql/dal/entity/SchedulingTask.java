@@ -1,5 +1,6 @@
 package edu.java.deipss.sql.dal.entity;
 
+import com.baomidou.mybatisplus.annotation.OrderBy;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -69,5 +70,6 @@ public class SchedulingTask implements Serializable {
 
 
     @TableField("tm_modify")
+    @OrderBy()
     private Date tmModify;
 }
