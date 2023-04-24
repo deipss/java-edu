@@ -22,6 +22,8 @@ public abstract class AbstractStrategy<R, T> {
     protected String strategyUK;
     /**
      * 策略分组
+     *
+     * @see StrategyEngine#strategyGroup
      */
     protected String strategyGroup;
     /**

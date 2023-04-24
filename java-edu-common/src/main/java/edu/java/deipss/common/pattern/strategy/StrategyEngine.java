@@ -11,7 +11,6 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Slf4j
-/// @Component
 public class StrategyEngine<R, T> {
 
     @Autowired
@@ -26,7 +25,8 @@ public class StrategyEngine<R, T> {
 
     @PostConstruct
     private void init() {
-        strategyMap = strategyList.stream().collect(Collectors.toMap(AbstractStrategy::buildUK, Function.identity(), (a, b) -> {
+        strategyMap = strategyList.stream().filter(i->i.getStrategyGroup().equals(strategyGroup))
+                .collect(Collectors.toMap(AbstractStrategy::buildUK, Function.identity(), (a, b) -> {
             throw new IllegalStateException("策略uk冲突，请检查是否存在多个" + a.getStrategyUK());
         }));
     }

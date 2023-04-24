@@ -1,6 +1,9 @@
 package edu.java.deipss.common.util;
 
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
@@ -26,20 +29,24 @@ public class TimeUtil {
     }
 
     public static LocalDate parseLocalDate(String pattern, String dateString) {
-        return LocalDate.parse(dateString, DateTimeFormatter.ofPattern(pattern));
+        return toLocalDateTime(parseDate(pattern, dateString)).toLocalDate();
     }
 
     public static LocalDateTime parseLocalDateTime(String pattern, String dateString) {
-        return LocalDateTime.parse(dateString, DateTimeFormatter.ofPattern(pattern));
+        return toLocalDateTime(parseDate(pattern, dateString));
     }
 
     public static LocalTime parseLocalTime(String pattern, String dateString) {
-        return LocalTime.parse(dateString, DateTimeFormatter.ofPattern(pattern));
+        return toLocalDateTime(parseDate(pattern, dateString)).toLocalTime();
     }
 
     public static Date parseDate(String pattern, String dateString) {
-        LocalDateTime localDateTime = LocalDateTime.parse(dateString, DateTimeFormatter.ofPattern(pattern));
-        return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+        DateFormat formatter = new SimpleDateFormat(pattern);
+        try {
+            return formatter.parse(dateString);
+        } catch (ParseException e) {
+            return null;
+        }
     }
 
 
@@ -48,7 +55,7 @@ public class TimeUtil {
     }
 
     public static LocalDateTime toLocalDateTime(Date date) {
-        return  Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
+        return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
 
     public static String format(String pattern, Date date) {
