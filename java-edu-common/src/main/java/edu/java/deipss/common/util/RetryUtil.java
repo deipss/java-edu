@@ -69,11 +69,11 @@ public class RetryUtil {
      * 会返回结果的重试，重试2次
      * 返回null或者抛出异常都会重试
      *
-     * @param t
-     * @param function
-     * @param <T>
-     * @param <R>
-     * @return
+     * @param t 执行参数
+     * @param function 执行函数
+     * @param <T> 执行参数的泛型
+     * @param <R> 返回结果泛型
+     * @return 执行结果
      */
     public static <T, R> R retry(T t, Function<T, R> function) {
         R result = null;

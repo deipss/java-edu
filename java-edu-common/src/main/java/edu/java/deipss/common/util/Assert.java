@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * 异常检查类
  */
-public class ThrowUtil {
+public class Assert {
 
     public static void ifNull(Object o, Exception e) throws Exception {
         if (Objects.isNull(o)) {
@@ -24,12 +24,19 @@ public class ThrowUtil {
         }
     }
 
+    public static void ifEmptyCollection(Collection<?> list, Exception e) throws Exception {
+        ifNull(list, e);
+        if (list.size() < 1) {
+            throw e;
+        }
+    }
+
     public static void throwE(String s) throws Exception {
         throw new Exception(s);
     }
 
     public static void ifTrue(boolean b, String s) throws Exception {
-        if(b) {
+        if (b) {
             throw new Exception(s);
         }
     }

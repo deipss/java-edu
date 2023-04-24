@@ -57,7 +57,7 @@ public class ValidUtil<T> {
      * 检验不通过抛出异常
      */
 
-    public static <T> void checkAndThrow(T t) throws Exception {
+    public static <T> void checkThenThrow(T t) throws Exception {
         Set<ConstraintViolation<T>> validate = validator.validate(t);
         if (validate.size() > 0) {
             List<String> collect = validate.stream().map(ConstraintViolation::getMessage).collect(Collectors.toList());
@@ -71,7 +71,7 @@ public class ValidUtil<T> {
      * @param <T> 泛型
      * 检验不通过抛出异常
      */
-    public static <T> void checkAndThrow(T t, Class<?>... groups) throws Exception {
+    public static <T> void checkThenThrow(T t, Class<?>... groups) throws Exception {
         Set<ConstraintViolation<T>> validate = validator.validate(t, groups);
         if (validate.size() > 0) {
             List<String> collect = validate.stream().map(ConstraintViolation::getMessage).collect(Collectors.toList());
