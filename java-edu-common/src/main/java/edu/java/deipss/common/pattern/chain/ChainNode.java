@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public abstract class ChainNode<R> {
     /**
-     * @see ChainEngine.engineName
+     * @see ChainEngine#engineName
      */
     private String engineName;
     /**

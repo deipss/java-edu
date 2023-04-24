@@ -40,4 +40,9 @@ public abstract class AbstractStrategy<R, T> {
     abstract R run(T t);
 
 
+    public String buildUK() {
+        return strategyGroup + "_" + this.getStrategyUK();
+    }
+
+
 }

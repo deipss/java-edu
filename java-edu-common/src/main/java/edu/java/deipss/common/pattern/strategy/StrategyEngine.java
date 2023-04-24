@@ -19,9 +19,14 @@ public class StrategyEngine<R, T> {
 
     private Map<String, AbstractStrategy<R, T>> strategyMap;
 
+    /**
+     * @see AbstractStrategy#strategyGroup
+     */
+    private String strategyGroup;
+
     @PostConstruct
     private void init() {
-        strategyMap = strategyList.stream().collect(Collectors.toMap(AbstractStrategy::getStrategyUK, Function.identity(), (a, b) -> {
+        strategyMap = strategyList.stream().collect(Collectors.toMap(AbstractStrategy::buildUK, Function.identity(), (a, b) -> {
             throw new IllegalStateException("策略uk冲突，请检查是否存在多个" + a.getStrategyUK());
         }));
     }
