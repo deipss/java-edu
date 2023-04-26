@@ -56,6 +56,7 @@
 - 阿里代码规约检测
 - 代码注解插件： Lombok
 - 代码生成工具：CodeMaker
+- 代码缩略 code glance pro
 - 单元测试测试生成工具：JUnitGenerator
 - Mybatis 工具 MybatisX
 - Mybatis 工具 MybatisX with mapper
