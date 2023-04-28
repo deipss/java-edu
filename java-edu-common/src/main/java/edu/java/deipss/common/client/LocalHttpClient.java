@@ -38,6 +38,7 @@ public class LocalHttpClient<T> {
         if (null != headers && headers.size() > 0) {
             headers.forEach(post::addHeader);
         }
+        post.addHeader("Content-Type", "application/json");
         try {
             HttpEntity httpEntity = new StringEntity(JSON.toJSONString(body));
             post.setEntity(httpEntity);
