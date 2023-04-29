@@ -11,40 +11,8 @@ import lombok.Data;
  */
 public abstract class AbstractStrategy<R, T> {
 
-    /**
-     * 策略名称
-     */
-    protected String strategyName;
-
-    /**
-     * 策略的唯一标识
-     */
-    protected String strategyUK;
-    /**
-     * 策略分组
-     *
-     * @see StrategyEngine#strategyGroup
-     */
-    protected String strategyGroup;
-    /**
-     * 策略优先级
-     */
-    protected int priority = -1;
-
-
-    public AbstractStrategy(String strategyName, String strategyUK, String strategyGroup, int priority) {
-        this.strategyName = strategyName;
-        this.strategyUK = strategyUK;
-        this.strategyGroup = strategyGroup;
-        this.priority = priority;
-    }
 
     abstract R run(T t);
-
-
-    public String buildUK() {
-        return strategyGroup + "_" + this.getStrategyUK();
-    }
 
 
 }

@@ -1,5 +1,6 @@
 package edu.java.deipss.common.pattern.strategy;
 
+import edu.java.deipss.common.pattern.strategy.annatation.LocalStrategy;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,16 +20,16 @@ public class StrategyEngine<R, T> {
     private Map<String, AbstractStrategy<R, T>> strategyMap;
 
     /**
-     * @see AbstractStrategy#strategyGroup
+     * @see LocalStrategy#strategyGroup()
      */
     private String strategyGroup;
 
     @PostConstruct
     private void init() {
-        strategyMap = strategyList.stream().filter(i->i.getStrategyGroup().equals(strategyGroup))
-                .collect(Collectors.toMap(AbstractStrategy::buildUK, Function.identity(), (a, b) -> {
-            throw new IllegalStateException("策略uk冲突，请检查是否存在多个" + a.getStrategyUK());
-        }));
+        strategyMap = strategyList.stream().filter(i -> i.getClass().getAnnotation(LocalStrategy.class).strategyGroup().equals(strategyGroup))
+                .collect(Collectors.toMap(i -> i.getClass().getAnnotation(LocalStrategy.class).strategyUK(), Function.identity(), (a, b) -> {
+                    throw new IllegalStateException("策略uk冲突，请检查是否存在多个,策略组=" + strategyGroup);
+                }));
     }
 
     /**

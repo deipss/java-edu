@@ -1,5 +1,6 @@
 package edu.java.deipss.common.pattern.chain;
 
+import edu.java.deipss.common.pattern.chain.annotation.LocalChainNode;
 import edu.java.deipss.service.test.exception.AppInnerException;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -40,14 +41,19 @@ public class ChainEngine<T> {
 
     @PostConstruct
     private void init() {
-        nodeMap = nodeList.stream().filter(i -> i.getEngineName().equals(engineName))
-                .collect(Collectors.toMap(ChainNode::getNodeUk, Function.identity(), (a, b) -> a));
+        for (ChainNode<T> node : nodeList) {
+            LocalChainNode annotation = node.getClass().getAnnotation(LocalChainNode.class);
+            if (annotation.engineName().equals(engineName)) {
+                if (annotation.stated()) {
+                    statedNode = node;
+                }
+                nodeMap.putIfAbsent(annotation.nodeUk(), node);
+            }
+        }
+        if (statedNode == null) {
+            throw new RuntimeException("未配置起始节点，chain engine name =" + engineName);
+        }
 
-        Optional<ChainNode<T>> any = nodeList.stream().filter(ChainNode::isStated).findAny();
-        Optional<ChainNode<T>> end = nodeList.stream().filter(ChainNode::isEnd).findAny();
-        any.orElseThrow(() -> AppInnerException.builder().message("未找到开始节点").build());
-        end.orElseThrow(() -> AppInnerException.builder().message("未找到结束节点").build());
-        any.ifPresent(i -> statedNode = any.get());
     }
 
     /**
@@ -57,10 +63,10 @@ public class ChainEngine<T> {
     public NodeResult<T> process(NodeContext context) {
         ChainNode<T> currentNode = statedNode;
         NodeResult<T> result = null;
-        while (!currentNode.isEnd()){
+        do {
             result = currentNode.process(context);
             currentNode = nodeMap.get(result.getNextNodeUk());
-        }
+        } while (!result.isEnd());
         return result;
     }
 }

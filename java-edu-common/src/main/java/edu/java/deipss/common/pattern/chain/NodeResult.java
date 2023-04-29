@@ -14,7 +14,13 @@ public class NodeResult<R> {
      */
     private boolean success;
 
-
+    /**
+     * 是否结束链路
+     */
+    private boolean end;
+    /**
+     * 下一个结点的UK
+     */
     private String nextNodeUk;
 
     /**
