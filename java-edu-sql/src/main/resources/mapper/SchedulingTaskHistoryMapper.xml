@@ -2,4 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.java.deipss.sql.dal.mapper.SchedulingTaskHistoryMapper">
 
+
+    <select id="query"
+            resultType="edu.java.deipss.sql.dal.entity.SchedulingTaskHistory">
+        select
+        *
+        from scheduling_task_history
+        where
+        id in
+        <foreach collection="idList" item="id" close=")" open="(" index="i" separator=",">
+            #{id}
+        </foreach>
+        <if test="taskStatus!=null and taskStatus!=''">
+            AND task_status = #{taskStatus,jdbcType=VARCHAR}
+        </if>
+        <if test="ownerIp!=null and ownerIp!=''">
+            AND owner_ip like concat('%',#{ownerIp,jdbcType=VARCHAR},'%')
+        </if>
+        <if test="endTime!=null">
+            AND tm_create &lt;= #{endTime}
+        </if>
+        <if test="startTime!=null">
+            AND tm_create &gt;= #{startTime}
+        </if>
+    </select>
 </mapper>
