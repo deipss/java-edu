@@ -1,5 +1,0 @@
-#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Tue May 09 22:07:02 CST 2023
-http\://0.0.0.0/.error=Could not transfer artifact javax.inject\:javax.inject\:pom\:1 from/to maven-default-http-blocker (http\://0.0.0.0/)\: Blocked mirror for repositories\: [ali-maven (http\://maven.aliyun.com/nexus/content/groups/public, default, releases+snapshots), repository.jboss.org (http\://repository.jboss.org/maven2, default, releases), snapshots.jboss.org (http\://snapshots.jboss.org/maven2, default, snapshots), oss.sonatype.org/jboss-snapshots (http\://oss.sonatype.org/content/repositories/jboss-snapshots, default, snapshots)]
-http\://maven.aliyun.com/nexus/content/repositories/central/.lastUpdated=1683641222815
-@default-maven-default-http-blocker-http\://0.0.0.0/.lastUpdated=1683641222489

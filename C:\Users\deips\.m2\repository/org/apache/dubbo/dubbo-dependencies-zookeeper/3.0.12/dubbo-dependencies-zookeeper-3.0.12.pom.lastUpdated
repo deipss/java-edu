@@ -1,5 +1,0 @@
-#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Tue May 09 21:52:23 CST 2023
-http\://maven.aliyun.com/nexus/content/groups/public/.error=Could not transfer artifact org.apache.dubbo\:dubbo-dependencies-zookeeper\:pom\:3.0.12 from/to alimaven (http\://maven.aliyun.com/nexus/content/groups/public/)\: transfer failed for http\://maven.aliyun.com/nexus/content/groups/public/org/apache/dubbo/dubbo-dependencies-zookeeper/3.0.12/dubbo-dependencies-zookeeper-3.0.12.pom, status\: 502 Bad Gateway
-http\://maven.aliyun.com/nexus/content/repositories/central/.lastUpdated=1683640343899
-@default-alimaven-http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1683628940280
