@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue May 09 21:52:46 CST 2023
+http\://maven.aliyun.com/nexus/content/groups/public/.error=Could not transfer artifact org.apache.rocketmq\:rocketmq-spring-boot-starter\:pom\:2.2.0 from/to alimaven (http\://maven.aliyun.com/nexus/content/groups/public/)\: transfer failed for http\://maven.aliyun.com/nexus/content/groups/public/org/apache/rocketmq/rocketmq-spring-boot-starter/2.2.0/rocketmq-spring-boot-starter-2.2.0.pom, status\: 502 Bad Gateway
+http\://maven.aliyun.com/nexus/content/repositories/central/.lastUpdated=1683640366819
+@default-alimaven-http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1683628940299

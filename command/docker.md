@@ -229,6 +229,22 @@ docker run -itd \
  --net=host \
  --restart=always \
  xuchengen/rocketmq:latest
+ 
+ 
+ docker run -itd \
+ --name=rocketmq \
+ --hostname rocketmq \
+ --restart=always \
+ -p 8080:8080 \
+ -p 9876:9876 \
+ -p 10909:10909 \
+ -p 10911:10911 \
+ -p 10912:10912 \
+ -v rocketmq_data:/home/app/data \
+ -v /etc/localtime:/etc/localtime \
+ -v /var/run/docker.sock:/var/run/docker.sock \
+ --platform=linux/amd64/v8 \
+ xuchengen/rocketmq:latest
 ```
 
 ## 2.8. zk

@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue May 09 21:52:40 CST 2023
+http\://maven.aliyun.com/nexus/content/groups/public/.error=Could not transfer artifact com.github.jsqlparser\:jsqlparser\:jar\:4.2 from/to alimaven (http\://maven.aliyun.com/nexus/content/groups/public/)\: transfer failed for http\://maven.aliyun.com/nexus/content/groups/public/com/github/jsqlparser/jsqlparser/4.2/jsqlparser-4.2.jar, status\: 502 Bad Gateway
+http\://maven.aliyun.com/nexus/content/repositories/central/.lastUpdated=1683640360022
+@default-alimaven-http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1683630916793

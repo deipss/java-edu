@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue May 09 21:52:40 CST 2023
+http\://maven.aliyun.com/nexus/content/groups/public/.error=Could not transfer artifact org.springframework.boot\:spring-boot-autoconfigure\:jar\:2.3.4.RELEASE from/to alimaven (http\://maven.aliyun.com/nexus/content/groups/public/)\: transfer failed for http\://maven.aliyun.com/nexus/content/groups/public/org/springframework/boot/spring-boot-autoconfigure/2.3.4.RELEASE/spring-boot-autoconfigure-2.3.4.RELEASE.jar, status\: 502 Bad Gateway
+http\://maven.aliyun.com/nexus/content/repositories/central/.lastUpdated=1683640360013
+@default-alimaven-http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1683630916791

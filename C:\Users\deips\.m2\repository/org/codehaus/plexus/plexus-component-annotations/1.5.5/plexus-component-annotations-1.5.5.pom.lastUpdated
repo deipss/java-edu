@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue May 09 22:06:50 CST 2023
+http\://0.0.0.0/.error=Could not transfer artifact org.codehaus.plexus\:plexus-component-annotations\:pom\:1.5.5 from/to maven-default-http-blocker (http\://0.0.0.0/)\: Blocked mirror for repositories\: [ali-maven (http\://maven.aliyun.com/nexus/content/groups/public, default, releases+snapshots), apache.snapshots (http\://repository.apache.org/snapshots, default, snapshots)]
+http\://maven.aliyun.com/nexus/content/repositories/central/.error=Could not transfer artifact org.codehaus.plexus\:plexus-component-annotations\:pom\:1.5.5 from/to alimaven (http\://maven.aliyun.com/nexus/content/repositories/central/)\: transfer failed for http\://maven.aliyun.com/nexus/content/repositories/central/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.pom
+@default-maven-default-http-blocker-http\://0.0.0.0/.lastUpdated=1683641210296
+@default-alimaven-http\://maven.aliyun.com/nexus/content/repositories/central/.lastUpdated=1683640731770

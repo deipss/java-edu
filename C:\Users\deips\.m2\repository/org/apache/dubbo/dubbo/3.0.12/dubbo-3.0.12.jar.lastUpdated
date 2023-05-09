@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue May 09 21:53:06 CST 2023
+http\://maven.aliyun.com/nexus/content/groups/public/.error=Could not transfer artifact org.apache.dubbo\:dubbo\:jar\:3.0.12 from/to alimaven (http\://maven.aliyun.com/nexus/content/groups/public/)\: transfer failed for http\://maven.aliyun.com/nexus/content/groups/public/org/apache/dubbo/dubbo/3.0.12/dubbo-3.0.12.jar, status\: 502 Bad Gateway
+http\://maven.aliyun.com/nexus/content/repositories/central/.lastUpdated=1683640386989
+@default-alimaven-http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1683630916798

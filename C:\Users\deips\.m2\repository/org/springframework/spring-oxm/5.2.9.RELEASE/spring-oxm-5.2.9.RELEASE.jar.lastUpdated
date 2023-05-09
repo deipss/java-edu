@@ -1,0 +1,9 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue May 09 21:52:40 CST 2023
+@default-spring-libs-release-https\://repo.spring.io/libs-release/.lastUpdated=1683630916876
+https\://repo.spring.io/libs-release/.error=Could not transfer artifact org.springframework\:spring-oxm\:jar\:5.2.9.RELEASE from/to spring-libs-release (https\://repo.spring.io/libs-release)\: transfer failed for https\://repo.spring.io/libs-release/org/springframework/spring-oxm/5.2.9.RELEASE/spring-oxm-5.2.9.RELEASE.jar
+https\://repo.spring.io/libs-snapshot/.error=Could not transfer artifact org.springframework\:spring-oxm\:jar\:5.2.9.RELEASE from/to spring-libs-snapshot (https\://repo.spring.io/libs-snapshot)\: transfer failed for https\://repo.spring.io/libs-snapshot/org/springframework/spring-oxm/5.2.9.RELEASE/spring-oxm-5.2.9.RELEASE.jar
+http\://maven.aliyun.com/nexus/content/groups/public/.error=Could not transfer artifact org.springframework\:spring-oxm\:jar\:5.2.9.RELEASE from/to alimaven (http\://maven.aliyun.com/nexus/content/groups/public/)\: transfer failed for http\://maven.aliyun.com/nexus/content/groups/public/org/springframework/spring-oxm/5.2.9.RELEASE/spring-oxm-5.2.9.RELEASE.jar, status\: 502 Bad Gateway
+http\://maven.aliyun.com/nexus/content/repositories/central/.lastUpdated=1683640360026
+@default-alimaven-http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1683630916795
+@default-spring-libs-snapshot-https\://repo.spring.io/libs-snapshot/.lastUpdated=1683631830932

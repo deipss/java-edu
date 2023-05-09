@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue May 09 21:54:55 CST 2023
+http\://maven.aliyun.com/nexus/content/groups/public/.error=Could not transfer artifact org.apache.maven.plugins\:maven-surefire-plugin\:pom\:2.12.4 from/to alimaven (http\://maven.aliyun.com/nexus/content/groups/public/)\: transfer failed for http\://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.pom
+http\://maven.aliyun.com/nexus/content/repositories/central/.lastUpdated=1683640495828
+@default-alimaven-http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1683631831631

@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue May 09 21:53:49 CST 2023
+http\://maven.aliyun.com/nexus/content/groups/public/.error=Could not transfer artifact org.apache.maven.plugins\:maven-compiler-plugin\:pom\:3.10.1 from/to alimaven (http\://maven.aliyun.com/nexus/content/groups/public/)\: transfer failed for http\://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/plugins/maven-compiler-plugin/3.10.1/maven-compiler-plugin-3.10.1.pom
+http\://maven.aliyun.com/nexus/content/repositories/central/.lastUpdated=1683640429853
+@default-alimaven-http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1683631831587

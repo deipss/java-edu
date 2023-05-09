@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue May 09 21:51:50 CST 2023
+http\://maven.aliyun.com/nexus/content/groups/public/.error=Could not transfer artifact org.hamcrest\:hamcrest-core\:pom\:2.2 from/to alimaven (http\://maven.aliyun.com/nexus/content/groups/public/)\: transfer failed for http\://maven.aliyun.com/nexus/content/groups/public/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.pom
+http\://maven.aliyun.com/nexus/content/repositories/central/.lastUpdated=1683640310305
+@default-alimaven-http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1683630921788
