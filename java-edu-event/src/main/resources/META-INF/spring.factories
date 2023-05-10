@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+edu.java.deipss.event.config.SchedulingConfig

@@ -13,8 +13,6 @@ import org.springframework.context.annotation.Import;
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, DubboAutoConfiguration.class})
 @ComponentScan("edu.java.deipss")
 @EnableAutoConfiguration
-// 此次import的是event module下的类，这样再启动时，才会加载
-@Import(SchedulingConfig.class)
 @EnableConfigurationProperties
 public class EduApplication {
     public static void main(String[] args) {
