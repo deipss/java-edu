@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
@@ -22,8 +23,18 @@ public class ThreadConfig {
     public static final String SCHEDULING_THREAD_POOL_EXECUTOR = "schedulingThreadPoolExecutor";
     public static final String EXECUTE_THREAD_POOL_EXECUTOR = "executeThreadPoolExecutor";
 
+    public ThreadConfig() {
+        log.info("ThreadConfig 无参构造");
+    }
+
+    @PostConstruct
+    public void init(){
+        log.info("ThreadConfig PostConstruct()");
+    }
+
     @Bean(SCHEDULING_THREAD_POOL_EXECUTOR)
     public ThreadPoolExecutor scheduling() {
+        log.info("开始线程池配置");
         ThreadFactory threadFactory = new ThreadFactoryBuilder()
                 .setNameFormat("task-scheduling-thread" + "-%d")
                 .setDaemon(false).build();

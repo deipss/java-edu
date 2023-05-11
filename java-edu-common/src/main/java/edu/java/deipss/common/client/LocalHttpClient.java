@@ -34,13 +34,13 @@ public class LocalHttpClient<T> {
 
     public HttpResult post(String url, T body, List<Header> headers) {
         HttpPost post = new HttpPost(url);
-        HttpResult result = HttpResult.builder().build();
+        HttpResult result = new HttpResult();
         if (null != headers && headers.size() > 0) {
             headers.forEach(post::addHeader);
         }
         post.addHeader("Content-Type", "application/json");
         try {
-            HttpEntity httpEntity = new StringEntity(JSON.toJSONString(body));
+            HttpEntity httpEntity = new StringEntity(JSON.toJSONString(body), StandardCharsets.UTF_8);
             post.setEntity(httpEntity);
             HttpResponse response = httpClient.execute(post);
             int code = response.getStatusLine().getStatusCode();
@@ -59,7 +59,7 @@ public class LocalHttpClient<T> {
 
     public HttpResult get(String url, T body, List<Header> headers) {
         HttpGet httpGet = new HttpGet(url);
-        HttpResult result = HttpResult.builder().build();
+        HttpResult result = new HttpResult();
         if (null != headers && headers.size() > 0) {
             headers.forEach(httpGet::addHeader);
         }
