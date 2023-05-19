@@ -47,7 +47,7 @@ public class LocalHttpClient<T> {
             if (code == HttpStatus.SC_OK) {
                 result.setSuccess(true);
                 result.setHttpStatus(code);
-                result.setData(IOUtils.toString(response.getEntity().getContent(), StandardCharsets.UTF_8));
+                result.setData(EntityUtils.toString(response.getEntity(),StandardCharsets.UTF_8));
                 return result;
             }
         } catch (IOException e) {
@@ -69,7 +69,7 @@ public class LocalHttpClient<T> {
             if (code == HttpStatus.SC_OK) {
                 result.setSuccess(true);
                 result.setHttpStatus(code);
-                result.setData(IOUtils.toString(response.getEntity().getContent(), StandardCharsets.UTF_8));
+                result.setData(EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8));
                 return result;
             }
         } catch (IOException e) {
