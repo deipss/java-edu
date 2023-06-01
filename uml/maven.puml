@@ -10,10 +10,10 @@ cypher
 json
 hutool
 http调用（要托管再Spring容器中）
+ftp
 }
 object event{
 定时任务调用
-
 spring事件的监听
 mq监听
 }
@@ -30,6 +30,7 @@ object dal{
 mysql
 es
 redis
+cache
 }
 object web_or_starter{
 启动的入口
