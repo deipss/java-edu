@@ -294,6 +294,11 @@
     </dependencyManagement>
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>
@@ -333,6 +338,8 @@
             <id>dev</id>
             <properties>
                 <revision>1.0.1-SNAPSHOT</revision>
+                <downloadSources>true</downloadSources>
+                <downloadJavadocs>true</downloadJavadocs>
             </properties>
         </profile>
     </profiles>

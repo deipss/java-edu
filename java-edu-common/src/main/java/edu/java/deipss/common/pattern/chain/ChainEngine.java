@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 
-@AllArgsConstructor
+
 @NoArgsConstructor
 @Slf4j
 public class ChainEngine<T> {
@@ -38,6 +38,10 @@ public class ChainEngine<T> {
      * 开始节点
      */
     private ChainNode<T> statedNode;
+
+    public ChainEngine(String engineName) {
+        this.engineName = engineName;
+    }
 
     @PostConstruct
     private void init() {

@@ -1,13 +1,17 @@
 package edu.java.deipss.common.pattern.chain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  * 节点结果
  */
 @Data
 @AllArgsConstructor
+@Builder
+@ToString
 public class NodeResult<R> {
     /**
      * 当前节点是否成功
