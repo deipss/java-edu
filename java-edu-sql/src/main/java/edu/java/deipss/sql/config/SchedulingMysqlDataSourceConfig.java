@@ -41,6 +41,7 @@ public class SchedulingMysqlDataSourceConfig {
     @Bean("schedulingSqlSessionFactory")
     public SqlSessionFactory masterSqlSessionFactory(@Qualifier("schedulingDataSource") DataSource ds) throws Exception {
         MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
+        // mybatis配置
         MybatisConfiguration mybatisConfiguration = new MybatisConfiguration();
         // sql打印
         mybatisConfiguration.setLogImpl(StdOutImpl.class);
