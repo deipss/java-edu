@@ -1,16 +1,14 @@
 package edu.java.deipss.web.db;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
-import com.baomidou.mybatisplus.generator.config.OutputFile;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 
@@ -24,7 +22,7 @@ public class MybatisGenerator {
      * scheduling.mysql.username=root
      * scheduling.mysql.password=deipss
      * <p>
-     * https://baomidou.com/pages/981406/#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE-globalconfig
+     * <a href="https://baomidou.com/pages/981406/#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE-globalconfig">...</a>
      */
     @Test
     public void generateTest() {
@@ -45,7 +43,7 @@ public class MybatisGenerator {
                             //.enableSwagger() // 开启 swagger 模式
                             .fileOverride() // 覆盖已生成文件
                             .dateType(DateType.ONLY_DATE)
-                            .outputDir(pathSave); // 指定输出目录
+                            .outputDir(pathSave); // 指定输出目录，到父包名为止
                 })
                 .packageConfig(builder -> {
                     builder.parent("edu.java.deipss.sql.dal"); // 设置父包名
@@ -62,8 +60,8 @@ public class MybatisGenerator {
                             .formatServiceFileName("%sRepository")
                             .formatServiceImplFileName("%sRepositoryImpl")
                             .mapperBuilder() // mapper xml 配置
-                            .enableBaseResultMap()
-                            .enableBaseColumnList()
+                            .enableBaseResultMap()// 设置xml中的结果集
+                            .enableBaseColumnList() //设置xml的列映射
                     ;
 
                 })
