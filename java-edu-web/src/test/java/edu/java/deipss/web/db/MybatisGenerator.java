@@ -53,10 +53,10 @@ public class MybatisGenerator {
                             .addInclude(collect) // 设置需要生成的表名
                             .addTablePrefix("t_") // 设置过滤表前缀
                             .addTableSuffix("_0", "_202201")
-                            .entityBuilder() // 实例配套
+                            .entityBuilder() // 实体配置
                             .enableLombok()
                             .enableTableFieldAnnotation()
-                            .serviceBuilder()// 服务配套
+                            .serviceBuilder()// 服务配置
                             .formatServiceFileName("%sRepository")
                             .formatServiceImplFileName("%sRepositoryImpl")
                             .mapperBuilder() // mapper xml 配置

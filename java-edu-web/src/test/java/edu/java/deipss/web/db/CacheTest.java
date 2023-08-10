@@ -21,17 +21,19 @@ public class CacheTest {
     @Test
     @SneakyThrows
     public void test(){
+        // 应该获取不到，因为写入5秒后过期
         caffeine.put("Test","Test");
         TimeUnit.SECONDS.sleep(6L);
         String test = caffeine.getIfPresent("Test");
         System.out.println(test);
 
-
-        caffeine.put("Test","test2");
-        String test2 = caffeine.getIfPresent("Test");
-        TimeUnit.SECONDS.sleep(9L);
+        caffeine.put("Test2","test2");
+        TimeUnit.SECONDS.sleep(4L);
+        String test2 = caffeine.getIfPresent("Test2");
         System.out.println(test2);
-        TimeUnit.SECONDS.sleep(10L);
+        // 先读，等待12秒，应该会过期，
+        TimeUnit.SECONDS.sleep(12L);
+        test2 = caffeine.getIfPresent("Test2");
         System.out.println(test2);
 
     }
