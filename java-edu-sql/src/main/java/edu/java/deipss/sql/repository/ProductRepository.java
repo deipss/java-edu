@@ -24,4 +24,5 @@ public class ProductRepository {
         Product product = new Product("bk-1", "City bike", 123.0);
 
     }
+
 }
