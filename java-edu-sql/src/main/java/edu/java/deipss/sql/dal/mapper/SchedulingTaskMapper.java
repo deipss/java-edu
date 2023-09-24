@@ -1,7 +1,11 @@
 package edu.java.deipss.sql.dal.mapper;
 
-import edu.java.deipss.sql.dal.entity.SchedulingTask;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import edu.java.deipss.sql.dal.entity.SchedulingTask;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.Collection;
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +16,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2023-03-17
  */
 public interface SchedulingTaskMapper extends BaseMapper<SchedulingTask> {
+    List<SchedulingTask> listAllByIdIn(@Param("idCollection")Collection<Long> idCollection);
+
+
+
+
 
 }
