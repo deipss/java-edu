@@ -29,6 +29,7 @@ public class MapperController {
      * 3. application/json
      * 4. text/plain
      * <a href="https://www.runoob.com/http/http-content-type.html">...</a>
+     *
      * @param queryRequest 请求
      * @param result       结果
      * @return task
@@ -47,18 +48,40 @@ public class MapperController {
         return "123";
     }
 
-    @GetMapping("/getAnnotation")
     /**
      * ModelAttribute annotation that binds a method parameter or method return value
      * to a named model attribute, exposed to a web view. Supported
      * for controller classes with {@link RequestMapping @RequestMapping}
      * methods.
      */
+    @GetMapping("/getAnnotation")
     public QueryRequest getAnnotation(@ModelAttribute QueryRequest queryRequest) {
         String check = ValidUtil.check(queryRequest);
-        if(Strings.isNullOrEmpty(check)){
+        if (Strings.isNullOrEmpty(check)) {
             return null;
         }
         return queryRequest;
     }
+
+    /**
+     * ModelAttribute annotation that binds a method parameter or method return value
+     * to a named model attribute, exposed to a web view. Supported
+     * for controller classes with {@link RequestMapping @RequestMapping}
+     * methods.
+     */
+    @GetMapping("/path/{name}/{age}")
+    public QueryRequest path(@PathVariable("name") String name,@PathVariable("age") Integer age) {
+        System.out.printf("name=%s,age=%d%n", name,age);
+        QueryRequest queryRequest = new QueryRequest();
+        queryRequest.setName("");
+        queryRequest.setPhone("");
+        queryRequest.setPassword("");
+        queryRequest.setAge(0);
+        return queryRequest;
+    }
+
+
+
+
+
 }

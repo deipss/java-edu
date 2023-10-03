@@ -20,6 +20,11 @@ public interface SchedulingTaskMapper extends BaseMapper<SchedulingTask> {
 
 
 
+    List<SchedulingTask> getAllWithPage();
+
+
+
+
 
 
 }
