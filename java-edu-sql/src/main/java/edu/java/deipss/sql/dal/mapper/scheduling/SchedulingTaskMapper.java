@@ -1,7 +1,7 @@
-package edu.java.deipss.sql.dal.mapper;
+package edu.java.deipss.sql.dal.mapper.scheduling;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import edu.java.deipss.sql.dal.entity.SchedulingTask;
+import edu.java.deipss.sql.dal.entity.scheduling.SchedulingTask;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Collection;

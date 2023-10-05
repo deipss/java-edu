@@ -1,4 +1,4 @@
-package edu.java.deipss.sql.dal.entity;
+package edu.java.deipss.sql.dal.entity.es;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

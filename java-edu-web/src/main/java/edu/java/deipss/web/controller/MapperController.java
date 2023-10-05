@@ -3,7 +3,7 @@ package edu.java.deipss.web.controller;
 import com.google.common.base.Strings;
 import edu.java.deipss.common.util.ValidUtil;
 import edu.java.deipss.service.service.MapperQueryService;
-import edu.java.deipss.sql.dal.entity.SchedulingTask;
+import edu.java.deipss.sql.dal.entity.scheduling.SchedulingTask;
 import edu.java.deipss.web.request.QueryRequest;
 import edu.java.deipss.web.response.HttpResponse;
 import lombok.extern.slf4j.Slf4j;

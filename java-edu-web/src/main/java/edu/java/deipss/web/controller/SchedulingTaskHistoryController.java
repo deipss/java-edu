@@ -1,8 +1,8 @@
 package edu.java.deipss.web.controller;
 
 import edu.java.deipss.service.service.MapperQueryService;
-import edu.java.deipss.sql.dal.entity.SchedulingTask;
-import edu.java.deipss.sql.dal.entity.SchedulingTaskHistory;
+import edu.java.deipss.sql.dal.entity.scheduling.SchedulingTask;
+import edu.java.deipss.sql.dal.entity.scheduling.SchedulingTaskHistory;
 import edu.java.deipss.sql.dal.service.impl.SchedulingTaskHistoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

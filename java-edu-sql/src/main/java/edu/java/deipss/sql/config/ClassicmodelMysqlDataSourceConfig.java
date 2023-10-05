@@ -23,24 +23,24 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.sql.DataSource;
 
-@ConfigurationProperties(prefix = "scheduling.mysql")
+@ConfigurationProperties(prefix = "classicmodel.mysql")
 @Configuration
-@MapperScan(value = "edu.java.deipss.sql.dal.mapper.scheduling", sqlSessionTemplateRef = "schedulingSqlSessionTemplate")
-public class SchedulingMysqlDataSourceConfig {
+@MapperScan(value = "edu.java.deipss.sql.dal.mapper.classicmodel", sqlSessionTemplateRef = "classicmodelSqlSessionTemplate")
+public class ClassicmodelMysqlDataSourceConfig {
 
-    public static final String SCHEDULING_TRANSACTION_TEMPLATE = "schedulingTransactionTemplate";
-    public static final String SCHEDULING_TRANSACTION_MANAGER = "schedulingTransactionManager";
-    public static final String SCHEDULING_SQL_SESSION_TEMPLATE = "schedulingSqlSessionTemplate";
-    public static final String SCHEDULING_DATA_SOURCE = "schedulingDataSource";
-    @Value("${scheduling.mysql.username}")
+    public static final String CLASSICMODEL_TRANSACTION_TEMPLATE = "classicmodelTransactionTemplate";
+    public static final String CLASSICMODEL_TRANSACTION_MANAGER = "classicmodelTransactionManager";
+    public static final String CLASSICMODEL_SQL_SESSION_TEMPLATE = "classicmodelSqlSessionTemplate";
+    public static final String CLASSICMODEL_DATA_SOURCE = "classicmodelDataSource";
+    @Value("${classicmodel.mysql.username}")
     private String username;
-    @Value("${scheduling.mysql.password}")
+    @Value("${classicmodel.mysql.password}")
     private String password;
-    @Value("${scheduling.mysql.url}")
+    @Value("${classicmodel.mysql.url}")
     private String url;
 
-    @Bean("schedulingSqlSessionFactory")
-    public SqlSessionFactory masterSqlSessionFactory(@Qualifier("schedulingDataSource") DataSource ds) throws Exception {
+    @Bean("classicmodelSqlSessionFactory")
+    public SqlSessionFactory masterSqlSessionFactory(@Qualifier("classicmodelDataSource") DataSource ds) throws Exception {
         MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
         // mybatis配置
         MybatisConfiguration mybatisConfiguration = new MybatisConfiguration();
@@ -56,7 +56,7 @@ public class SchedulingMysqlDataSourceConfig {
         factoryBean.setPlugins(interceptor);
         factoryBean.setDataSource(ds);
         factoryBean.setMapperLocations(
-                new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/scheduling/*.xml")
+                new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/classicmodel/*.xml")
         );
         return factoryBean.getObject();
     }
@@ -66,8 +66,8 @@ public class SchedulingMysqlDataSourceConfig {
      * @param tx 事务管理器
      * @return 事务管理模版
      */
-    @Bean(SCHEDULING_TRANSACTION_TEMPLATE)
-    public TransactionTemplate transactionTemplate(@Qualifier("schedulingTransactionManager") PlatformTransactionManager tx) {
+    @Bean(CLASSICMODEL_TRANSACTION_TEMPLATE)
+    public TransactionTemplate transactionTemplate(@Qualifier("classicmodelTransactionManager") PlatformTransactionManager tx) {
         TransactionTemplate transactionTemplate = new TransactionTemplate(tx);
         transactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
         transactionTemplate.setIsolationLevel(TransactionDefinition.ISOLATION_READ_COMMITTED);
@@ -76,18 +76,18 @@ public class SchedulingMysqlDataSourceConfig {
     }
 
 
-    @Bean(SCHEDULING_TRANSACTION_MANAGER)
-    public PlatformTransactionManager transactionManager(@Qualifier("schedulingDataSource") DataSource ds) {
+    @Bean(CLASSICMODEL_TRANSACTION_MANAGER)
+    public PlatformTransactionManager transactionManager(@Qualifier("classicmodelDataSource") DataSource ds) {
         return new DataSourceTransactionManager(ds);
     }
 
-    @Bean(SCHEDULING_SQL_SESSION_TEMPLATE)
-    public SqlSessionTemplate sqlSessionTemplate(@Qualifier("schedulingSqlSessionFactory") SqlSessionFactory factory) {
+    @Bean(CLASSICMODEL_SQL_SESSION_TEMPLATE)
+    public SqlSessionTemplate sqlSessionTemplate(@Qualifier("classicmodelSqlSessionFactory") SqlSessionFactory factory) {
         SqlSessionTemplate sqlSessionTemplate = new SqlSessionTemplate(factory);
         return sqlSessionTemplate;
     }
 
-    @Bean(SCHEDULING_DATA_SOURCE)
+    @Bean(CLASSICMODEL_DATA_SOURCE)
     public DataSource dataSource() {
         MysqlDataSource mysqlDataSource = new MysqlDataSource();
         mysqlDataSource.setPassword(password);

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.java.deipss.sql.dal.mapper.SchedulingTaskMapper">
+<mapper namespace="edu.java.deipss.sql.dal.mapper.scheduling.SchedulingTaskMapper">
     <sql id="Base_Column_List">
         id,
         lock_name,
@@ -14,7 +14,7 @@
         tm_create,
         tm_modify
     </sql>
-    <resultMap id="BaseResultMap" type="edu.java.deipss.sql.dal.entity.SchedulingTask">
+    <resultMap id="BaseResultMap" type="edu.java.deipss.sql.dal.entity.scheduling.SchedulingTask">
         <result column="id" property="id"/>
         <result column="lock_name" property="lockName"/>
         <result column="task_status" property="taskStatus"/>

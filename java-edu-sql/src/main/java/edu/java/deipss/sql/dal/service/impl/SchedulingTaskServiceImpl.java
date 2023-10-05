@@ -2,9 +2,8 @@ package edu.java.deipss.sql.dal.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
-import com.baomidou.mybatisplus.extension.conditions.query.QueryChainWrapper;
-import edu.java.deipss.sql.dal.entity.SchedulingTask;
-import edu.java.deipss.sql.dal.mapper.SchedulingTaskMapper;
+import edu.java.deipss.sql.dal.entity.scheduling.SchedulingTask;
+import edu.java.deipss.sql.dal.mapper.scheduling.SchedulingTaskMapper;
 import edu.java.deipss.sql.dal.service.ISchedulingTaskService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

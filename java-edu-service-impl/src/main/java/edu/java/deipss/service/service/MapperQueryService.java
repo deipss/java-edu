@@ -1,8 +1,8 @@
 package edu.java.deipss.service.service;
 
-import edu.java.deipss.sql.dal.entity.SchedulingTask;
-import edu.java.deipss.sql.dal.entity.SchedulingTaskHistory;
-import edu.java.deipss.sql.dal.mapper.SchedulingTaskMapper;
+import edu.java.deipss.sql.dal.entity.scheduling.SchedulingTask;
+import edu.java.deipss.sql.dal.entity.scheduling.SchedulingTaskHistory;
+import edu.java.deipss.sql.dal.mapper.scheduling.SchedulingTaskMapper;
 import edu.java.deipss.sql.dal.service.impl.SchedulingTaskHistoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

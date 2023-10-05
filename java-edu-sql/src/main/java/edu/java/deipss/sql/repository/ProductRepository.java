@@ -1,6 +1,6 @@
 package edu.java.deipss.sql.repository;
 
-import edu.java.deipss.sql.dal.entity.Product;
+import edu.java.deipss.sql.dal.entity.es.Product;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.beans.factory.annotation.Autowired;

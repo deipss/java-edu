@@ -1,6 +1,6 @@
 package edu.java.deipss.sql.dal.service;
 
-import edu.java.deipss.sql.dal.entity.SchedulingTask;
+import edu.java.deipss.sql.dal.entity.scheduling.SchedulingTask;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
