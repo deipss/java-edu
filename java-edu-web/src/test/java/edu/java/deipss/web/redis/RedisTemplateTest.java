@@ -74,5 +74,14 @@ public class RedisTemplateTest extends BaseTest {
         TimeUnit.SECONDS.sleep(1L);
         redisTemplate.opsForValue().setBit(keyPrefix, LocalTime.now().getSecond(),true);
 
+
+
+
+    }
+
+    @Test
+    @SneakyThrows
+    public void testPip(){
+
     }
 }

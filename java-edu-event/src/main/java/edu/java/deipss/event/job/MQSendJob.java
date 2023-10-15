@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-/// @Component
+@Component
 @Slf4j
 public class MQSendJob {
 
@@ -14,10 +14,11 @@ public class MQSendJob {
     @Autowired
     private MqTemplateProducer mqTemplateProducer;
 
-    @Scheduled(cron = "0/10 * * * * ?")
+    @Scheduled(cron = "0/20 * * * * ?")
     public void templateProducer() {
-        mqTemplateProducer.producer();
+        mqTemplateProducer.sendWithTags();
         mqTemplateProducer.producerAsync();
         mqTemplateProducer.producerDelay();
+        mqTemplateProducer.producerOneWay();
     }
 }

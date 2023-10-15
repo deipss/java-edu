@@ -13,9 +13,9 @@ import static edu.java.deipss.service.test.domain.mq.TopicConstant.*;
 @RocketMQMessageListener(topic = EDU_TOPIC_1,
         consumerGroup = EDU_TOPIC_GROUP,
         selectorExpression = EDU_TAG_1)
-public class StringConsumer implements RocketMQListener<MessageDTO> {
+public class EduTagStringConsumer implements RocketMQListener<MessageDTO> {
     @Override
     public void onMessage(MessageDTO message) {
-        log.info("获取消息={}", message);
+        log.info("EduTagStringConsumer 获取MQ消息={}", message);
     }
 }
