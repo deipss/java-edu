@@ -1,45 +1,34 @@
 package edu.java.deipss.algorithm.graph;
 
-import java.util.*;
 
-// Definition for a Node.
-class Node {
-    public int val;
-    public List<Node> neighbors;
-    public Node() {
-        val = 0;
-        neighbors = new ArrayList<Node>();
-    }
-    public Node(int _val) {
-        val = _val;
-        neighbors = new ArrayList<Node>();
-    }
-    public Node(int _val, ArrayList<Node> _neighbors) {
-        val = _val;
-        neighbors = _neighbors;
-    }
-}
+import java.util.Arrays;
+
 
 class Solution {
-    public Node cloneGraph(Node node) {
-        if(null == node){
-            return null;
+    public int[] advantageCount(int[] nums1, int[] nums2) {
+
+        int [] ans = new int[nums2.length];
+
+        int [][] indexArr = new int[nums2.length][2];
+        for (int i = 0; i < nums2.length; i++) {
+            indexArr[i][0]=nums2[i];
+            indexArr[i][1]=i;
         }
-        Deque<Node> queue = new LinkedList<>();
-        queue.offer(node);
-        Node newNode = new Node(node.val,new ArrayList<>());
-        Map<Node,Node> map= new HashMap<>();
-        map.put(node,newNode);
-        while(!queue.isEmpty()){
-            Node poll = queue.poll();
-            for (Node neighbor : poll.neighbors) {
-                if(!map.containsKey(neighbor)){
-                    map.put(neighbor,new Node(neighbor.val,new ArrayList<>()));
-                    queue.offer(neighbor);
-                }
-                map.get(poll).neighbors.add(map.get(neighbor));
+        Arrays.sort(nums1);
+        Arrays.sort(indexArr, (a,b)->b[0]-a[0]);
+        int left = 0;
+        int right = nums2.length;
+        for (int i = 0; i < indexArr.length; i++) {
+            if(nums1[left]>indexArr[i][0]){
+                ans[indexArr[i][1]]=nums1[left];
+                ++left;
+            }else{
+                ans[indexArr[i][1]]=nums1[right];
+                --right;
             }
+
         }
-        return newNode;
+        return ans;
     }
+
 }
