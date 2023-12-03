@@ -20,4 +20,9 @@ public class BeforeConfig {
     public void init(){
         log.info("BeforeConfig PostConstruct()");
     }
+
+//    @Autowired
+//    public void autowired(@Value("${JAVA_HOME}" ) String javaHome){
+//        log.info("autowired");
+//    }
 }

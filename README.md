@@ -17,3 +17,21 @@
 
 # 结构
 ![img.png](img.png)
+
+# script
+```shell
+nohup java -jar java-edu-web-1.0.1-SNAPSHOT.jar  Xms1G Xmx1G\
+-XX:+PrintGCDetails \
+-XX:+PrintGCDateStamps \ 
+-XX:+PrintTenuringDistribution \ 
+-XX:+PrintHeapAtGC  \
+-XX:+PrintReferenceGC \ 
+-XX:+PrintGCApplicationStoppedTime \
+-XX:+PrintSafepointStatistics \
+-XX:PrintSafepointStatisticsCount=1 \
+-Xloggc:/path/to/gc-%t-log \
+-XX:+UseGCLogFileRotation \
+-XX:NumberOfGCLogFiles=14 \
+-XX:GCLogFileSize=100M \
+> java-edu-web.log 2>&1 &
+```
