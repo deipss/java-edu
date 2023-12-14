@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>java-edu</artifactId>
-        <groupId>org.deipss</groupId>
+        <groupId>me.deipss</groupId>
         <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -18,15 +18,15 @@
     <dependencies>
         <!--module-->
         <dependency>
-            <groupId>org.deipss</groupId>
+            <groupId>me.deipss</groupId>
             <artifactId>java-edu-sql</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.deipss</groupId>
+            <groupId>me.deipss</groupId>
             <artifactId>java-edu-common</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.deipss</groupId>
+            <groupId>me.deipss</groupId>
             <artifactId>java-edu-service-api</artifactId>
         </dependency>
         <dependency>

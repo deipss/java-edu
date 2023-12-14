@@ -14,7 +14,7 @@
         <module>java-edu-event</module>
     </modules>
 
-    <groupId>org.deipss</groupId>
+    <groupId>me.deipss</groupId>
     <artifactId>java-edu</artifactId>
     <version>${revision}</version>
     <name>java-edu</name>
@@ -38,37 +38,37 @@
         <dependencies>
             <!--module-->
             <dependency>
-                <groupId>org.deipss</groupId>
+                <groupId>me.deipss</groupId>
                 <artifactId>java-edu-algorithm</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>org.deipss</groupId>
+                <groupId>me.deipss</groupId>
                 <artifactId>java-edu-service-impl</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>org.deipss</groupId>
+                <groupId>me.deipss</groupId>
                 <artifactId>java-edu-service-api</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>org.deipss</groupId>
+                <groupId>me.deipss</groupId>
                 <artifactId>java-edu-common</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>org.deipss</groupId>
+                <groupId>me.deipss</groupId>
                 <artifactId>java-edu-event</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>org.deipss</groupId>
+                <groupId>me.deipss</groupId>
                 <artifactId>java-edu-web</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>org.deipss</groupId>
+                <groupId>me.deipss</groupId>
                 <artifactId>java-edu-sql</artifactId>
                 <version>${revision}</version>
             </dependency>
