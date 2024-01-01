@@ -41,7 +41,7 @@ public class TimeUtilTest {
      */
     @Test
     public void testParseLocalDate() throws Exception {
-        Date date = TimeUtil.parseDate(TimeUtil.YYYYMMDD, "20210101");
+        Date date = TimeUtil.parseDate(TimeUtil.YMD, "20210101");
         System.out.println(date);
     }
 
@@ -50,7 +50,7 @@ public class TimeUtilTest {
      */
     @Test
     public void testParseLocalDateTime() throws Exception {
-        LocalTime localTime = TimeUtil.parseLocalTime(TimeUtil.YYYYMMDD, "20210101");
+        LocalTime localTime = TimeUtil.parseLocalTime(TimeUtil.YMD, "20210101");
         System.out.println(localTime);
     }
 
@@ -58,10 +58,10 @@ public class TimeUtilTest {
 
     @Test
     public void test1() throws Exception {
-        System.out.println(TimeUtil.format(TimeUtil.YYYYMMDD, LocalDate.now()));
+        System.out.println(TimeUtil.format(TimeUtil.YMD, LocalDate.now()));
         System.out.println(TimeUtil.format(TimeUtil.YYYY_MM_DD_HH_mm_SS, LocalDateTime.now()));
-        System.out.println(TimeUtil.format(TimeUtil.HH_mm_SS, LocalTime.now()));
-        System.out.println(TimeUtil.format(TimeUtil.HH_mm_SS, new Date()));
+        System.out.println(TimeUtil.format(TimeUtil.H_M_S, LocalTime.now()));
+        System.out.println(TimeUtil.format(TimeUtil.H_M_S, new Date()));
     }
 
 

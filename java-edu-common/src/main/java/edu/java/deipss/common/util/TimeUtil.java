@@ -6,8 +6,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.temporal.ChronoField;
 import java.util.Date;
 
 /**
@@ -18,11 +16,11 @@ import java.util.Date;
 
 public class TimeUtil {
     public static String YYYY_MM_DD_HH_mm_SS = "yyyy-MM-dd HH:mm:ss";
-    public static String YYYY_MM_DD = "yyyy-MM-dd";
-    public static String YYYYMMDD = "yyyyMMdd";
-    public static String YYYYMM = "yyyyMM";
-    public static String HH_mm_SS = "HH:mm:ss";
-    public static String HHmmSS = "HHmmss";
+    public static String Y_M_D = "yyyy-MM-dd";
+    public static String YMD = "yyyyMMdd";
+    public static String YM = "yyyyMM";
+    public static String H_M_S = "HH:mm:ss";
+    public static String HMS = "HHmmss";
 
     public static long epochMilli(LocalDateTime localDateTime) {
         return localDateTime.toInstant(ZoneOffset.of("+8")).toEpochMilli();
@@ -64,7 +62,7 @@ public class TimeUtil {
     }
 
     public static String formatToday() {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(YYYYMMDD);
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(YMD);
         return dateTimeFormatter.format(LocalDateTime.now());
     }
 

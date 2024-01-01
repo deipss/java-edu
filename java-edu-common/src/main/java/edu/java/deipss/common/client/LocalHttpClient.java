@@ -2,26 +2,25 @@ package edu.java.deipss.common.client;
 
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.io.IOUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Map;
 
 @Component
 @Slf4j
@@ -57,13 +56,22 @@ public class LocalHttpClient<T> {
         return result;
     }
 
-    public HttpResult get(String url, T body, List<Header> headers) {
+    public  HttpResult get(String url, Map<String, String> params, List<Header> headers) {
+
         HttpGet httpGet = new HttpGet(url);
         HttpResult result = new HttpResult();
-        if (null != headers && headers.size() > 0) {
-            headers.forEach(httpGet::addHeader);
-        }
         try {
+
+            if (null != headers && !headers.isEmpty()) {
+                headers.forEach(httpGet::addHeader);
+            }
+            if (null != params && !params.isEmpty()) {
+                URIBuilder uriBuilder = new URIBuilder(httpGet.getURI());
+                for (Map.Entry<String, String> entry : params.entrySet()) {
+                    uriBuilder.addParameter(entry.getKey(), entry.getValue());
+                }
+                httpGet.setURI(uriBuilder.build());
+            }
             HttpResponse response = httpClient.execute(httpGet);
             int code = response.getStatusLine().getStatusCode();
             if (code == HttpStatus.SC_OK) {
@@ -73,7 +81,9 @@ public class LocalHttpClient<T> {
                 return result;
             }
         } catch (IOException e) {
-            log.error("http get异常，url={}", url, e);
+            log.error("http get error，url={},params={}", url, params, e);
+        } catch (URISyntaxException e) {
+            log.error("http get build uri error，url={},params={}", url, params, e);
         }
         result.setSuccess(false);
         return result;
