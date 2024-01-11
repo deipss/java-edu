@@ -33,25 +33,26 @@ public class RedisLockAroundAopConfig {
 
     @Around("@annotation(redisLockAround)")
     public Object process(ProceedingJoinPoint point, RedisLockAround redisLockAround) {
+        log.info("RedisLockAround");
         String lockedKey = redisLockAround.lockedKey();
         String clazz = point.getSignature().getDeclaringType().getName();
         String methodName = point.getSignature().getName();
         RLock fairLock = redissonClient.getLock(lockedKey);
         try {
-            if (fairLock.tryLock(3,60, TimeUnit.SECONDS)) {
+            if (fairLock.tryLock(3, 60, TimeUnit.SECONDS)) {
                 Object[] args = point.getArgs();
                 log.info("上锁成功方法参数={}", args);
                 return point.proceed();
             }
-            log.info("上锁失败,key={},clazz={},method={}",lockedKey,clazz,methodName);
+            log.info("上锁失败,key={},clazz={},method={}", lockedKey, clazz, methodName);
         } catch (Throwable e) {
             throw new RuntimeException(e);
         } finally {
             try {
                 fairLock.unlock();
-                log.info("锁释放成功,key={}",lockedKey);
-            }catch (Exception e){
-                log.error("锁释放失败,key={}",lockedKey);
+                log.info("锁释放成功,key={}", lockedKey);
+            } catch (Exception e) {
+                log.error("锁释放失败,key={}", lockedKey);
             }
         }
         return null;

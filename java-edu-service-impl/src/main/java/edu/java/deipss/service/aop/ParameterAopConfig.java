@@ -27,17 +27,17 @@ public class ParameterAopConfig {
     }
 
     /**
-     * @param point 织点
+     * @param pjp 织点
      * @return 结果集
      */
     @Around("point()")
-    public Object process(ProceedingJoinPoint point) {
-        Object[] args = point.getArgs();
-        String name = point.getSignature().getDeclaringType().getName();
-        String methodName = point.getSignature().getName();
+    public Object process(ProceedingJoinPoint pjp) {
+        Object[] args = pjp.getArgs();
+        String name = pjp.getSignature().getDeclaringType().getName();
+        String methodName = pjp.getSignature().getName();
         log.info("clazz={},methodName={},aop请求参数={}", name,methodName,args);
         try {
-            Object proceed = point.proceed();
+            Object proceed = pjp.proceed();
             log.info("结果={}",proceed);
             return proceed;
         } catch (Throwable throwable) {
